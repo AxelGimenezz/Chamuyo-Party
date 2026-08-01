@@ -115,6 +115,7 @@ button:focus-visible { outline: 4px solid #fff3a6; outline-offset: 2px; }
 .meal-button { align-self: stretch; min-width: 138px; border-width: 0 0 0 3px; box-shadow: none; background: var(--red); color: #fff2cf; }
 .meal-button:hover:not(:disabled) { transform: none; box-shadow: inset 0 -5px 0 var(--red-dark); }
 .meal-button.is-ready { background: #c2523f; animation: nudge .8s steps(2) infinite; }
+.meal-button.is-waiting-human { background:#a77840; color:#fff0c2; animation:none; }
 .plate-icon { display: inline-grid; place-items: center; width: 23px; height: 23px; border: 3px double currentColor; border-radius: 50%; color: transparent; margin-right: 5px; }
 
 .game-layout {
@@ -360,7 +361,7 @@ dialog::backdrop { background: rgba(25,31,25,.78); }
 .road-north { left:288px; top:0; width:96px; height:288px; border-top:0; }
 .road-south { left:1184px; top:336px; width:96px; height:624px; border-bottom:0; }
 .district-label { position:absolute; z-index:1; padding:4px 7px; color:#45603e; background:#b9cc8a; border:2px solid #54704b; font:900 9px var(--font-mono); letter-spacing:1px; }
-.district-commerce{left:650px;top:235px}.district-civic{left:1085px;top:538px}.district-homes{left:1320px;top:842px}
+.district-commerce{left:650px;top:235px}.district-homes{left:1320px;top:842px}
 
 .world-building { position:absolute; z-index:2; left:var(--x); top:var(--y); width:var(--w); height:var(--h); background:#d3b06d; border:4px solid var(--ink); box-shadow:7px 7px 0 rgba(39,47,34,.32); }
 .world-building::before { content:""; position:absolute; z-index:2; left:-10px; right:-10px; top:-27px; height:29px; background:#814b39; border:4px solid var(--ink); clip-path:polygon(8% 100%,20% 16%,50% 0,80% 16%,92% 100%); }
@@ -385,7 +386,7 @@ dialog::backdrop { background: rgba(25,31,25,.78); }
 .world-notice{left:630px;top:530px;bottom:auto;width:66px;height:54px}.world-notice span{font-size:7px}
 .world-trees i { position:absolute; z-index:2; width:47px;height:43px;background:#4d7348;border:4px solid var(--ink);border-radius:45% 55% 48% 52%;box-shadow:inset -8px -6px 0 #385c39; }
 .world-trees i::after { content:""; position:absolute; left:17px; bottom:-25px; width:9px; height:27px; background:#765239; border:3px solid var(--ink); z-index:-1; }
-.world-trees i:nth-child(1){left:300px;top:430px}.world-trees i:nth-child(2){left:170px;top:200px}.world-trees i:nth-child(3){left:950px;top:590px}.world-trees i:nth-child(4){left:1450px;top:600px}.world-trees i:nth-child(5){left:44px;top:590px}.world-trees i:nth-child(6){left:830px;top:210px}.world-trees i:nth-child(7){left:1330px;top:266px}.world-trees i:nth-child(8){left:335px;top:860px}
+.world-trees i:nth-child(1){left:300px;top:430px}.world-trees i:nth-child(2){left:170px;top:140px}.world-trees i:nth-child(3){left:950px;top:590px}.world-trees i:nth-child(4){left:1450px;top:600px}.world-trees i:nth-child(5){left:44px;top:590px}.world-trees i:nth-child(6){left:335px;top:860px}
 
 .players-layer { width:1536px; height:960px; inset:0 auto auto 0; pointer-events:none; }
 .animals-layer,.residue-layer{position:absolute;inset:0;width:1536px;height:960px;pointer-events:none}.animals-layer{z-index:8}.residue-layer{z-index:5}
@@ -454,7 +455,6 @@ dialog::backdrop { background: rgba(25,31,25,.78); }
 .world-building.pharmacy{background:#d2c99a}.world-building.pharmacy>span{background:#476b51}.world-building.pharmacy>span::before{content:"+";color:#f0f1d9;margin-right:5px;font-size:13px}.world-building.pharmacy::after{background:#718d68;box-shadow:18px 0 0 #d9dfbe,36px 0 0 #718d68,54px 0 0 #d9dfbe,72px 0 0 #718d68,90px 0 0 #d9dfbe,108px 0 0 #718d68}
 .world-building.printshop{background:#bd8752}.world-building.printshop::after{height:15px;background:#eee0b5;box-shadow:27px -5px 0 #d4bd82,54px 1px 0 #eee0b5,81px -4px 0 #d4bd82,108px 0 0 #eee0b5}
 .world-building.school{background:#c7b57d}.world-building.school>span{background:#73503e}.world-building.school::after{background:#73503e;box-shadow:35px 0 0 #d1bd80,70px 0 0 #73503e,105px 0 0 #d1bd80,140px 0 0 #73503e}
-.world-building.workshop{background:#8c8777}.world-building.workshop>span{background:#4d5754}.world-building.workshop::after{height:18px;background:#545b57;box-shadow:31px 0 0 #747b70,62px 0 0 #545b57,93px 0 0 #747b70,124px 0 0 #545b57}
 .world-building.shelter{background:#b98960}.world-building.shelter::after{height:13px;background:#6c8058;box-shadow:32px 0 0 #c0a76f,64px 0 0 #6c8058,96px 0 0 #c0a76f,128px 0 0 #6c8058}
 .world-building.office{background:#a99b78}.world-building.family-house{background:#cf8e67}.world-building.rental{background:#a8aaa0}.world-building.row-house{box-shadow:5px 7px 0 rgba(45,42,32,.35)}
 .world-building:hover,.world-stall:hover{filter:brightness(1.06)}
@@ -465,12 +465,12 @@ dialog::backdrop { background: rgba(25,31,25,.78); }
 .world-trees i::before{content:"";position:absolute;left:-12px;top:14px;width:30px;height:29px;background:#587f4d;border:3px solid var(--ink);border-radius:50%}
 
 .world-details i{position:absolute;z-index:3;display:block}.detail-bench{left:1010px;top:590px;width:74px;height:15px;background:#805c3c;border:3px solid var(--ink);box-shadow:0 9px 0 -3px #4a3b30}.detail-bin{left:1130px;top:420px;width:22px;height:31px;background:#596961;border:3px solid var(--ink);transform:skew(-2deg)}
-.detail-crates{left:290px;top:180px;width:31px;height:27px;background:#a96f3e;border:3px solid var(--ink);box-shadow:27px 8px 0 #c08a50,27px 8px 0 3px var(--ink)}
-.detail-clothes{left:1240px;top:560px;width:160px;height:3px;background:#493e32;box-shadow:0 -40px 0 -1px #493e32}.detail-clothes::after{content:"▰  ▾  ▰  ▾";position:absolute;left:17px;top:-2px;color:#c25f4a;font-size:23px;letter-spacing:12px}
-.detail-puddle{left:575px;top:326px;width:55px;height:16px;border:3px solid #597275;border-radius:50%;background:#829da0;transform:rotate(-8deg)}
-.detail-planters{left:950px;top:650px;width:33px;height:23px;background:#9d563e;border:3px solid var(--ink);box-shadow:304px 160px 0 #b4764c,304px 160px 0 3px var(--ink)}
+.detail-puddle{left:575px;top:230px;width:55px;height:16px;border:3px solid #597275;border-radius:50%;background:#829da0;transform:rotate(-8deg)}
+.detail-planters{left:950px;top:650px;width:33px;height:23px;background:#9d563e;border:3px solid var(--ink)}
 .detail-planters::before{content:"✿✿";position:absolute;left:1px;top:-18px;color:#ece0a0;font-size:16px}
-.detail-doghouse{left:292px;top:769px;width:52px;height:38px;background:#a25f42;border:3px solid var(--ink);clip-path:polygon(0 25%,50% 0,100% 25%,100% 100%,0 100%)}
+.detail-doghouse{left:304px;top:774px;width:34px;height:32px;background:#b67549;border:3px solid var(--ink);box-shadow:inset 0 -6px 0 #8f553a,4px 5px 0 rgba(36,42,31,.22)}
+.detail-doghouse::before{content:"";position:absolute;left:-6px;top:-22px;width:0;height:0;border-left:23px solid transparent;border-right:23px solid transparent;border-bottom:27px solid #754a37;filter:drop-shadow(-2px 0 0 var(--ink)) drop-shadow(2px 0 0 var(--ink)) drop-shadow(0 -2px 0 var(--ink))}
+.detail-doghouse::after{content:"";position:absolute;left:8px;bottom:-3px;width:14px;height:21px;background:#352d27;border:3px solid var(--ink);border-bottom:0;border-radius:9px 9px 0 0;box-shadow:inset 4px 0 0 rgba(255,255,255,.05)}
 
 /* Bicicleta con ruedas giratorias */
 .world-stall{background:#7c583d;border:4px solid var(--ink);box-shadow:7px 7px 0 rgba(40,42,31,.3)}
@@ -522,7 +522,11 @@ dialog::backdrop { background: rgba(25,31,25,.78); }
   background-size:32px 32px,32px 32px,180px 180px,220px 220px,100% 100%;
 }
 .world-road{background:#ab865c;border:3px solid #59452f;box-shadow:inset 0 0 0 2px rgba(243,226,178,.28)}
-.road-main-x,.road-main-y,.road-north,.road-south{border-radius:18px}
+.road-main-x,.road-main-y,.road-north,.road-south{border-radius:0}
+.road-junction{position:absolute;z-index:1;pointer-events:none;background:#ab865c;border:0;border-radius:0;box-shadow:none}
+.junction-north{left:285px;top:238px;width:105px;height:57px}
+.junction-center{left:785px;top:238px;width:157px;height:163px}
+.junction-south{left:1181px;top:330px;width:102px;height:71px}
 .district-label{background:#efe2b6;color:#5e4734;border:3px solid var(--ink);box-shadow:3px 3px 0 rgba(36,42,31,.25);font-size:8px;letter-spacing:1px}
 .town-spot{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);z-index:2;cursor:pointer;filter:drop-shadow(5px 7px 0 rgba(40,44,32,.22))}
 .town-spot .town-sprite{display:block;width:100%;height:100%;image-rendering:pixelated;shape-rendering:crispEdges;overflow:visible;transition:transform .12s steps(2)}
@@ -545,9 +549,8 @@ dialog::backdrop { background: rgba(25,31,25,.78); }
 /* El puesto queda al este de la plaza, con entrada propia y sin cortar el camino. */
 .village-world .world-stall{left:966px;top:392px;width:150px;height:96px}
 .world-trees i{width:58px;height:54px;background:#4c7346;border:4px solid var(--ink);box-shadow:inset 9px 6px 0 #6e945e,inset -9px -7px 0 #36573a,3px 5px 0 rgba(36,42,31,.18)}
-.detail-clothes::after{content:"▰ ▾ ▰ ▾";letter-spacing:9px}
 .dialogue-overlay{position:fixed;z-index:50;max-width:220px;max-height:40vh;overflow-y:auto;padding:8px 10px;background:#f3e2ae;border:3px solid var(--ink);box-shadow:4px 4px 0 rgba(35,39,29,.3);font:800 9px/1.3 var(--font-mono)}
-.detail-bench,.detail-bin,.detail-crates,.detail-planters,.detail-puddle,.detail-doghouse{filter:drop-shadow(2px 3px 0 rgba(36,42,31,.18))}
+.detail-bench,.detail-bin,.detail-planters,.detail-puddle,.detail-doghouse{filter:drop-shadow(2px 3px 0 rgba(36,42,31,.18))}
 
 .mission-action-choices button{display:grid;gap:6px}
 .mission-action-choices .mission-line{display:grid;grid-template-columns:56px 1fr;gap:8px;margin:0;padding:4px 6px;background:#f4e7be;border:2px dashed #8a6e48;font:800 8px/1.25 var(--font-mono);color:#4b483b}
@@ -592,12 +595,14 @@ dialog::backdrop { background: rgba(25,31,25,.78); }
 .world-animal.action-walk .legs,.world-animal.action-chase .legs,.world-animal.action-flee .legs{animation:animalStep .3s steps(2) infinite}
 .world-animal.action-chase .animal-body{animation:animalCharge .26s steps(2) infinite}.world-animal.action-flee .animal-body{animation:animalFlee .2s steps(2) infinite}
 .world-animal.action-bark .tail,.world-animal.action-bark .tail-color{animation:tailSwing .22s steps(2) infinite}
+.world-animal.action-meow .head{animation:animalMeow .45s steps(2) infinite}
 .world-animal.action-sniff .head{animation:animalSniff .5s steps(2) infinite}
 .world-animal.action-jump .animal-body,.world-animal.action-flutter .animal-body{animation:animalLift .34s steps(2) infinite}
 .world-animal.action-peck .head{animation:henPeck .24s steps(2) infinite}
 .world-animal.action-sit .legs,.world-animal.action-sleep .legs{opacity:.1}
 .world-animal.action-stretch .body{transform:scaleX(1.1);transform-origin:left center}
-.world-animal em{left:22px;top:-16px;padding:2px 5px;background:#f3e2b1;border:2px solid var(--ink);font:900 7px var(--font-mono);box-shadow:2px 2px 0 rgba(32,39,31,.22)}
+.world-animal em{display:none;position:absolute;z-index:2;left:50%;top:-15px;transform:translateX(-50%);padding:0;color:#fff0be;background:none;border:0;box-shadow:none;text-shadow:-1px -1px 0 var(--ink),1px -1px 0 var(--ink),-1px 1px 0 var(--ink),1px 1px 0 var(--ink);font:900 8px var(--font-mono);font-style:normal;white-space:nowrap;pointer-events:none}
+.world-animal em.show{display:block;animation:animalSound 1.2s steps(3) both}
 
 /* Respuesta corta y escalonada: conserva el papel y no altera sus transformaciones. */
 @keyframes dialogAppear{from{opacity:0}to{opacity:1}}
@@ -618,10 +623,12 @@ dialog::backdrop { background: rgba(25,31,25,.78); }
 @keyframes animalStep{50%{transform:translateY(-2px)}}
 @keyframes animalLift{50%{transform:translateY(-4px)}}
 @keyframes animalSniff{50%{transform:translateX(2px)}}
+@keyframes animalMeow{50%{transform:translateY(-2px) rotate(-3deg)}}
 @keyframes henPeck{50%{transform:translate(2px,4px)}}
 @keyframes tailSwing{50%{transform:rotate(15deg)}}
 @keyframes animalCharge{50%{transform:translateY(-3px) rotate(-2deg)}}
 @keyframes animalFlee{50%{transform:translateY(-4px)}}
+@keyframes animalSound{0%{opacity:0;transform:translate(-50%,3px)}20%,75%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,-3px)}}
 
 /* RESPONSIVE: tres breakpoints consolidados */
 /* z-index tokens: mapa 0-9, entidades 10-29, prompts 30-39, notas 50, toast 60, dialogs 80+ */

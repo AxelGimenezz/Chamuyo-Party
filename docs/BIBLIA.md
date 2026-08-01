@@ -131,7 +131,6 @@ Chamuyo ocurre en un pueblo barrial deliberadamente compacto. Los recorridos son
 - Imprenta.
 - Puesto de usados.
 - Plaza Sarmiento.
-- Taller.
 - Protectora de animales.
 - Oficina y correo.
 - Comedor familiar y casa de Marta.
@@ -144,11 +143,13 @@ Chamuyo ocurre en un pueblo barrial deliberadamente compacto. Los recorridos son
 
 Cada edificio tiene una entrada reconocible y una función concreta. Llegar a un lugar no resuelve automáticamente una tarea: hay que encontrar a la contraparte e interactuar.
 
+El oficio técnico no posee un edificio exclusivo: sus arreglos se realizan a domicilio y generan recorridos entre comercios, casas y propiedades.
+
 ### Un barrio que se mueve
 
 Los seis personajes tienen agendas simultáneas. No caminan como un grupo ni esperan la decisión del jugador. Cada uno puede visitar edificios, conversar, comprar, vender, trabajar o abandonar una operación por su cuenta.
 
-Dos perros, un gato y tres gallinas recorren el mapa con conductas autónomas. Aportan ritmo, identidad y pequeños accidentes sociales, pero no determinan acusaciones ni resultados.
+Dos perros, un gato y tres gallinas recorren el mapa con conductas autónomas. Los perros y el gato emiten sonidos breves sin globos permanentes. Pisar un residuo puede provocar comentarios ambientales independientes de los vecinos cercanos, pero esos comentarios no se convierten en evidencia ni alteran los votos.
 
 ---
 
@@ -265,7 +266,7 @@ Cada ronda representa un día en el pueblo:
 3. Los seis personajes comienzan sus agendas.
 4. El jugador se mueve libremente y cumple pasos físicos.
 5. Cuatro movimientos autónomos ocurren en distintos lugares.
-6. Al atardecer se habilita **A comer**.
+6. Cuando los bots y los cuatro movimientos terminan, se habilita **A comer**.
 7. El barrio resume hechos, pregunta y vota.
 8. La auditoría decide si la partida continúa o llega a un desenlace.
 
@@ -497,6 +498,8 @@ El juego separa esos hechos de la verdad interna hasta que termina el caso.
 
 La mesa familiar es el único encuentro colectivo obligatorio.
 
+La reunión nunca se abre automáticamente. Una vez que el barrio terminó, el jugador puede seguir caminando o pulsar **A comer**. Si todavía tiene un mandado, un retiro, un reparto o una conversación obligatoria pendiente, el botón explica qué debe cerrar antes de sentarse. Llegar a las 20:30 tampoco fuerza la reunión.
+
 ### Orden de la reunión
 
 1. Se resumen los movimientos del día.
@@ -610,7 +613,7 @@ La inspiración de los RPG de 16 bits se limita a la legibilidad espacial, la es
 
 ### Elementos del mundo
 
-La bicicleta se representa como un objeto reconocible y puede aparecer estacionada, probada, empujada o cargada. Los animales tienen movimiento propio. La mesa mantiene vajilla, pan, mate, soda y una tabla de salame como elementos de identidad barrial.
+La bicicleta se representa como un objeto reconocible y puede aparecer estacionada, probada, empujada o cargada. Los animales tienen movimiento propio y sólo muestran sonidos transitorios. La mesa mantiene vajilla, pan, mate, soda y una tabla de salame como elementos de identidad barrial.
 
 ### Lo que queda fuera de la estética
 
@@ -669,7 +672,7 @@ El MVP público incluye:
 - reuniones, interrogatorios y votación;
 - auditoría, juicio y replay;
 - campaña persistente;
-- animales autónomos.
+- animales autónomos con sonidos e incidentes ambientales sin peso probatorio.
 
 La experiencia publicada es local y para una persona. La arquitectura mantiene separada la información pública y privada, pero este repositorio no incluye un servidor multijugador.
 

@@ -213,7 +213,7 @@
     { id: "delivery", label: "cadete", place: "los repartos" },
     { id: "shelter", label: "voluntario/a de la protectora", place: "la protectora" },
     { id: "landlord", label: "propietario/a", place: "los alquileres" },
-    { id: "technician", label: "técnico/a en frío", place: "el taller" },
+    { id: "technician", label: "técnico/a en frío", place: "el barrio haciendo arreglos a domicilio" },
     { id: "printer", label: "imprentero/a", place: "la imprenta" },
     { id: "reseller", label: "revendedor/a", place: "marketplace" },
     { id: "accountant", label: "administrativo/a", place: "la oficina" }
@@ -258,6 +258,18 @@
   const DAY_SECONDS = 270;
   const HEARING_RADIUS = 120;
   const GOSSIP_VOTE_WEIGHT = .05;
+  const DIRTY_SHOE_DURATION = 8000;
+  const DIRTY_SHOE_ENTER_RADIUS = 95;
+  const DIRTY_SHOE_EXIT_RADIUS = 130;
+  const POOP_REACTION_CHANCE = .2;
+  const POOP_REACTION_LINES = [
+    "La suerte te persigue… qué baranda.",
+    "Ufff… pisaste un regalito.",
+    "Mamadera, no sé si lavando le podés sacar eso.",
+    "Terrible olor. Prendé fuego las zapatillas, hacé algo.",
+    "Pará un poco… dejaste media vereda en la suela.",
+    "No te acerques tanto. Primero buscá un charco."
+  ];
   const ROUTE_PRIORITY = { encounter: 100, counterpart: 80, settlement: 70, story: 60, agenda: 40, gossip: 20 };
   const ENTITY_BASE = 100;
   const URL_FLAGS = new URLSearchParams(location.search);
@@ -269,7 +281,6 @@
   const DEBUG_SEED = (() => { const raw = Number(URL_FLAGS.get("debugSeed")); return Number.isFinite(raw) ? Math.abs(raw >>> 0) : null; })();
   const NPC_DECISION_DELAY = QA_MODE ? 90 : 1800;
   const NPC_CONTINUE_DELAY = QA_MODE ? 120 : 2400;
-  const DINNER_OPEN_DELAY = QA_MODE ? 120 : 4500;
   const BOT_MOVE_SPEED = QA_MODE ? 720 : 95;
 
   function clampDebugSeconds(value) {
@@ -282,8 +293,7 @@
     { id:"farmacia", x:612, y:82, w:176, h:142, fp:{x:624,y:98,w:152,h:118}, door:{x:700,y:210}, ip:[700,250] },
     { id:"imprenta", x:996, y:68, w:210, h:156, fp:{x:1008,y:84,w:186,h:132}, door:{x:1101,y:210}, ip:[1100,250] },
     { id:"escuela", x:1246, y:56, w:228, h:168, fp:{x:1258,y:72,w:204,h:144}, door:{x:1360,y:210}, ip:[1360,260] },
-    { id:"taller", x:72, y:374, w:210, h:156, fp:{x:84,y:390,w:186,h:132}, door:{x:177,y:516}, ip:[178,570] },
-    { id:"municipalidad", x:740, y:370, w:222, h:170, fp:{x:752,y:386,w:198,h:146}, door:{x:851,y:526}, ip:[851,580] },
+    { id:"municipalidad", x:72, y:374, w:210, h:156, fp:{x:84,y:390,w:186,h:132}, door:{x:177,y:516}, ip:[178,570] },
     { id:"iglesia", x:1350, y:400, w:162, h:202, fp:{x:1362,y:416,w:138,h:178}, door:{x:1431,y:588}, ip:[1431,630] },
     { id:"protectora", x:66, y:678, w:230, h:160, fp:{x:78,y:694,w:206,h:136}, door:{x:181,y:824}, ip:[184,870] },
     { id:"oficina", x:346, y:684, w:202, h:148, fp:{x:358,y:700,w:178,h:124}, door:{x:447,y:818}, ip:[450,870] },
@@ -299,8 +309,7 @@
     { id:"plaza-bench-1", x:377, y:578, w:68, h:16 },
     { id:"plaza-bench-2", x:555, y:578, w:68, h:16 },
     { id:"detail-bench", x:1010, y:590, w:74, h:15 },
-    { id:"detail-planters-1", x:950, y:650, w:33, h:23 },
-    { id:"detail-planters-2", x:1254, y:810, w:33, h:23 }
+    { id:"detail-planters-1", x:950, y:650, w:33, h:23 }
   ];
   let LOCATION_POINTS = {};
   function buildLocationPoints() {
@@ -914,7 +923,7 @@
 
   const state = {
     security: 68, trust: 64, progress: 0, scenarioIndex: 0, completed: 0, currentResolved: false,
-    timer: DECISION_SECONDS, timerId: null, dayTimer: DEBUG_DAY_SECONDS, dayTimerId: null, dayStartedAt: 0, dayExpired: false, storiesReady: false, dinnerScheduled: false, mealTimerId: null, roles: {}, scenarios: [], roundStories: [], decisions: [],
+    timer: DECISION_SECONDS, timerId: null, dayTimer: DEBUG_DAY_SECONDS, dayTimerId: null, dayStartedAt: 0, dayExpired: false, storiesReady: false, roles: {}, scenarios: [], roundStories: [], decisions: [],
     ignoredSignals: [], audited: new Set(), suspicion: {}, scammerFrozen: false, scamAttempts: 0, scamScore: 0,
     meetings: 0, roundNumber: 0, templateQueue: [], dialogueLog: [], questionsRemaining: 0, botQuestionCompleted: false,
     questionedPlayers: new Set(), currentInterrogation: null, fraudProgress: 0, gameOver: false, accompliceFrozen: false,
@@ -924,12 +933,13 @@
     campaign: null, accompliceDeals: [], pendingPayout: null, pendingEncounter: null, pendingConfrontation: null, falseClosing: false,
     botMissionRounds: new Set(),
     movement: { positions: {}, path: [], activeBotRoute: {}, botRouteQueues: {}, keys: new Set(), camera: { x: 0, y: 0 }, lastTime: 0, rafId: 0, objective: null, arrivalCallback: null, nearLocation: null },
-    agendas: {}, humanAgenda: null, errandSlip: { visible: true, missionId: null, stepIndex: 0, savedAt: 0 }, activeCounterpart: null, observations: [], gossip: null, animals: [], residues: [], lastAnimalTick: 0,
+    agendas: {}, humanAgenda: null, errandSlip: { visible: true, missionId: null, stepIndex: 0, savedAt: 0 }, activeCounterpart: null, observations: [], gossip: null, animals: [], residues: [], lastAnimalTick: 0, lastAnimalTextTime: 0,
+    dirtyShoe: { active: false, incidentId: 0, until: 0, nearbyBots: {} },
     atmUI: { open: false, mode: "free" },
     freeAtmSession: { origin: null, withdrawn: 0 },
     missionAtmRequirement: null,
     delegatedPayoutRequirement: null,
-    mapExpanded: false, meetingPhase: null,
+    mapExpanded: false, meetingPhase: null, lastDinnerGateRefresh: 0, debugRequiredRoute: false,
     debugTrace: [], episodeToken: 0, isEpisodeResetting: false,
     transport: new LocalTransport()
   };
@@ -1378,6 +1388,7 @@
     applyMissionOptionEconomy(record.publicMission, chosen, playerId);
     state.transport.send("mission:resolved", { playerId, missionId: record.publicMission.scenarioId, result, round });
     if (state.roles[playerId] === "Estafador" && record.strategy === "publica") setupBotScammerTurn(playerId, round);
+    refreshDinnerGate("bot-mission");
   }
 
   function scheduleBotMissions(round) {
@@ -2516,6 +2527,10 @@
       });
       checkArrival();
     }
+    if (time - state.lastDinnerGateRefresh >= 250) {
+      state.lastDinnerGateRefresh = time;
+      refreshDinnerGate("tick");
+    }
     updateCamera();
     applyEntityOffsets();
     updateProximityVisuals();
@@ -2566,7 +2581,6 @@
       if (!node || !position) return;
       const close = player.id === "nico" || Math.hypot(position.x - human.x, position.y - human.y) < 150;
       node.classList.toggle("near-human", close);
-      node.classList.toggle("is-speaking", Boolean(node.querySelector(".speech-bubble.show")));
     });
     if (state.activeCounterpart?.playerId && state.activeCounterpart.playerId !== "nico") {
       const counterpartPos = state.movement.positions[state.activeCounterpart.playerId];
@@ -2576,6 +2590,7 @@
         els.interactionPrompt.hidden = false;
       }
     }
+    updateDirtyShoeReactions(human);
   }
 
   function initAnimals() {
@@ -2590,7 +2605,7 @@
       nextAction: now + 900 + random() * 2200, lastMovedAt: now, stationaryTurns: 0, lastResidueAt: 0,
       path: [], pathIndex: 0, lastDx: 1
     }));
-    els.animalsLayer.innerHTML = state.animals.map(animal => `<div class="world-animal ${animal.species} ${animal.variant}" data-animal="${animal.id}" style="left:${animal.x}px;top:${animal.y}px">${animalSpriteMarkup(animal)}<em></em></div>`).join("");
+    els.animalsLayer.innerHTML = state.animals.map(animal => `<div class="world-animal ${animal.species} ${animal.variant}" data-animal="${animal.id}" style="left:${animal.x}px;top:${animal.y}px">${animalSpriteMarkup(animal)}<em class="animal-sound" aria-hidden="true"></em></div>`).join("");
   }
 
   function updateAnimals(time) {
@@ -2629,7 +2644,7 @@
   function chooseAnimalAction(animal, time) {
     const nearbyDog = animal.species === "hen" && state.animals.find(item => item.species === "dog" && Math.hypot(item.x - animal.x, item.y - animal.y) < 95);
     const mustWalk = animal.species === "hen" && (time - animal.lastMovedAt > 5200 || animal.stationaryTurns >= 1);
-    const actions = animal.species === "hen" ? ["walk", "walk", "walk", "peck", "peck", "flutter"] : animal.species === "cat" ? ["walk", "walk", "sit", "stretch", "sleep"] : ["walk", "walk", "sniff", "jump", "bark", "chase", "pee", "poop", "idle"];
+    const actions = animal.species === "hen" ? ["walk", "walk", "walk", "peck", "peck", "flutter"] : animal.species === "cat" ? ["walk", "walk", "sit", "stretch", "sleep", "meow"] : ["walk", "walk", "sniff", "jump", "bark", "chase", "pee", "poop", "idle"];
     animal.action = nearbyDog ? "flee" : mustWalk ? "walk" : actions[Math.floor(random() * actions.length)];
     if (["walk", "flee"].includes(animal.action)) {
       const preferred = animal.species === "hen" ? [[160,820],[260,760],[840,610],[1300,820]] : [[700,610],[850,660],[330,620],[1120,600],[1400,620]];
@@ -2656,8 +2671,8 @@
       createResidue(animal, animal.action);
       animal.lastResidueAt = time;
     }
-    if (animal.action === "bark" && time - state.lastAnimalTextTime > 12000) {
-      showAnimalSound(animal, "¡GUAU!");
+    if (["bark", "meow"].includes(animal.action) && time - state.lastAnimalTextTime > 12000) {
+      showAnimalSound(animal, animal.action === "bark" ? "¡guau!" : "¡miau!");
       state.lastAnimalTextTime = time;
     }
     animal.nextAction = time + (animal.species === "hen" ? 3000 + random() * 4000 : 5000 + random() * 7000);
@@ -2666,7 +2681,14 @@
 
   function showAnimalSound(animal, text) {
     const node = els.animalsLayer.querySelector(`[data-animal="${animal.id}"] em`);
-    if (!node) return; node.textContent = text; node.classList.add("show"); window.setTimeout(() => node.classList.remove("show"), 1500);
+    if (!node) return;
+    window.clearTimeout(node.soundTimer);
+    node.textContent = text;
+    node.classList.add("show");
+    node.soundTimer = window.setTimeout(() => {
+      node.classList.remove("show");
+      node.textContent = "";
+    }, 1200);
   }
 
   function createResidue(animal, type) {
@@ -2684,13 +2706,49 @@
       residue.steppedBy.push(player.id);
       const walker = els.playersLayer.querySelector(`[data-player="${player.id}"]`);
       walker?.classList.add("stepped-poop");
-      window.setTimeout(() => walker?.classList.remove("stepped-poop"), 8000);
-      const complainer = PLAYERS.filter(item => item.id !== player.id).find(item => {
-        const other = state.movement.positions[item.id]; return other && Math.hypot(pos.x - other.x, pos.y - other.y) < 150;
-      });
-      if (complainer) speak(complainer.id, `Uy, ${player.name}, fijate la zapatilla… qué olor.`, "animal-comment");
+      if (player.human) activateDirtyShoe();
+      else window.setTimeout(() => walker?.classList.remove("stepped-poop"), DIRTY_SHOE_DURATION);
       state.transport.send("world:residue-stepped", { residueId: residue.id, playerId: player.id });
     }));
+  }
+
+  function activateDirtyShoe() {
+    state.dirtyShoe.active = true;
+    state.dirtyShoe.incidentId += 1;
+    state.dirtyShoe.until = Date.now() + DIRTY_SHOE_DURATION;
+    state.dirtyShoe.nearbyBots = {};
+    const incidentId = state.dirtyShoe.incidentId;
+    window.setTimeout(() => {
+      if (state.dirtyShoe.incidentId !== incidentId) return;
+      state.dirtyShoe.active = false;
+      state.dirtyShoe.until = 0;
+      state.dirtyShoe.nearbyBots = {};
+      els.playersLayer.querySelector('[data-player="nico"]')?.classList.remove("stepped-poop");
+    }, DIRTY_SHOE_DURATION);
+  }
+
+  function attemptDirtyShoeReaction(bot, roll = random()) {
+    if (!bot || roll >= POOP_REACTION_CHANCE) return false;
+    const line = POOP_REACTION_LINES[Math.floor(random() * POOP_REACTION_LINES.length)];
+    speakAmbient(bot.id, line);
+    return true;
+  }
+
+  function updateDirtyShoeReactions(human, forcedRolls = null) {
+    const dirty = state.dirtyShoe;
+    if (!dirty.active || Date.now() >= dirty.until) return;
+    PLAYERS.filter(player => !player.human).forEach(bot => {
+      const position = state.movement.positions[bot.id];
+      if (!position) return;
+      const distance = Math.hypot(position.x - human.x, position.y - human.y);
+      const wasNear = Boolean(dirty.nearbyBots[bot.id]);
+      if (!wasNear && distance <= DIRTY_SHOE_ENTER_RADIUS) {
+        dirty.nearbyBots[bot.id] = true;
+        attemptDirtyShoeReaction(bot, forcedRolls?.[bot.id] ?? random());
+      } else if (wasNear && distance >= DIRTY_SHOE_EXIT_RADIUS) {
+        dirty.nearbyBots[bot.id] = false;
+      }
+    });
   }
 
   function updateCamera(immediate = false) {
@@ -2827,7 +2885,6 @@
     }
     state.currentResolved = false;
     state.transitionPending = false;
-    clearTimeout(state.mealTimerId);
     els.resolutionBox.hidden = true;
     els.resolutionBox.className = "resolution-box";
     els.caseNumber.textContent = `RONDA ${scenario.round + 1} · ${state.scenarioIndex % 4 + 1}/4`;
@@ -3027,7 +3084,7 @@
     els.resolutionBox.className = `resolution-box ${outcome.tone}`;
     els.resolutionBox.hidden = false;
     const endRound = state.completed % 4 === 0;
-    els.continueButton.textContent = endRound ? "IR A LA MESA →" : "ESCUCHAR OTRA HISTORIA →";
+    els.continueButton.textContent = endRound ? "VOLVER AL BARRIO →" : "ESCUCHAR OTRA HISTORIA →";
     const reaction = reactionAfter(picked.stance, scenario);
     window.setTimeout(() => speak(reaction.id, reaction.text), 280);
     if (picked.stance === "fraudExecute" && picked.line) {
@@ -3043,7 +3100,12 @@
         state.transitionPending = false;
         if (endRound) {
           els.resolutionBox.hidden = true;
-          toast(state.dayExpired ? "Ya es hora. La mesa está lista." : `Los movimientos terminaron. Quedan ${formatClock(state.dayTimer)} para la cena.`);
+          const gate = dinnerGateStatus();
+          toast(gate.ready
+            ? "El barrio terminó. Podés ir a comer cuando quieras."
+            : gate.available
+              ? "El barrio terminó. Cerrá tu mandado y después decidís cuándo ir a comer."
+              : "Los movimientos terminaron. El barrio sigue cerrando sus mandados.");
         } else nextStep();
       }, NPC_CONTINUE_DELAY);
     } else {
@@ -3618,23 +3680,29 @@
   function openMeeting() {
     if (state.gameOver || els.meetingDialog.open) return;
     const gate = dinnerGateStatus();
+    if (!gate.available) {
+      toast(gate.reason === "waiting-stories" ? "Todavía faltan movimientos del barrio."
+        : gate.reason === "waiting-bots" ? "Los vecinos todavía están con sus mandados."
+        : "Todavía hay recorridos obligatorios del barrio.");
+      return;
+    }
     if (!gate.ready) {
-      toast(gate.reason === "waiting-time"
-        ? `Todavía no son las 20:30. Faltan ${formatClock(state.dayTimer)}.`
-        : gate.reason === "waiting-mandatory" ? "Todavía hay movimientos obligatorios del barrio."
-        : "Todavía hay movimientos del barrio sin cerrar.");
+      const messages = {
+        "human-mission": "Antes de sentarte, terminá o cerrá tu mandado.",
+        "human-atm": "Antes de sentarte, completá el retiro que necesita tu mandado.",
+        "human-payout": "Antes de sentarte, cerrá el reparto de efectivo pendiente.",
+        "human-encounter": "Antes de sentarte, terminá la charla obligatoria con el Cómplice."
+      };
+      toast(messages[gate.reason] || "Todavía tenés una interacción obligatoria pendiente.");
       return;
     }
     state.meetingPhase = "review";
     state.botQuestionCompleted = false;
-    PLAYERS.filter(player => !player.human).forEach(player => resolveBotMission(player.id, currentRound(), "cancelled"));
     Object.values(state.movement.activeBotRoute).forEach(job => job?.callbackKey && botRouteCallbacks.delete(job.callbackKey));
     Object.values(state.movement.botRouteQueues).flat().forEach(job => job?.callbackKey && botRouteCallbacks.delete(job.callbackKey));
     state.movement.activeBotRoute = {};
     state.movement.botRouteQueues = {};
     state.movement.path = [];
-    clearTimeout(state.mealTimerId);
-    state.dinnerScheduled = false;
     stopTimer();
     stopDayClock();
     state.meetings += 1;
@@ -4104,7 +4172,6 @@
       state.dayStartedAt = Date.now();
       state.dayExpired = false;
       state.storiesReady = false;
-      state.dinnerScheduled = false;
       state.debugTrace.push({ event: "day-started", duration: DEBUG_DAY_SECONDS, at: state.dayStartedAt });
     }
     paintDayClock();
@@ -4124,16 +4191,13 @@
   function stopDayClock() { if (state.dayTimerId) window.clearInterval(state.dayTimerId); state.dayTimerId = null; }
   function resetDayClockForRound() {
     stopDayClock();
-    clearTimeout(state.mealTimerId);
-    state.mealTimerId = null;
     state.dayTimer = DEBUG_DAY_SECONDS;
     state.dayStartedAt = 0;
     state.dayExpired = false;
     state.storiesReady = false;
-    state.dinnerScheduled = false;
     els.meetingButton.disabled = true;
-    els.meetingButton.classList.remove("is-ready");
-    els.meetingButtonLabel.textContent = "A COMER";
+    els.meetingButton.classList.remove("is-ready", "is-waiting-human");
+    els.meetingButtonLabel.textContent = "ESPERANDO AL BARRIO";
     paintDayClock();
     state.debugTrace.push({ event: "round-clock-reset", round: currentRound() + 1, at: Date.now() });
   }
@@ -4142,38 +4206,43 @@
     return `${String(Math.floor(safe / 60)).padStart(2, "0")}:${String(safe % 60).padStart(2, "0")}`;
   }
   function completedBotMissionCount(round) {
-    return PLAYERS.filter(player => !player.human && roundRecord(player.id, round)?.missionResolution !== "pending").length;
+    return PLAYERS.filter(player => {
+      if (player.human) return false;
+      const resolution = roundRecord(player.id, round)?.missionResolution;
+      return Boolean(resolution && resolution !== "pending");
+    }).length;
   }
-  function dinnerGateStatus({ dayExpired = state.dayExpired, storiesReady = state.storiesReady } = {}) {
-    if (!dayExpired) return { ready: false, reason: "waiting-time" };
-    if (!storiesReady) return { ready: false, reason: "waiting-stories" };
-    const mandatoryPending = Object.values(state.movement.activeBotRoute).some(job => job?.priority >= 70)
-      || Object.values(state.movement.botRouteQueues).some(queue => queue.some(job => job?.priority >= 70))
-      || Boolean(state.humanAgenda)
-      || Boolean(state.missionAtmRequirement)
-      || Boolean(state.delegatedPayoutRequirement)
-      || Boolean(state.pendingEncounter || state.pendingPayout || state.pendingConfrontation);
-    if (mandatoryPending) return { ready: false, reason: "waiting-mandatory" };
-    return { ready: true, reason: "ready" };
+  function dinnerGateStatus({
+    storiesReady = state.storiesReady,
+    botMissionsDone = completedBotMissionCount(currentRound()) === PLAYERS.filter(player => !player.human).length,
+    botRoutesPending = state.debugRequiredRoute || [...Object.values(state.movement.activeBotRoute), ...Object.values(state.movement.botRouteQueues).flat()]
+      .some(job => job && ["agenda", "story", "counterpart", "settlement", "encounter"].includes(job.purpose)),
+    humanReason = state.missionAtmRequirement ? "human-atm"
+      : state.delegatedPayoutRequirement ? "human-payout"
+      : state.pendingEncounter || state.pendingPayout || state.pendingConfrontation ? "human-encounter"
+      : state.humanAgenda ? "human-mission"
+      : null
+  } = {}) {
+    if (!storiesReady) return { available: false, ready: false, reason: "waiting-stories" };
+    if (!botMissionsDone) return { available: false, ready: false, reason: "waiting-bots" };
+    if (botRoutesPending) return { available: false, ready: false, reason: "waiting-routes" };
+    if (humanReason) return { available: true, ready: false, reason: humanReason };
+    return { available: true, ready: true, reason: "ready" };
   }
   function refreshDinnerGate(source) {
-    const gate = dinnerGateStatus();
-    els.meetingButton.disabled = !gate.ready;
-    els.meetingButton.classList.toggle("is-ready", gate.ready);
-    els.meetingButtonLabel.textContent = gate.ready ? "A COMER" : gate.reason === "waiting-mandatory" ? "ESPERANDO" : state.dayExpired ? "CERRANDO DÍA" : state.storiesReady ? "A COMER · 20:30" : "A COMER";
-    if (!gate.ready) {
-      if (source === "stories-ready") toast(`Cuatro movimientos listos. La cena abre en ${formatClock(state.dayTimer)}.`);
-      else if (source === "clock-expired") toast("Son las 20:30. Falta cerrar el movimiento actual; nadie adelanta la mesa.");
+    if (state.gameOver || els.meetingDialog.open) {
+      els.meetingButton.disabled = true;
+      els.meetingButton.classList.remove("is-ready", "is-waiting-human");
       return;
     }
-    toast("Son las 20:30. ¡A comer!");
-    if (state.dinnerScheduled) return;
-    state.dinnerScheduled = true;
-    clearTimeout(state.mealTimerId);
-    state.mealTimerId = window.setTimeout(() => {
-      state.dinnerScheduled = false;
-      if (!els.meetingDialog.open && dinnerGateStatus().ready) openMeeting();
-    }, DINNER_OPEN_DELAY);
+    const gate = dinnerGateStatus();
+    els.meetingButton.disabled = !gate.available;
+    els.meetingButton.classList.toggle("is-ready", gate.ready);
+    els.meetingButton.classList.toggle("is-waiting-human", gate.available && !gate.ready);
+    els.meetingButtonLabel.textContent = gate.ready ? "A COMER" : gate.available ? "CERRÁ TU MANDADO" : "ESPERANDO AL BARRIO";
+    if (source === "stories-ready" && !gate.available) toast("Los cuatro movimientos terminaron. Falta que el barrio cierre sus mandados.");
+    else if (source === "bot-mission" && gate.available) toast(gate.ready ? "El barrio terminó. Podés ir a comer cuando quieras." : "El barrio terminó. Cerrá tu mandado y después decidís cuándo ir a comer.");
+    else if (source === "clock-expired" && !gate.available) toast("Son las 20:30, pero todavía quedan movimientos por cerrar.");
   }
   function paintDayClock() {
     const safe = Math.max(0, state.dayTimer);
@@ -4208,7 +4277,6 @@
     state.gameOver = true;
     stopTimer();
     stopDayClock();
-    clearTimeout(state.mealTimerId);
     els.actionCards.querySelectorAll("button").forEach(button => { button.disabled = true; });
     if (els.meetingDialog.open) els.meetingDialog.close();
     const humanRole = state.roles.nico;
@@ -4264,6 +4332,16 @@
     }
     saveCampaign();
     state.transport.send("game:ended", { winner, reason, discoveredPlayerId: discoveredPlayer?.id, security: state.security, trust: state.trust });
+  }
+
+  function speakAmbient(playerId, message, duration = 2400) {
+    const walker = document.querySelector(`[data-player="${playerId}"]`);
+    if (!walker) return;
+    state.debugTrace.push({ event: "ambient-speech", playerId, message, at: Date.now() });
+    walker.querySelector(".speech-bubble").textContent = message;
+    walker.classList.add("is-speaking");
+    window.clearTimeout(walker.speechTimer);
+    walker.speechTimer = window.setTimeout(() => walker.classList.remove("is-speaking"), duration);
   }
 
   function speak(playerId, message, intention = "comment", scenarioId = state.scenarios[state.scenarioIndex]?.id) {
@@ -4382,12 +4460,12 @@
   }
 
   function clearEpisodeState() {
-    stopTimer(); stopDayClock(); clearTimeout(state.mealTimerId);
+    stopTimer(); stopDayClock();
     const episodeToken = (state.episodeToken || 0) + 1;
     state.isEpisodeResetting = true;
     Object.assign(state, {
     security: 68, trust: 64, progress: 0, scenarioIndex: 0, completed: 0, currentResolved: false, transitionPending: false,
-      timer: DECISION_SECONDS, timerId: null, dayTimer: DEBUG_DAY_SECONDS, dayTimerId: null, dayStartedAt: 0, dayExpired: false, storiesReady: false, dinnerScheduled: false, mealTimerId: null, roles: {}, scenarios: [], roundStories: [], decisions: [],
+      timer: DECISION_SECONDS, timerId: null, dayTimer: DEBUG_DAY_SECONDS, dayTimerId: null, dayStartedAt: 0, dayExpired: false, storiesReady: false, roles: {}, scenarios: [], roundStories: [], decisions: [],
       ignoredSignals: [], audited: new Set(), suspicion: {}, scammerFrozen: false, scamAttempts: 0, scamScore: 0,
       meetings: 0, roundNumber: 0, templateQueue: [], dialogueLog: [], questionsRemaining: 0,
       questionedPlayers: new Set(), currentInterrogation: null, fraudProgress: 0, gameOver: false, accompliceFrozen: false,
@@ -4396,9 +4474,10 @@
       fraudOccurred: false, pendingJudgment: false, judgmentHistory: [], inventories: {}, fraudExecutions: [], opportunityByScenario: {},
       pendingPayout: null, pendingEncounter: null, pendingConfrontation: null, falseClosing: false, falseTarget: null,
       botMissionRounds: new Set(), agendas: {}, humanAgenda: null, errandSlip: { visible: true, missionId: null, stepIndex: 0, savedAt: Date.now() }, activeCounterpart: null, observations: [], gossip: null,
-      animals: [], residues: [], lastAnimalTick: 0,
+      animals: [], residues: [], lastAnimalTick: 0, lastAnimalTextTime: 0,
+      dirtyShoe: { active: false, incidentId: 0, until: 0, nearbyBots: {} },
       atmUI: { open: false, mode: "free" }, freeAtmSession: { origin: null, withdrawn: 0 },
-      missionAtmRequirement: null, delegatedPayoutRequirement: null, mapExpanded: false,
+      missionAtmRequirement: null, delegatedPayoutRequirement: null, mapExpanded: false, lastDinnerGateRefresh: 0, debugRequiredRoute: false,
       debugTrace: [], episodeToken, isEpisodeResetting: true
     });
     state.accompliceDeals = state.campaign.deals;
@@ -4494,6 +4573,14 @@
       meetingPhase: state.meetingPhase, questionsRemaining: state.questionsRemaining, questionedPlayers: [...state.questionedPlayers], botQuestionCompleted: state.botQuestionCompleted,
       players: PLAYERS.map(p => ({ id: p.id, name: p.name, human: p.human })),
       dialogueLog: state.dialogueLog.map(e => ({ playerId: e.playerId, playerName: e.playerName, text: e.text, intention: e.intention })),
+      ambientTrace: state.debugTrace.filter(entry => entry.event === "ambient-speech").map(entry => ({ playerId: entry.playerId, message: entry.message, at: entry.at })),
+      dinner: dinnerGateStatus(),
+      dirtyShoe: {
+        active: state.dirtyShoe.active,
+        incidentId: state.dirtyShoe.incidentId,
+        until: state.dirtyShoe.until,
+        nearbyBots: { ...state.dirtyShoe.nearbyBots }
+      },
       inventory: (state.inventories.nico || []).map(resource => ({ executionId: resource.executionId, type: resource.type, status: resource.status, availableFromRound: resource.availableFromRound })),
       economy: account ? { bank: account.bank, cash: account.cash, employment: account.employment, pendingJob: account.pendingJob || null } : null,
       agenda: agenda ? { missionId: agenda.mission.id, optionId: agenda.option.id, index: agenda.index, steps: agenda.steps.map(step => ({ id: step.id, location: cleanLocation(step.location), kind: step.kind, status: step.status })) } : null,
@@ -4588,6 +4675,79 @@
     return { keys: [...deal.dialogueKeys], matches: state.dialogueLog.filter(item => item.text === line).length };
   }
 
+  function debugForceAnimalSound(species) {
+    const animal = state.animals.find(item => item.species === species);
+    if (!animal || !["dog", "cat"].includes(species)) return debugSnapshot();
+    animal.action = species === "dog" ? "bark" : "meow";
+    const node = els.animalsLayer.querySelector(`[data-animal="${animal.id}"]`);
+    if (node) {
+      node.className = `world-animal ${animal.species} ${animal.variant} action-${animal.action}`;
+    }
+    showAnimalSound(animal, species === "dog" ? "¡guau!" : "¡miau!");
+    return debugSnapshot();
+  }
+
+  function debugForceDirtyShoe() {
+    activateDirtyShoe();
+    els.playersLayer.querySelector('[data-player="nico"]')?.classList.add("stepped-poop");
+    return debugSnapshot();
+  }
+
+  function debugDirtyShoeApproach(playerId, { distance = 90, roll = 1 } = {}) {
+    const human = state.movement.positions.nico;
+    const bot = PLAYERS.find(player => player.id === playerId && !player.human);
+    if (!human || !bot) return { ...debugSnapshot(), triggered: false };
+    const ambientBefore = state.debugTrace.filter(entry => entry.event === "ambient-speech").length;
+    PLAYERS.filter(player => !player.human).forEach((player, index) => {
+      state.movement.positions[player.id] = { x: human.x + 260 + index * 12, y: human.y + 220 };
+      paintWalker(player.id, 0, 0, false);
+    });
+    state.movement.positions[bot.id] = { x: human.x + Number(distance || 0), y: human.y };
+    paintWalker(bot.id, 0, 0, false);
+    const forcedRolls = Object.fromEntries(PLAYERS.filter(player => !player.human).map(player => [player.id, player.id === bot.id ? Number(roll) : 1]));
+    updateDirtyShoeReactions(human, forcedRolls);
+    const ambientAfter = state.debugTrace.filter(entry => entry.event === "ambient-speech").length;
+    return { ...debugSnapshot(), triggered: ambientAfter > ambientBefore };
+  }
+
+  function debugConfigureDinner({ storiesReady = true, botsDone = true, humanPending = false, requiredRoute = false, dayExpired = false } = {}) {
+    const round = currentRound();
+    state.storiesReady = Boolean(storiesReady);
+    state.dayExpired = Boolean(dayExpired);
+    state.debugRequiredRoute = Boolean(requiredRoute);
+    state.movement.activeBotRoute = {};
+    state.movement.botRouteQueues = {};
+    PLAYERS.filter(player => !player.human).forEach(player => {
+      const record = roundRecord(player.id, round);
+      record.missionResolution = botsDone ? "completed" : "pending";
+    });
+    if (requiredRoute) {
+      const bot = PLAYERS.find(player => !player.human);
+      state.movement.activeBotRoute[bot.id] = {
+        id: "debug-required-route",
+        playerId: bot.id,
+        purpose: "agenda",
+        priority: ROUTE_PRIORITY.agenda,
+        status: "walking"
+      };
+    }
+    state.missionAtmRequirement = null;
+    state.delegatedPayoutRequirement = null;
+    state.pendingEncounter = null;
+    state.pendingPayout = null;
+    state.pendingConfrontation = null;
+    state.humanAgenda = humanPending ? {
+      mission: { id: "debug-mission", text: "Mandado pendiente" },
+      option: { id: "debug-option" },
+      index: 0,
+      steps: [{ id: "debug-step", stableId: "debug-step", location: "plaza", kind: "regular", status: "pending" }]
+    } : null;
+    if (els.roleDialog?.open) els.roleDialog.close();
+    if (els.missionDialog?.open) els.missionDialog.close();
+    refreshDinnerGate("debug");
+    return debugSnapshot();
+  }
+
   function publishDebugApi(checks = {}) {
     if (!DEBUG_MODE) return;
     window.ChamuyoDebug = {
@@ -4622,6 +4782,10 @@
         },
         advanceClock: () => { state.dayExpired = true; state.storiesReady = true; refreshDinnerGate("debug"); return debugSnapshot(); },
         forceAnimalTick: () => { state.lastAnimalTick = 0; return debugSnapshot(); },
+        forceAnimalSound: debugForceAnimalSound,
+        forceDirtyShoe: debugForceDirtyShoe,
+        dirtyShoeApproach: debugDirtyShoeApproach,
+        configureDinner: debugConfigureDinner,
         openMeetingWhenReady: () => { const gate = dinnerGateStatus(); if (gate.ready) openMeeting(); return debugSnapshot(); },
         setupVerification: () => { setupVerification(); return debugSnapshot(); },
         selectInterviewPlayer: playerId => { selectInterviewPlayer(playerId); return debugSnapshot(); },
@@ -4653,10 +4817,11 @@
       ["remedios con adelanto, costo y honorario separados", missionOptions({ ...MISSION_LIBRARY.family[1], scenarioId: "family" })[1].advanceAmount === 48000 && missionOptions({ ...MISSION_LIBRARY.family[1], scenarioId: "family" })[1].productCost === 30000 && missionOptions({ ...MISSION_LIBRARY.family[1], scenarioId: "family" })[1].serviceFee === 15000],
       ["cajero e inventario disponibles", Boolean(els.atmDialog && els.pocketDialog && els.pocketBank && els.pocketCash)],
       ["seis animales vivos", state.animals.length === 6 && state.animals.filter(item => item.species === "dog").length === 2 && state.animals.filter(item => item.species === "hen").length === 3],
-      ["historias autónomas sin Nico actor", state.scenarios.slice(0, 4).every(item => item.actorId !== "nico")]
-      ,["cena espera al reloj aunque terminen los bots", dinnerGateStatus({ dayExpired: false, storiesReady: true }).reason === "waiting-time"]
-      ,["cena espera historias aunque termine el reloj", dinnerGateStatus({ dayExpired: true, storiesReady: false }).reason === "waiting-stories"]
-      ,["cena sólo abre con tiempo e historias", dinnerGateStatus({ dayExpired: true, storiesReady: true }).ready]
+      ["historias autónomas sin Nico actor", state.scenarios.slice(0, 4).every(item => item.actorId !== "nico")],
+      ["cena espera las cuatro situaciones", !dinnerGateStatus({ storiesReady: false, botMissionsDone: true, botRoutesPending: false, humanReason: null }).available],
+      ["cena queda disponible cuando termina el barrio", dinnerGateStatus({ storiesReady: true, botMissionsDone: true, botRoutesPending: false, humanReason: "human-mission" }).available],
+      ["cena exige cerrar obligaciones propias", !dinnerGateStatus({ storiesReady: true, botMissionsDone: true, botRoutesPending: false, humanReason: "human-mission" }).ready],
+      ["cena lista sin obligación humana", dinnerGateStatus({ storiesReady: true, botMissionsDone: true, botRoutesPending: false, humanReason: null }).ready]
     ];
     const failed = checks.filter(item => !item[1]);
     publishDebugApi(Object.fromEntries(checks));
@@ -4725,7 +4890,12 @@
       state.pendingAlibi = null;
     });
     els.continueButton.addEventListener("click", () => {
-      if (state.completed % 4 === 0) openMeeting(); else nextStep();
+      if (state.completed % 4 === 0) {
+        els.resolutionBox.hidden = true;
+        refreshDinnerGate("continue");
+        const gate = dinnerGateStatus();
+        toast(gate.ready ? "El barrio terminó. Caminá lo que quieras y apretá A COMER cuando decidas." : gate.available ? "El barrio terminó. Cerrá tu mandado antes de sentarte." : "Las situaciones terminaron; todavía hay vecinos cerrando sus mandados.");
+      } else nextStep();
     });
     els.meetingButton.addEventListener("click", openMeeting);
     els.errandSlipToggle.addEventListener("click", toggleErrandSlip);

@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#263b2e">
   <meta name="description" content="Chamuyo, un party game de barrio para frenar estafas cotidianas.">
   <title>Chamuyo — Party game antiestafas</title>
-  <link rel="stylesheet" href="style.css?v=20260731-c">
+  <link rel="stylesheet" href="style.css?v=20260801-a">
 </head>
 <body>
   <svg class="sprite-sheet" aria-hidden="true" focusable="false" width="0" height="0">
@@ -61,14 +61,6 @@
         <rect x="80" y="84" width="24" height="36" fill="#6d4f36" stroke="#2a261f" stroke-width="4"/>
         <rect x="52" y="18" width="70" height="16" fill="#754e3d" stroke="#2a261f" stroke-width="4"/>
         <text x="87" y="29" text-anchor="middle" font-size="11" font-weight="700" fill="#f5ebc8">ESCUELA 23</text>
-      </symbol>
-      <symbol id="sprite-workshop" viewBox="0 0 168 128">
-        <rect x="16" y="38" width="132" height="74" fill="#8f8978" stroke="#2a261f" stroke-width="4"/>
-        <path d="M6 46h152l-20-16H28z" fill="#606b66" stroke="#2a261f" stroke-width="4"/>
-        <rect x="26" y="58" width="42" height="24" fill="#a5b4ad" stroke="#2a261f" stroke-width="4"/>
-        <rect x="80" y="58" width="54" height="36" fill="#6f4e39" stroke="#2a261f" stroke-width="4"/>
-        <rect x="96" y="24" width="24" height="16" fill="#f0deb2" stroke="#2a261f" stroke-width="4"/>
-        <path d="M108 18l6 8-6 8" fill="none" stroke="#2a261f" stroke-width="4"/>
       </symbol>
       <symbol id="sprite-townhall" viewBox="0 0 184 140">
         <rect x="20" y="42" width="144" height="82" fill="#b3af98" stroke="#2a261f" stroke-width="4"/>
@@ -180,7 +172,7 @@
       </div>
       <button id="meetingButton" class="game-button meal-button" type="button" disabled>
         <span class="plate-icon" aria-hidden="true">●</span>
-        <span id="meetingButtonLabel">A COMER</span>
+        <span id="meetingButtonLabel">ESPERANDO AL BARRIO</span>
       </button>
     </div>
   </header>
@@ -214,8 +206,10 @@
           <div class="world-road road-main-y" aria-hidden="true"></div>
           <div class="world-road road-north" aria-hidden="true"></div>
           <div class="world-road road-south" aria-hidden="true"></div>
+          <div class="road-junction junction-north" aria-hidden="true"></div>
+          <div class="road-junction junction-center" aria-hidden="true"></div>
+          <div class="road-junction junction-south" aria-hidden="true"></div>
           <span class="district-label district-commerce">ZONA COMERCIAL</span>
-          <span class="district-label district-civic">CENTRO CÍVICO</span>
           <span class="district-label district-homes">LAS CASITAS</span>
 
           <div class="town-spot building-spot" data-location="almacén" aria-label="Almacén Lo de Beto"><svg class="town-sprite" viewBox="0 0 160 128"><use href="#sprite-store"></use></svg><span class="door-pad"></span><small>Lo de Beto</small></div>
@@ -224,7 +218,6 @@
           <div class="town-spot building-spot" data-location="imprenta" aria-label="Imprenta"><svg class="town-sprite" viewBox="0 0 168 128"><use href="#sprite-printshop"></use></svg><span class="door-pad"></span><small>Imprenta</small></div>
           <div class="town-spot building-spot" data-location="escuela" aria-label="Escuela número 23"><svg class="town-sprite" viewBox="0 0 184 136"><use href="#sprite-school"></use></svg><span class="door-pad"></span><small>Escuela 23</small></div>
 
-          <div class="town-spot building-spot" data-location="taller" aria-label="Taller"><svg class="town-sprite" viewBox="0 0 168 128"><use href="#sprite-workshop"></use></svg><span class="door-pad"></span><small>Taller</small></div>
           <div class="market-stall world-stall town-spot" data-location="puesto de usados" aria-label="Puesto de usados"><div class="stall-roof">USADOS</div><svg class="stall-bike" viewBox="0 0 116 72" aria-hidden="true"><use href="#sprite-bike"></use></svg><div class="stall-table"></div><small>Usados · entrada</small></div>
           <div class="plaza world-plaza" data-location="plaza" aria-label="Plaza Sarmiento"><div class="fountain"><i></i></div><span>PLAZA SARMIENTO</span></div>
           <div class="town-spot building-spot" data-location="municipalidad" aria-label="Municipalidad"><svg class="town-sprite" viewBox="0 0 184 140"><use href="#sprite-townhall"></use></svg><span class="door-pad"></span><small>Municipalidad</small></div>
@@ -238,8 +231,8 @@
           <div class="town-spot building-spot" data-location="casa-6" aria-label="Casa 6"><svg class="town-sprite" viewBox="0 0 120 124"><use href="#sprite-house-two"></use></svg><span class="door-pad"></span><small>Casa 6</small></div>
           <div class="bus-stop" data-location="parada de colectivo"><b>132</b><span>PARADA</span></div>
           <div class="notice-board world-notice"><span>HOY<br>A COMER<br>20:30</span></div>
-          <div class="world-trees" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="world-details" aria-hidden="true"><i class="detail-bench"></i><i class="detail-bin"></i><i class="detail-crates"></i><i class="detail-clothes"></i><i class="detail-puddle"></i><i class="detail-planters"></i><i class="detail-doghouse"></i></div>
+          <div class="world-trees" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="world-details" aria-hidden="true"><i class="detail-bench"></i><i class="detail-bin"></i><i class="detail-puddle"></i><i class="detail-planters"></i><i class="detail-doghouse"></i></div>
           <div id="objectiveMarker" class="objective-marker" hidden><span>!</span></div>
           <div id="residueLayer" class="residue-layer" aria-hidden="true"></div>
           <div id="animalsLayer" class="animals-layer" aria-label="Animales del barrio"></div>
@@ -489,6 +482,6 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=20260731-c"></script>
+  <script src="app.js?v=20260801-a"></script>
 </body>
 </html>

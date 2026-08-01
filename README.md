@@ -2,7 +2,7 @@
 
 **Chamuyo** es un party game social de barrio sobre mandados, plata, confianza y estafas escondidas dentro de situaciones cotidianas.
 
-Una persona recorre un pueblo 2D junto a cinco personajes controlados por el juego. Cada vecino tiene oficio, bienes, saldo, necesidades y una agenda propia. Durante el día se compra, se vende, se trabaja, se negocia y se dejan rastros. Al atardecer, el barrio se reúne a comer para reconstruir qué pasó y decidir a quién auditar.
+Una persona recorre un pueblo 2D junto a cinco personajes controlados por el juego. Cada vecino tiene oficio, bienes, saldo, necesidades y una agenda propia. Durante el día se compra, se vende, se trabaja, se negocia y se dejan rastros. Cuando el barrio termina, queda habilitada la reunión para reconstruir qué pasó y decidir a quién auditar; el jugador elige cuándo sentarse.
 
 La mayor parte de las operaciones son legítimas. Una urgencia, un precio bajo o una explicación torpe pueden ser reales. La dificultad consiste en distinguir una desprolijidad cotidiana de una maniobra preparada.
 
@@ -12,7 +12,7 @@ La mayor parte de las operaciones son legítimas. Una urgencia, un precio bajo o
 2. Elegís un mandado compatible con tu oficio y tu situación económica.
 3. Caminás hasta cada destino, encontrás a la contraparte y resolvés la operación.
 4. Mientras recorrés el pueblo podés observar movimientos y escuchar conversaciones cercanas.
-5. Al final de la ronda llega la reunión **A comer**.
+5. Cuando el barrio termina sus agendas se habilita **A comer**; vos decidís cuándo sentarte, después de cerrar tus obligaciones.
 6. El barrio compara horarios, recibos, bienes, retiros, rumores y respuestas.
 7. Una auditoría o un juicio determina si el Estafador fue descubierto o logró escapar.
 
@@ -27,7 +27,7 @@ El Estafador y el Cómplice se conocen. Los demás sólo saben su propio papel.
 
 ## El pueblo
 
-El mapa reúne comercios, viviendas e instituciones conectadas por tareas reales: almacén, banco y cajero, farmacia, imprenta, puesto de usados, taller, protectora de animales, oficina, escuela, municipalidad, capilla, plaza y casas del barrio.
+El mapa reúne comercios, viviendas e instituciones conectadas por tareas reales: almacén, banco y cajero, farmacia, imprenta, puesto de usados, protectora de animales, oficina, escuela, municipalidad, capilla, plaza y casas del barrio. Los trabajos técnicos se realizan a domicilio por distintos puntos del pueblo.
 
 Los personajes se desplazan de forma independiente. El jugador no decide por los bots: puede cumplir su agenda, desviarse para investigar o acercarse a una charla, pero cada vecino sigue con su propio asunto.
 
@@ -81,7 +81,7 @@ Chamuyo es un MVP local y jugable de una persona contra cinco bots. Incluye:
 - conversaciones observables por cercanía;
 - rumores de baja fiabilidad;
 - reuniones, interrogatorios, votación, auditoría y replay;
-- personajes y animales con movimiento autónomo.
+- personajes y animales con movimiento autónomo, sonidos breves y pequeños incidentes ambientales.
 
 La documentación de diseño pública está en [docs/BIBLIA.md](docs/BIBLIA.md).
 
