@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#263b2e">
+  <meta name="description" content="Chamuyo, un party game de barrio para frenar estafas cotidianas.">
+  <title>Chamuyo — Party game antiestafas</title>
+  <link rel="stylesheet" href="style.css?v=20260731-c">
+</head>
+<body>
+  <svg class="sprite-sheet" aria-hidden="true" focusable="false" width="0" height="0">
+    <defs>
+      <symbol id="sprite-store" viewBox="0 0 160 128">
+        <rect x="18" y="34" width="124" height="78" fill="#d7b07d" stroke="#2a261f" stroke-width="4"/>
+        <path d="M10 42h140L126 14H34z" fill="#a65543" stroke="#2a261f" stroke-width="4"/>
+        <rect x="28" y="52" width="42" height="30" fill="#8fb3ab" stroke="#2a261f" stroke-width="4"/>
+        <rect x="90" y="58" width="24" height="54" fill="#6b4d35" stroke="#2a261f" stroke-width="4"/>
+        <rect x="110" y="58" width="22" height="54" fill="#6b4d35" stroke="#2a261f" stroke-width="4"/>
+        <rect x="18" y="90" width="124" height="14" fill="#8c613b"/>
+        <rect x="30" y="16" width="56" height="18" fill="#2f4937" stroke="#2a261f" stroke-width="4"/>
+        <text x="58" y="29" text-anchor="middle" font-size="13" font-weight="700" fill="#f5ebc8">ALMACÉN</text>
+      </symbol>
+      <symbol id="sprite-bank" viewBox="0 0 176 136">
+        <rect x="18" y="40" width="140" height="78" fill="#a6a48f" stroke="#2a261f" stroke-width="4"/>
+        <path d="M8 48h160l-20-16-16-18H44L28 32z" fill="#6f6b5f" stroke="#2a261f" stroke-width="4"/>
+        <rect x="30" y="56" width="26" height="52" fill="#dfd2a9" stroke="#2a261f" stroke-width="4"/>
+        <rect x="64" y="56" width="26" height="52" fill="#dfd2a9" stroke="#2a261f" stroke-width="4"/>
+        <rect x="98" y="56" width="26" height="52" fill="#dfd2a9" stroke="#2a261f" stroke-width="4"/>
+        <rect x="132" y="56" width="16" height="52" fill="#6b4d35" stroke="#2a261f" stroke-width="4"/>
+        <rect x="116" y="84" width="32" height="18" fill="#2d4f4b" stroke="#2a261f" stroke-width="4"/>
+        <rect x="52" y="20" width="54" height="16" fill="#37544f" stroke="#2a261f" stroke-width="4"/>
+        <text x="79" y="31" text-anchor="middle" font-size="12" font-weight="700" fill="#eee8c3">BANCO</text>
+      </symbol>
+      <symbol id="sprite-pharmacy" viewBox="0 0 152 120">
+        <rect x="16" y="34" width="120" height="72" fill="#d8cea2" stroke="#2a261f" stroke-width="4"/>
+        <path d="M8 42h136l-22-18H30z" fill="#64825a" stroke="#2a261f" stroke-width="4"/>
+        <rect x="26" y="52" width="34" height="26" fill="#a7c7bd" stroke="#2a261f" stroke-width="4"/>
+        <rect x="74" y="52" width="26" height="26" fill="#a7c7bd" stroke="#2a261f" stroke-width="4"/>
+        <rect x="106" y="56" width="20" height="50" fill="#70503b" stroke="#2a261f" stroke-width="4"/>
+        <g transform="translate(110 18)">
+          <rect x="0" y="6" width="20" height="8" fill="#f1efda"/>
+          <rect x="6" y="0" width="8" height="20" fill="#f1efda"/>
+        </g>
+      </symbol>
+      <symbol id="sprite-printshop" viewBox="0 0 168 128">
+        <rect x="16" y="36" width="132" height="76" fill="#c18a54" stroke="#2a261f" stroke-width="4"/>
+        <path d="M6 44h152L132 18H30z" fill="#aa7640" stroke="#2a261f" stroke-width="4"/>
+        <rect x="28" y="54" width="32" height="24" fill="#f1e1bb" stroke="#2a261f" stroke-width="4"/>
+        <rect x="70" y="54" width="32" height="24" fill="#f1e1bb" stroke="#2a261f" stroke-width="4"/>
+        <rect x="114" y="60" width="20" height="52" fill="#684a35" stroke="#2a261f" stroke-width="4"/>
+        <rect x="36" y="14" width="58" height="18" fill="#efe2ba" stroke="#2a261f" stroke-width="4"/>
+        <text x="65" y="27" text-anchor="middle" font-size="11" font-weight="700" fill="#6c4332">IMPRENTA</text>
+      </symbol>
+      <symbol id="sprite-school" viewBox="0 0 184 136">
+        <rect x="18" y="38" width="148" height="82" fill="#d4bf84" stroke="#2a261f" stroke-width="4"/>
+        <path d="M8 46h168l-22-18H30z" fill="#a6674b" stroke="#2a261f" stroke-width="4"/>
+        <rect x="30" y="56" width="34" height="26" fill="#9cb5aa" stroke="#2a261f" stroke-width="4"/>
+        <rect x="74" y="56" width="34" height="26" fill="#9cb5aa" stroke="#2a261f" stroke-width="4"/>
+        <rect x="118" y="56" width="34" height="26" fill="#9cb5aa" stroke="#2a261f" stroke-width="4"/>
+        <rect x="80" y="84" width="24" height="36" fill="#6d4f36" stroke="#2a261f" stroke-width="4"/>
+        <rect x="52" y="18" width="70" height="16" fill="#754e3d" stroke="#2a261f" stroke-width="4"/>
+        <text x="87" y="29" text-anchor="middle" font-size="11" font-weight="700" fill="#f5ebc8">ESCUELA 23</text>
+      </symbol>
+      <symbol id="sprite-workshop" viewBox="0 0 168 128">
+        <rect x="16" y="38" width="132" height="74" fill="#8f8978" stroke="#2a261f" stroke-width="4"/>
+        <path d="M6 46h152l-20-16H28z" fill="#606b66" stroke="#2a261f" stroke-width="4"/>
+        <rect x="26" y="58" width="42" height="24" fill="#a5b4ad" stroke="#2a261f" stroke-width="4"/>
+        <rect x="80" y="58" width="54" height="36" fill="#6f4e39" stroke="#2a261f" stroke-width="4"/>
+        <rect x="96" y="24" width="24" height="16" fill="#f0deb2" stroke="#2a261f" stroke-width="4"/>
+        <path d="M108 18l6 8-6 8" fill="none" stroke="#2a261f" stroke-width="4"/>
+      </symbol>
+      <symbol id="sprite-townhall" viewBox="0 0 184 140">
+        <rect x="20" y="42" width="144" height="82" fill="#b3af98" stroke="#2a261f" stroke-width="4"/>
+        <path d="M10 50h164L144 18H40z" fill="#706b5d" stroke="#2a261f" stroke-width="4"/>
+        <rect x="40" y="60" width="26" height="44" fill="#ded2ae" stroke="#2a261f" stroke-width="4"/>
+        <rect x="78" y="60" width="26" height="44" fill="#ded2ae" stroke="#2a261f" stroke-width="4"/>
+        <rect x="116" y="60" width="26" height="44" fill="#ded2ae" stroke="#2a261f" stroke-width="4"/>
+        <rect x="80" y="88" width="24" height="36" fill="#6d4f36" stroke="#2a261f" stroke-width="4"/>
+      </symbol>
+      <symbol id="sprite-chapel" viewBox="0 0 128 152">
+        <rect x="22" y="54" width="84" height="80" fill="#d8c59a" stroke="#2a261f" stroke-width="4"/>
+        <path d="M14 62h100L64 14z" fill="#c99561" stroke="#2a261f" stroke-width="4"/>
+        <rect x="52" y="82" width="24" height="52" fill="#704e37" stroke="#2a261f" stroke-width="4"/>
+        <rect x="46" y="34" width="36" height="12" fill="#f0e6c8" stroke="#2a261f" stroke-width="4"/>
+        <rect x="58" y="22" width="12" height="36" fill="#f0e6c8" stroke="#2a261f" stroke-width="4"/>
+      </symbol>
+      <symbol id="sprite-shelter" viewBox="0 0 184 132">
+        <rect x="18" y="38" width="148" height="76" fill="#c59267" stroke="#2a261f" stroke-width="4"/>
+        <path d="M8 46h168l-24-18H34z" fill="#6d8456" stroke="#2a261f" stroke-width="4"/>
+        <rect x="30" y="56" width="34" height="24" fill="#a9c0b1" stroke="#2a261f" stroke-width="4"/>
+        <rect x="76" y="56" width="34" height="24" fill="#a9c0b1" stroke="#2a261f" stroke-width="4"/>
+        <rect x="122" y="64" width="24" height="50" fill="#6c4d36" stroke="#2a261f" stroke-width="4"/>
+        <path d="M42 18c8 0 12 8 12 14 0-6 4-14 12-14s14 7 14 15c0 12-13 18-26 29C41 51 28 45 28 33c0-8 6-15 14-15z" fill="#b84c43" stroke="#2a261f" stroke-width="4"/>
+      </symbol>
+      <symbol id="sprite-office" viewBox="0 0 164 124">
+        <rect x="18" y="36" width="128" height="72" fill="#b1a27c" stroke="#2a261f" stroke-width="4"/>
+        <path d="M8 44h148l-22-18H30z" fill="#666e68" stroke="#2a261f" stroke-width="4"/>
+        <rect x="30" y="54" width="34" height="24" fill="#a6bbb5" stroke="#2a261f" stroke-width="4"/>
+        <rect x="76" y="54" width="34" height="24" fill="#a6bbb5" stroke="#2a261f" stroke-width="4"/>
+        <rect x="116" y="58" width="18" height="50" fill="#6c4c35" stroke="#2a261f" stroke-width="4"/>
+      </symbol>
+      <symbol id="sprite-home-marta" viewBox="0 0 168 124">
+        <rect x="18" y="38" width="132" height="72" fill="#d2946b" stroke="#2a261f" stroke-width="4"/>
+        <path d="M8 46h152L128 18H40z" fill="#b66b4d" stroke="#2a261f" stroke-width="4"/>
+        <rect x="30" y="56" width="34" height="24" fill="#a6c2b7" stroke="#2a261f" stroke-width="4"/>
+        <rect x="78" y="56" width="42" height="54" fill="#704f37" stroke="#2a261f" stroke-width="4"/>
+        <rect x="126" y="62" width="12" height="16" fill="#f5ebc8" stroke="#2a261f" stroke-width="4"/>
+      </symbol>
+      <symbol id="sprite-rental" viewBox="0 0 176 140">
+        <rect x="20" y="40" width="136" height="84" fill="#aeb0a5" stroke="#2a261f" stroke-width="4"/>
+        <path d="M8 48h160l-22-18H30z" fill="#7c8f8d" stroke="#2a261f" stroke-width="4"/>
+        <rect x="34" y="58" width="28" height="24" fill="#b0c8c0" stroke="#2a261f" stroke-width="4"/>
+        <rect x="72" y="58" width="28" height="24" fill="#b0c8c0" stroke="#2a261f" stroke-width="4"/>
+        <rect x="110" y="58" width="28" height="24" fill="#b0c8c0" stroke="#2a261f" stroke-width="4"/>
+        <rect x="78" y="88" width="22" height="36" fill="#6b4d35" stroke="#2a261f" stroke-width="4"/>
+        <rect x="40" y="18" width="52" height="18" fill="#f3e2b9" stroke="#2a261f" stroke-width="4"/>
+        <text x="66" y="30" text-anchor="middle" font-size="10" font-weight="700" fill="#933f35">SE ALQUILA</text>
+      </symbol>
+      <symbol id="sprite-house-one" viewBox="0 0 120 124">
+        <rect x="18" y="40" width="84" height="68" fill="#d7b07d" stroke="#2a261f" stroke-width="4"/>
+        <path d="M8 48h104L84 20H36z" fill="#c68c56" stroke="#2a261f" stroke-width="4"/>
+        <rect x="28" y="58" width="24" height="20" fill="#b1cbc4" stroke="#2a261f" stroke-width="4"/>
+        <rect x="64" y="62" width="20" height="46" fill="#6d4f36" stroke="#2a261f" stroke-width="4"/>
+      </symbol>
+      <symbol id="sprite-house-two" viewBox="0 0 120 124">
+        <rect x="18" y="40" width="84" height="68" fill="#c8a36f" stroke="#2a261f" stroke-width="4"/>
+        <path d="M8 48h104L82 22H34z" fill="#9c5d47" stroke="#2a261f" stroke-width="4"/>
+        <rect x="28" y="58" width="24" height="20" fill="#b1cbc4" stroke="#2a261f" stroke-width="4"/>
+        <rect x="64" y="62" width="20" height="46" fill="#6d4f36" stroke="#2a261f" stroke-width="4"/>
+      </symbol>
+      <symbol id="sprite-bike" viewBox="0 0 116 72">
+        <ellipse cx="58" cy="68" rx="36" ry="3" fill="rgba(36,42,31,.24)"/>
+        <g class="rear-wheel">
+          <circle cx="24" cy="50" r="16" fill="none" stroke="#2a261f" stroke-width="3"/>
+          <line x1="24" y1="34" x2="24" y2="66" stroke="#2a261f" stroke-width="1.5"/>
+          <line x1="8" y1="50" x2="40" y2="50" stroke="#2a261f" stroke-width="1.5"/>
+          <circle cx="24" cy="50" r="3" fill="#2a261f"/>
+        </g>
+        <g class="front-wheel">
+          <circle cx="92" cy="50" r="16" fill="none" stroke="#2a261f" stroke-width="3"/>
+          <line x1="92" y1="34" x2="92" y2="66" stroke="#2a261f" stroke-width="1.5"/>
+          <line x1="76" y1="50" x2="108" y2="50" stroke="#2a261f" stroke-width="1.5"/>
+          <circle cx="92" cy="50" r="3" fill="#2a261f"/>
+        </g>
+        <path d="M24 50L44 28h22L52 50z" fill="none" stroke="#a6483f" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M44 28h18L70 50M52 50l18-14" fill="none" stroke="#a6483f" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M64 22h14M38 22h10" stroke="#2a261f" stroke-width="4" stroke-linecap="round"/>
+        <path d="M62 28l10-12 10 4" fill="none" stroke="#2a261f" stroke-width="4" stroke-linecap="round"/>
+        <path d="M16 28h18l-10 22" fill="none" stroke="#2a261f" stroke-width="4" stroke-linecap="round"/>
+        <rect x="8" y="10" width="18" height="14" fill="#d4b46a" stroke="#2a261f" stroke-width="4"/>
+      </symbol>
+    </defs>
+  </svg>
+  <header class="gamebar">
+    <div class="brand" aria-label="Chamuyo">
+      <span class="brand-kicker">PARTY GAME DE BARRIO</span>
+      <span class="brand-name">CHAMUYO</span>
+    </div>
+
+    <div class="meters" aria-label="Estado de la partida">
+      <div class="meter-block">
+        <div class="meter-label"><span>Seguridad</span><strong id="securityValue">72</strong></div>
+        <div class="meter-track"><span id="securityMeter" class="meter-fill safety"></span></div>
+      </div>
+      <div class="meter-block">
+        <div class="meter-label"><span>Confianza</span><strong id="trustValue">68</strong></div>
+        <div class="meter-track"><span id="trustMeter" class="meter-fill trust"></span></div>
+      </div>
+      <div class="meter-block progress-block">
+        <div class="meter-label"><span>Mandados</span><strong id="progressValue">0%</strong></div>
+        <div class="meter-track"><span id="progressMeter" class="meter-fill progress"></span></div>
+      </div>
+    </div>
+
+    <div class="round-tools">
+      <div class="timer" aria-label="Tiempo restante">
+        <span class="timer-icon">◷</span>
+        <span id="timerValue">00:55</span>
+      </div>
+      <button id="meetingButton" class="game-button meal-button" type="button" disabled>
+        <span class="plate-icon" aria-hidden="true">●</span>
+        <span id="meetingButtonLabel">A COMER</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="game-layout">
+    <aside class="tasks-panel paper-panel" aria-labelledby="tasksTitle">
+      <div class="tape tape-left"></div>
+      <p id="roundLabel" class="panel-eyebrow">RONDA 1 · LIBRETA DE NICO</p>
+      <h2 id="tasksTitle">Cuatro historias</h2>
+      <ol id="taskList" class="task-list"></ol>
+      <div id="publicMissionNote" class="public-mission-note">Elegí tu mandado al empezar la ronda.</div>
+      <div class="role-pocket">
+        <span>ROL SECRETO</span>
+        <button id="rolePeekButton" type="button" class="role-peek">VER PAPELITO</button>
+        <small id="roleProgress"></small>
+        <div id="economyPocket" class="economy-pocket" aria-live="polite"></div>
+        <div id="inventoryPocket" class="inventory-pocket" hidden></div>
+      </div>
+      <p class="pencil-note">Si apura, enfriá.</p>
+    </aside>
+
+    <section class="village-wrap" aria-label="Mapa del barrio">
+      <div class="map-strip">
+        <span id="campaignLabel">CAMPAÑA · PARTIDA 1</span>
+        <strong id="locationLabel">PLAZA SARMIENTO</strong>
+        <div class="map-strip-tools"><span>WASD · E INTERACTUAR</span><button id="pocketButton" type="button" aria-label="Abrir bolsillo">I · BOLSILLO</button><button id="fullscreenButton" type="button" aria-label="Pantalla completa del mapa">⛶ MAPA</button></div>
+      </div>
+      <div id="villageMap" class="village-map" tabindex="0" aria-label="Pueblo explorable de Chamuyo">
+        <div id="villageWorld" class="village-world">
+          <div class="world-road road-main-x" aria-hidden="true"></div>
+          <div class="world-road road-main-y" aria-hidden="true"></div>
+          <div class="world-road road-north" aria-hidden="true"></div>
+          <div class="world-road road-south" aria-hidden="true"></div>
+          <span class="district-label district-commerce">ZONA COMERCIAL</span>
+          <span class="district-label district-civic">CENTRO CÍVICO</span>
+          <span class="district-label district-homes">LAS CASITAS</span>
+
+          <div class="town-spot building-spot" data-location="almacén" aria-label="Almacén Lo de Beto"><svg class="town-sprite" viewBox="0 0 160 128"><use href="#sprite-store"></use></svg><span class="door-pad"></span><small>Lo de Beto</small></div>
+          <div class="town-spot building-spot" data-location="banco" aria-label="Banco del barrio"><svg class="town-sprite" viewBox="0 0 176 136"><use href="#sprite-bank"></use></svg><span class="door-pad"></span><small>Banco del barrio</small></div>
+          <div class="town-spot building-spot" data-location="farmacia" aria-label="Farmacia"><svg class="town-sprite" viewBox="0 0 152 120"><use href="#sprite-pharmacy"></use></svg><span class="door-pad"></span><small>Farmacia</small></div>
+          <div class="town-spot building-spot" data-location="imprenta" aria-label="Imprenta"><svg class="town-sprite" viewBox="0 0 168 128"><use href="#sprite-printshop"></use></svg><span class="door-pad"></span><small>Imprenta</small></div>
+          <div class="town-spot building-spot" data-location="escuela" aria-label="Escuela número 23"><svg class="town-sprite" viewBox="0 0 184 136"><use href="#sprite-school"></use></svg><span class="door-pad"></span><small>Escuela 23</small></div>
+
+          <div class="town-spot building-spot" data-location="taller" aria-label="Taller"><svg class="town-sprite" viewBox="0 0 168 128"><use href="#sprite-workshop"></use></svg><span class="door-pad"></span><small>Taller</small></div>
+          <div class="market-stall world-stall town-spot" data-location="puesto de usados" aria-label="Puesto de usados"><div class="stall-roof">USADOS</div><svg class="stall-bike" viewBox="0 0 116 72" aria-hidden="true"><use href="#sprite-bike"></use></svg><div class="stall-table"></div><small>Usados · entrada</small></div>
+          <div class="plaza world-plaza" data-location="plaza" aria-label="Plaza Sarmiento"><div class="fountain"><i></i></div><span>PLAZA SARMIENTO</span></div>
+          <div class="town-spot building-spot" data-location="municipalidad" aria-label="Municipalidad"><svg class="town-sprite" viewBox="0 0 184 140"><use href="#sprite-townhall"></use></svg><span class="door-pad"></span><small>Municipalidad</small></div>
+          <div class="town-spot building-spot" data-location="iglesia" aria-label="Iglesia del barrio"><svg class="town-sprite" viewBox="0 0 128 152"><use href="#sprite-chapel"></use></svg><span class="door-pad"></span><small>Capilla</small></div>
+
+          <div class="town-spot building-spot" data-location="protectora" aria-label="Hogar de animales"><svg class="town-sprite" viewBox="0 0 184 132"><use href="#sprite-shelter"></use></svg><span class="door-pad"></span><small>Hogar Patitas</small></div>
+          <div class="town-spot building-spot" data-location="oficina" aria-label="Oficina y correo"><svg class="town-sprite" viewBox="0 0 164 124"><use href="#sprite-office"></use></svg><span class="door-pad"></span><small>Correo</small></div>
+          <div class="town-spot building-spot" data-location="comedor familiar" aria-label="Comedor familiar"><svg class="town-sprite" viewBox="0 0 168 124"><use href="#sprite-home-marta"></use></svg><span class="door-pad"></span><small>Casa de Marta</small></div>
+          <div class="town-spot building-spot" data-location="departamento" aria-label="Departamento en alquiler"><svg class="town-sprite" viewBox="0 0 176 140"><use href="#sprite-rental"></use></svg><span class="door-pad"></span><small>Departamento</small></div>
+          <div class="town-spot building-spot" data-location="casa-4" aria-label="Casa 4"><svg class="town-sprite" viewBox="0 0 120 124"><use href="#sprite-house-one"></use></svg><span class="door-pad"></span><small>Casa 4</small></div>
+          <div class="town-spot building-spot" data-location="casa-6" aria-label="Casa 6"><svg class="town-sprite" viewBox="0 0 120 124"><use href="#sprite-house-two"></use></svg><span class="door-pad"></span><small>Casa 6</small></div>
+          <div class="bus-stop" data-location="parada de colectivo"><b>132</b><span>PARADA</span></div>
+          <div class="notice-board world-notice"><span>HOY<br>A COMER<br>20:30</span></div>
+          <div class="world-trees" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="world-details" aria-hidden="true"><i class="detail-bench"></i><i class="detail-bin"></i><i class="detail-crates"></i><i class="detail-clothes"></i><i class="detail-puddle"></i><i class="detail-planters"></i><i class="detail-doghouse"></i></div>
+          <div id="objectiveMarker" class="objective-marker" hidden><span>!</span></div>
+          <div id="residueLayer" class="residue-layer" aria-hidden="true"></div>
+          <div id="animalsLayer" class="animals-layer" aria-label="Animales del barrio"></div>
+          <div id="playersLayer" class="players-layer"></div>
+        </div>
+
+        <div id="dialogueNote" class="dialogue-note dialogue-overlay" aria-live="polite" hidden></div>
+        <div id="interactionPrompt" class="interaction-prompt" hidden>APRETÁ E PARA ENTRAR</div>
+        <aside id="errandSlip" class="errand-slip" aria-live="polite">
+          <i class="slip-tape" aria-hidden="true"></i>
+          <button id="errandSlipToggle" type="button" aria-label="Guardar papelito">P</button>
+          <small>LIBRETA DE MANDADO</small>
+          <strong id="slipMission">Elegí un mandado</strong>
+          <span id="slipStep">Sin recorrido todavía</span>
+          <span id="slipDestination"></span>
+          <span id="slipCounterpart"></span>
+          <span id="slipAction"></span>
+          <span id="slipMoney"></span>
+          <span id="slipEvidence"></span>
+          <span id="slipNext"></span>
+        </aside>
+        <div class="map-key"><span class="you-key"></span> VOS <span class="talk-key"></span> HABLANDO</div>
+        <div class="dpad" aria-label="Controles de movimiento">
+          <button type="button" data-move="up" aria-label="Caminar arriba">▲</button>
+          <button type="button" data-move="left" aria-label="Caminar a la izquierda">◀</button>
+          <button type="button" data-move="down" aria-label="Caminar abajo">▼</button>
+          <button type="button" data-move="right" aria-label="Caminar a la derecha">▶</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="radio-panel" aria-labelledby="radioTitle">
+      <div class="radio-header">
+        <div class="radio-knob" aria-hidden="true"></div>
+        <div>
+          <p>RADIO VECINAL · CH 6</p>
+          <h2 id="radioTitle">Lo que se dice</h2>
+        </div>
+        <span class="radio-light" aria-hidden="true"></span>
+      </div>
+      <div id="eventFeed" class="event-feed" aria-live="polite"></div>
+      <div class="radio-footer">
+        <span>▥</span>
+        <p>Prestá atención a quién insiste y quién verifica.</p>
+      </div>
+    </aside>
+
+    <section class="case-panel" aria-labelledby="caseTitle">
+      <div class="case-stamp" id="caseNumber">CASO 1/8</div>
+      <div class="case-copy">
+        <div class="case-meta"><span id="casePlace">MARKETPLACE</span><span id="caseChannel">CHAT DE COMPRA</span></div>
+        <h1 id="caseTitle">Bici usada, comprobante en camino</h1>
+        <p id="caseText"></p>
+        <div id="clueStrip" class="clue-strip" aria-label="Datos visibles"></div>
+      </div>
+      <div id="resolutionBox" class="resolution-box" hidden>
+        <p id="resolutionTitle"></p>
+        <span id="resolutionText"></span>
+        <button id="continueButton" type="button" class="game-button continue-button">SIGUIENTE MANDADO →</button>
+      </div>
+    </section>
+
+    <section id="actionsPanel" class="actions-panel" aria-labelledby="actionsTitle">
+      <div class="actions-heading">
+        <span id="actionsTitle">¿Qué hacés?</span>
+        <small>Elegí una carta</small>
+      </div>
+      <div id="actionCards" class="action-cards"></div>
+    </section>
+  </main>
+
+  <dialog id="roleDialog" class="paper-dialog role-dialog">
+    <div class="tape tape-center"></div>
+    <button class="dialog-x" type="button" data-close="roleDialog" aria-label="Cerrar">×</button>
+    <p class="dialog-kicker">NO LO MUESTRES</p>
+    <div id="roleSeal" class="role-seal">V</div>
+    <h2>Te tocó <span id="humanRole">Vecino</span></h2>
+    <p id="roleDescription">Hacé los mandados, verificá antes de mover plata y tratá de descubrir quién está metiendo presión.</p>
+    <div id="rolePartner" class="role-partner" hidden></div>
+    <div class="role-rule"><span></span>OBJETIVO<span></span></div>
+    <p id="roleObjective" class="role-objective">Llegar al final con el barrio seguro y la lista resuelta.</p>
+    <button class="game-button primary-paper" type="button" data-close="roleDialog">GUARDAR Y JUGAR</button>
+  </dialog>
+
+  <dialog id="missionDialog" class="paper-dialog mission-dialog">
+    <div class="tape tape-center"></div>
+    <p class="dialog-kicker">AGENDA PÚBLICA · RONDA <span id="missionRound">1</span></p>
+    <h2>¿Qué mandado hacés?</h2>
+    <p id="socialIdentity" class="social-identity"></p>
+    <p id="missionExplainer" class="mission-explainer">Elegí uno. Después vas a jugar cómo lo resolvés.</p>
+    <div id="missionChoices" class="mission-choices"></div>
+    <section id="missionActionPanel" class="mission-action-panel" hidden>
+      <small>ESCENA LEGÍTIMA</small>
+      <h3 id="missionActionTitle">¿Cómo lo resolvés?</h3>
+      <div id="missionActionChoices" class="mission-action-choices"></div>
+      <div id="missionOutcome" class="mission-outcome" aria-live="polite"></div>
+    </section>
+    <section id="strategyPanel" class="strategy-panel" hidden>
+      <small>SÓLO LO VES VOS · ESTRATEGIA PRIVADA</small>
+      <h3>¿Qué escondés detrás del mandado?</h3>
+      <div id="strategyChoices" class="strategy-choices"></div>
+      <div id="preparationChoices" class="preparation-choices"></div>
+      <div id="delegationChoices" class="delegation-choices"></div>
+    </section>
+    <button id="missionConfirmButton" class="game-button primary-paper" type="button" disabled>EMPEZAR LA RONDA</button>
+  </dialog>
+
+  <dialog id="meetingDialog" class="meeting-dialog">
+    <div class="meeting-banner">
+      <span>REUNIÓN DEL BARRIO</span>
+      <h2>¡A comer!</h2>
+      <p>Hubo cuatro movimientos. Puede que no haya ninguno armado o que se hayan cruzado dos.</p>
+    </div>
+    <div class="meeting-body">
+      <div class="meeting-notes-column">
+        <section class="suspicion-board">
+          <h3>Movimientos y evidencias</h3>
+          <ul id="suspiciousEvents"></ul>
+          <p class="board-note">Que algo sea urgente no lo vuelve falso. Compará datos, canales y quién evitó que verificaran.</p>
+        </section>
+        <section id="verifierPanel" class="verifier-panel" hidden aria-labelledby="verifierTitle">
+          <div class="verifier-heading">
+            <div><small>LIBRETA DEL VERIFICADOR</small><h3 id="verifierTitle">Pedí una explicación</h3></div>
+            <strong id="questionCounter">2</strong>
+          </div>
+          <p id="verifierInstruction">Elegí un vecino. Sólo podés hablar con dos personas distintas.</p>
+          <div id="interviewPeople" class="interview-people"></div>
+          <div id="questionOptions" class="question-options"></div>
+          <div id="interviewAnswer" class="interview-answer" aria-live="polite"></div>
+          <button id="closeNotebookButton" type="button" class="notebook-close">CERRAR LIBRETA Y VOTAR</button>
+        </section>
+      </div>
+      <section class="table-scene" aria-label="Mesa de votación">
+        <div class="meeting-table-wrap">
+          <div id="meetingSeats" class="meeting-seats"></div>
+          <div class="tablecloth">
+            <div class="mate mate-a">●</div><div class="mate mate-b">●</div>
+            <div class="bread">////</div><div class="plate plate-a"></div><div class="plate plate-b"></div>
+            <div class="napkin">✣</div><div class="soda">SODA</div>
+            <div class="salami-board" aria-label="Salame cortado sobre una tabla">
+              <div class="salami-piece"></div>
+              <i></i><i></i><i></i><i></i><i></i>
+              <div class="salami-knife"></div><b class="toothpick one"></b><b class="toothpick two"></b>
+            </div>
+            <span>UNA AUDITORÍA<br>POR SOBREMESA</span>
+          </div>
+        </div>
+        <div id="voteGrid" class="vote-grid"></div>
+      </section>
+    </div>
+    <div id="voteResult" class="vote-result" aria-live="polite"></div>
+    <div class="meeting-actions">
+      <button id="skipVoteButton" type="button" class="text-button">No auditar a nadie</button>
+      <button id="resumeButton" type="button" class="game-button resume-button" disabled>LEVANTAR LA MESA →</button>
+    </div>
+  </dialog>
+
+  <dialog id="alibiDialog" class="alibi-dialog">
+    <div class="tape tape-center"></div>
+    <div class="alibi-dialog-body">
+    <p class="dialog-kicker">TE PREGUNTÓ EL VERIFICADOR</p>
+    <h2 id="alibiQuestion">¿Qué hiciste durante la ronda?</h2>
+    <p>Elegí qué versión escucha toda la mesa. Las seis usan hechos que ocurrieron, pero no cubren igual los huecos.</p>
+    <div id="alibiChoices" class="alibi-choices"></div>
+    </div>
+  </dialog>
+
+  <dialog id="payoutDialog" class="paper-dialog payout-dialog">
+    <div class="tape tape-center"></div>
+    <p id="payoutKicker" class="dialog-kicker">ARREGLO ENTRE DOS</p>
+    <h2 id="payoutTitle">La plata quedó en manos del Cómplice</h2>
+    <p id="payoutText"></p>
+    <div id="payoutChoices" class="payout-choices"></div>
+  </dialog>
+
+  <dialog id="profileDialog" class="paper-dialog profile-dialog">
+    <button class="dialog-x" type="button" data-close="profileDialog" aria-label="Cerrar">×</button>
+    <p class="dialog-kicker">FICHA DEL BARRIO</p>
+    <h2 id="profileTitle">Marta</h2>
+    <div id="profileBody"></div>
+  </dialog>
+
+  <dialog id="pocketDialog" class="pocket-dialog" aria-labelledby="pocketTitle">
+    <header><div><small>BOLSILLO DE NICO</small><h2 id="pocketTitle">Billetera y libreta</h2></div><button id="pocketCloseButton" type="button" aria-label="Cerrar bolsillo">×</button></header>
+    <div class="pocket-body">
+    <div class="open-wallet">
+      <section class="wallet-half cash-half"><small>EFECTIVO</small><strong id="pocketCash">$ 0</strong><div class="drawn-bills" aria-hidden="true"><i></i><i></i><i></i></div><p id="pocketCashDetail"></p></section>
+      <section class="wallet-half bank-half"><small>BANCO</small><strong id="pocketBank">$ 0</strong><div class="drawn-card" aria-hidden="true">DÉBITO</div><p id="pocketBankDetail"></p></section>
+    </div>
+    <div class="pocket-grid"><section><small>MANDADO</small><b id="pocketMission"></b><p id="pocketNextStep"></p></section><section><small>BIENES Y PREPARATIVOS</small><div id="pocketAssets"></div></section><section class="pocket-notes"><small>LIBRITO · LO QUE ESCUCHASTE</small><ol id="pocketNotes"></ol></section></div>
+    </div>
+    <footer><span>I / ESC PARA GUARDAR</span><b id="pocketAvailable"></b></footer>
+  </dialog>
+
+  <dialog id="atmDialog" class="atm-dialog" aria-labelledby="atmTitle">
+    <div class="atm-machine"><div class="atm-sign">CAJERO DEL BARRIO</div><div class="atm-scroll"><button id="atmCloseButton" class="dialog-x" type="button" data-close="atmDialog" aria-label="Cerrar cajero">×</button><div class="atm-screen"><small>RETIRO EN EFECTIVO</small><h2 id="atmTitle">¿Cuánto sacás?</h2><p id="atmBalance"></p><div id="atmChoices" class="atm-choices"></div><label>OTRO MONTO<input id="atmCustomAmount" type="number" min="1000" step="1000" inputmode="numeric" placeholder="Ej: 25000"></label><button id="atmCustomButton" type="button">RETIRAR MONTO</button><p id="atmMessage" class="atm-message"></p></div><div class="atm-slot"><i></i><span>RECIBO</span></div><div class="atm-keypad" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+  </dialog>
+
+  <dialog id="judgmentDialog" class="judgment-dialog">
+    <header class="judgment-header">
+      <span>DESDE LA SEGUNDA RONDA</span>
+      <h2>Juicio final del barrio</h2>
+      <p>La auditoría de hoy dio limpia, pero quedó un daño anterior. Revisen coartadas, testigos y huecos.</p>
+    </header>
+    <div class="judgment-body">
+      <section class="judgment-ledger">
+        <h3>Lo que quedó asentado</h3>
+        <ol id="judgmentTimeline"></ol>
+      </section>
+      <section>
+        <h3>¿Quién armó el recorrido?</h3>
+        <p id="judgmentInstruction">Elegí una persona. Este voto termina la partida.</p>
+        <div id="judgmentVoteGrid" class="vote-grid judgment-votes"></div>
+      </section>
+    </div>
+  </dialog>
+
+  <dialog id="resultDialog" class="result-dialog">
+    <div id="resultFlag" class="result-flag" tabindex="-1">GANÓ EL BARRIO</div>
+    <div class="result-body">
+    <div class="result-grid">
+      <section>
+        <p class="dialog-kicker">CIERRE DE CAJA</p>
+        <h2 id="resultTitle">La plata quedó en el barrio.</h2>
+        <p id="resultSummary"></p>
+        <div class="final-score">
+          <div><strong id="finalSecurity">0</strong><span>seguridad</span></div>
+          <div><strong id="finalTrust">0</strong><span>confianza</span></div>
+          <div><strong id="finalTasks">0/8</strong><span>historias</span></div>
+        </div>
+        <h3>Se levantan los papelitos</h3>
+        <div id="roleReveal" class="role-reveal"></div>
+      </section>
+      <section class="replay-ticket">
+        <div class="ticket-holes" aria-hidden="true"></div>
+        <p>REPLAY DE SEÑALES</p>
+        <h3>Lo que pasó de largo</h3>
+        <ol id="replayList"></ol>
+        <div id="finalTip" class="final-tip">Pará un segundo. Verificar también es jugar.</div>
+      </section>
+    </div></div>
+    <div class="result-actions">
+      <button id="restartButton" type="button" class="game-button restart-button">JUGAR OTRA PARTIDA</button>
+      <button id="newCampaignButton" type="button" class="new-campaign-button">NUEVA CAMPAÑA</button>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js?v=20260731-c"></script>
+</body>
+</html>
