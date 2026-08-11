@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#263b2e">
   <meta name="description" content="Chamuyo, un party game de barrio para frenar estafas cotidianas.">
   <title>Chamuyo — Party game antiestafas</title>
-  <link rel="stylesheet" href="style.css?v=20260801-a">
+  <link rel="stylesheet" href="style.css?v=20260802-b">
 </head>
 <body>
   <svg class="sprite-sheet" aria-hidden="true" focusable="false" width="0" height="0">
@@ -280,7 +280,7 @@
       </div>
     </aside>
 
-    <section class="case-panel" aria-labelledby="caseTitle">
+    <section class="case-panel" aria-labelledby="caseTitle" hidden>
       <div class="case-stamp" id="caseNumber">CASO 1/8</div>
       <div class="case-copy">
         <div class="case-meta"><span id="casePlace">MARKETPLACE</span><span id="caseChannel">CHAT DE COMPRA</span></div>
@@ -295,7 +295,7 @@
       </div>
     </section>
 
-    <section id="actionsPanel" class="actions-panel" aria-labelledby="actionsTitle">
+    <section id="actionsPanel" class="actions-panel" aria-labelledby="actionsTitle" hidden>
       <div class="actions-heading">
         <span id="actionsTitle">¿Qué hacés?</span>
         <small>Elegí una carta</small>
@@ -408,6 +408,14 @@
     <div id="payoutChoices" class="payout-choices"></div>
   </dialog>
 
+  <dialog id="compensationDialog" class="paper-dialog compensation-dialog" aria-labelledby="compensationTitle">
+    <div class="tape tape-center"></div>
+    <p id="compensationKicker" class="dialog-kicker">MANDADO TERMINADO</p>
+    <h2 id="compensationTitle">Falta arreglar el pago</h2>
+    <p id="compensationText"></p>
+    <div id="compensationChoices" class="payout-choices compensation-choices"></div>
+  </dialog>
+
   <dialog id="profileDialog" class="paper-dialog profile-dialog">
     <button class="dialog-x" type="button" data-close="profileDialog" aria-label="Cerrar">×</button>
     <p class="dialog-kicker">FICHA DEL BARRIO</p>
@@ -482,6 +490,6 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=20260801-a"></script>
+  <script src="app.js?v=20260802-b"></script>
 </body>
 </html>

@@ -20,11 +20,8 @@
       scamClues: ["Sólo hay captura", "Cadete en camino", "Retiro antes de acreditar"],
       actions: [
         card("Esperar acreditación", "La bici sale cuando la plata figura en la cuenta.", "verify"),
-        card("Aceptar y coordinar mañana", "Tomar los datos y reservarla sin entregarla hoy.", "approve"),
-        card("Cancelar y bloquear", "Dar toda la operación por falsa.", "reject"),
-        card("Pedir otra mirada", "Mostrar captura y chat en la mesa.", "consult")
+        card("Aceptar y coordinar mañana", "Tomar los datos y reservarla sin entregarla hoy.", "approve")
       ],
-      scamMove: "Editar un comprobante", scamCaption: "Mandar la captura y apurar el retiro antes de que acrediten.",
       realSignal: "La demora era real: nadie exigía entregar y la transferencia terminó acreditando.",
       falseSignal: "La captura no correspondía a una transferencia emitida y el cadete era parte del apuro."
     },
@@ -37,11 +34,8 @@
       scamClues: ["Fotos sin detalle", "Dirección después de señar", "Mudanza hoy"],
       actions: [
         card("Ir a probarla", "Revisar frío, burletes y número de serie.", "verify"),
-        card("Reservar sin transferir", "Acordar horario y pagar al retirar.", "approve"),
-        card("Bajar la compra", "El precio bajo alcanza para descartarla.", "reject"),
-        card("Buscar las fotos", "Compararlas y consultar a otra persona.", "consult")
+        card("Reservar sin transferir", "Acordar horario y pagar al retirar.", "approve")
       ],
-      scamMove: "Cobrar una seña fantasma", scamCaption: "Usar fotos ajenas y pedir una reserva antes de dar dirección.",
       realSignal: "La urgencia era una mudanza real; se podía probar y pagar recién al retirar.",
       falseSignal: "Las fotos eran de otra publicación y la dirección dependía de pagar primero."
     },
@@ -54,11 +48,8 @@
       scamClues: ["Contacto informal", "Dominio casi igual", "Validación con código"],
       actions: [
         card("Revisar desde la app", "Entrar sin usar el link que llegó.", "verify"),
-        card("Esperar el mantenimiento", "No mover nada hasta las 18.", "approve"),
-        card("Acusar al que avisó", "Tratar el aviso como una maniobra.", "reject"),
-        card("Llamar al número oficial", "Confirmar la demora por cuenta propia.", "consult")
+        card("Esperar el mantenimiento", "No mover nada hasta las 18.", "approve")
       ],
-      scamMove: "Mandar un acceso gemelo", scamCaption: "Compartir un sitio parecido al banco para capturar el código.",
       realSignal: "El mantenimiento constaba en la app y la demora se resolvió sin entregar datos.",
       falseSignal: "El dominio tenía una letra cambiada y el código autorizaba un acceso nuevo."
     },
@@ -71,11 +62,8 @@
       scamClues: ["Sabe datos de la familia", "Evita llamadas", "Alias de otra persona"],
       actions: [
         card("Hacer videollamada", "Confirmar cara y contexto antes de pagar.", "verify"),
-        card("Pagar el remedio directo", "Llamar a la farmacia y abonarlo ahí.", "approve"),
-        card("Bloquear el número", "No dar lugar a ninguna explicación.", "reject"),
-        card("Llamar al número anterior", "Cruzar la historia por otro canal.", "consult")
+        card("Pagar el remedio directo", "Llamar a la farmacia y abonarlo ahí.", "approve")
       ],
-      scamMove: "Imitar al familiar", scamCaption: "Usar datos del grupo y mandar un alias prestado con urgencia.",
       realSignal: "El cambio de número era real y aceptó verificar sin controlar el canal ni el pago.",
       falseSignal: "Los detalles estaban en redes; evitó la llamada y el alias no tenía relación con la familia."
     },
@@ -88,11 +76,8 @@
       scamClues: ["Ubicación aproximada", "No hay video", "Otra familia espera"],
       actions: [
         card("Pedir recorrido en vivo", "Ver fachada, calle y entrada en la misma llamada.", "verify"),
-        card("Reservar con protección", "Pagar sólo dentro de la plataforma.", "approve"),
-        card("Denunciar la publicación", "Asumir que el descuento es falso.", "reject"),
-        card("Llamar a un comercio cercano", "Confirmar dirección y referencias.", "consult")
+        card("Reservar con protección", "Pagar sólo dentro de la plataforma.", "approve")
       ],
-      scamMove: "Señar una cabaña ajena", scamCaption: "Copiar fotos y cobrar la reserva fuera de la plataforma.",
       realSignal: "La cancelación existía, la dirección coincidía y el pago nunca salió de la plataforma.",
       falseSignal: "La ubicación era imprecisa y la seña iba a una cuenta sin relación con el alojamiento."
     },
@@ -105,11 +90,8 @@
       scamClues: ["Entrevista por chat", "Pagar para entrar", "Recibir plata ajena"],
       actions: [
         card("Comprobar empresa y dominio", "Llamar al contacto publicado en su web.", "verify"),
-        card("Hacer la entrevista", "Avanzar sin pagar ni prestar la cuenta.", "approve"),
-        card("Reportar la búsqueda", "Dar por falsa toda oferta urgente.", "reject"),
-        card("Consultar a alguien del rubro", "Comparar proceso y condiciones.", "consult")
+        card("Hacer la entrevista", "Avanzar sin pagar ni prestar la cuenta.", "approve")
       ],
-      scamMove: "Vender una capacitación", scamCaption: "Cobrar el curso y usar cuentas ajenas para mover transferencias.",
       realSignal: "La empresa existía, entrevistaba por canales propios y cubría todos los gastos.",
       falseSignal: "El curso era el cobro y la cuenta del postulante iba a quedar como puente."
     },
@@ -122,11 +104,8 @@
       scamClues: ["Sticker sobre otro", "Alias personal", "Cambio de cuenta hoy"],
       actions: [
         card("Confirmar el alias en caja", "Leer destinatario y monto en voz alta.", "verify"),
-        card("Pagar desde el ticket", "Usar el QR impreso en la cuenta.", "approve"),
-        card("Cancelar todo el almuerzo", "No pagar hasta otro día.", "reject"),
-        card("Guardar foto del QR", "Compararlo con el que tiene la cajera.", "consult")
+        card("Pagar desde el ticket", "Usar el QR impreso en la cuenta.", "approve")
       ],
-      scamMove: "Cambiar el QR", scamCaption: "Pegar un código propio sobre el del comercio y cobrar la mesa.",
       realSignal: "El destinatario coincidía con el ticket y la caja confirmó el pago.",
       falseSignal: "Había un adhesivo encima del QR original y el alias era una cuenta personal."
     },
@@ -139,11 +118,8 @@
       scamClues: ["Factura borrosa", "Reserva primero", "No muestra IMEI"],
       actions: [
         card("Revisar IMEI y equipo", "Probarlo en persona antes de pagar.", "verify"),
-        card("Coordinar en la plaza", "Cerrar hoy, pero cara a cara.", "approve"),
-        card("Bloquear al vendedor", "Tomar el viaje como presión falsa.", "reject"),
-        card("Comprobar la factura", "Llamar al comercio que figura en ella.", "consult")
+        card("Coordinar en la plaza", "Cerrar hoy, pero cara a cara.", "approve")
       ],
-      scamMove: "Cobrar una reserva", scamCaption: "Usar factura borrosa y desaparecer después de la seña.",
       realSignal: "El viaje era real, pero nunca impidió probar el equipo ni revisar su origen.",
       falseSignal: "La reserva era el objetivo; no había equipo ni IMEI para comprobar."
     }
@@ -208,6 +184,61 @@
     }
   };
 
+  const SCENARIO_DIALOGUE_COPY = {
+    bike: {
+      legit: "Mi banco está lento. No entregues nada hasta verlo, cero problema.",
+      scam: "A mí me figura emitida. Igual, si quieren esperamos un ratito."
+    },
+    fridge: {
+      legit: "Me urge por la mudanza, pero vení a probarla antes.",
+      scam: "No tengo cómo filmarla ahora, pero las fotos son de ayer."
+    },
+    bank: {
+      legit: "Lo vi dentro de la app. Mejor que cada uno entre por su cuenta.",
+      scam: "El enlace me lo pasó alguien que trabaja ahí, por eso confío."
+    },
+    family: {
+      legit: "Hagamos videollamada; perdí el celu, no la cara.",
+      scam: "Después llamo tranquilo; ahora necesito resolver esto."
+    },
+    rental: {
+      legit: "Se cayó una reserva. Si quieren, el vecino abre la cabaña.",
+      scam: "La otra familia todavía no confirmó. No quiero apurarlos, pero avisen."
+    },
+    job: {
+      legit: "Necesitan cubrirlo ya, pero la empresa paga la capacitación.",
+      scam: "El curso se recupera rápido; a un conocido le funcionó."
+    },
+    qr: {
+      legit: "Antes de pagar, comparemos el alias con el ticket.",
+      scam: "La cajera me dijo que hoy cambiaron el alias."
+    },
+    phone: {
+      legit: "Viajo mañana. Lo probamos hoy y me pagás ahí.",
+      scam: "No muestro el IMEI por chat, en persona sí. Con una reserva lo guardo."
+    }
+  };
+
+  const NEIGHBOR_COMMENT_COPY = [
+    "La urgencia sola no prueba nada. Miremos qué deja verificar.",
+    "Yo no lo descartaría, pero tampoco movería plata todavía.",
+    "Puede ser real. Lo que no entiendo es por qué ese canal.",
+    "Hay un detalle raro, aunque el resto cierra bastante.",
+    "A mí me pasó algo parecido y era legítimo. Igual revisemos."
+  ];
+
+  const ROLE_COMMENT_COPY = {
+    accomplice: "Tiene detalles concretos. Capaz estamos desconfiando de más.",
+    verifier: "No decidamos por el apuro: confirmemos una cosa por otro canal."
+  };
+
+  const DECISION_REACTION_COPY = {
+    fraudExecute: "Eso no sonó a mandado. Anotemos quién tenía ese recurso.",
+    approve: "Anotemos qué dato dimos por bueno.",
+    reject: "Puede ser, pero no toda urgencia es chamuyo.",
+    consult: "Bien. Una comprobación concreta vale más que una corazonada."
+  };
+
   const SOCIAL_PROFILES = [
     { id: "store", label: "almacenero/a", place: "el almacén" },
     { id: "delivery", label: "cadete", place: "los repartos" },
@@ -269,6 +300,14 @@
     "Terrible olor. Prendé fuego las zapatillas, hacé algo.",
     "Pará un poco… dejaste media vereda en la suela.",
     "No te acerques tanto. Primero buscá un charco."
+  ];
+  const ACCOMPLICE_EXCUSE_TEMPLATES = [
+    { id: "mission-cost", template: "Entre {mission} y mover {resource} hoy quedé muy justo.", render: ({ mission, resource }) => `Entre ${mission} y mover ${resource} hoy quedé muy justo.` },
+    { id: "bank-cost", template: "Tuve que pasar por {place} y cubrir gastos para que esto no quede regalado.", render: ({ place }) => `Tuve que pasar por ${place} y cubrir gastos para que esto no quede regalado.` },
+    { id: "next-round", template: "La guardé para preparar la próxima vuelta. Quedate atento y no la quemes.", render: () => "La guardé para preparar la próxima vuelta. Quedate atento y no la quemes." },
+    { id: "still-unclear", template: "Todavía no sé cuánto quedó limpio; primero tengo que ordenar los comprobantes.", render: () => "Todavía no sé cuánto quedó limpio; primero tengo que ordenar los comprobantes." },
+    { id: "plan-fell", template: "Se cayó la idea que tenía y tuve que volver a poner la plata en el mandado.", render: () => "Se cayó la idea que tenía y tuve que volver a poner la plata en el mandado." },
+    { id: "material-first", template: "Estoy preparando algo con {resource}; si lo reparto ahora, perdemos la próxima oportunidad.", render: ({ resource }) => `Estoy preparando algo con ${resource}; si lo reparto ahora, perdemos la próxima oportunidad.` }
   ];
   const ROUTE_PRIORITY = { encounter: 100, counterpart: 80, settlement: 70, story: 60, agenda: 40, gossip: 20 };
   const ENTITY_BASE = 100;
@@ -343,7 +382,7 @@
       mission("bank-open-account", "Abrir una cuenta para cobrar un trabajo", "Abrí una cuenta para recibir un sueldo.", "No terminé el alta porque faltaba validar la identidad.", "el banco", "cuenta")
     ],
     family: [
-      mission("family-line", "Ayudar con un teléfono nuevo", "Acompañé el cambio de línea y guardé el número nuevo.", "No compramos el teléfono porque no pudimos comprobar el titular.", "el comedor familiar", "teléfono", { type: "income", amount: 25000 }),
+      mission("family-line", "Ayudar con un teléfono nuevo", "Acompañé el cambio de línea y guardé el número nuevo.", "No compramos el teléfono porque no pudimos comprobar el titular.", "el comedor familiar", "teléfono", { type: "income", amount: 8000 }),
       mission("family-medicine", "Comprar los remedios de Marta", "Compré los remedios y se los llevé a Marta.", "La compra quedó pendiente y Marta conservó el adelanto.", "la farmacia", "remedio", { type: "medicine-errand", productCost: 48000, serviceFee: 15000 })
     ],
     rental: [
@@ -363,6 +402,54 @@
       mission("phone-sell", "Vender un celular usado en Usados", "El comprador revisó factura, IMEI y equipo antes de pagar.", "La venta quedó pendiente porque el comprador no llegó o el IMEI no cerró.", "el puesto de usados", "celular", { type: "sell", assetType: "phone", amount: 260000 })
     ]
   };
+
+  // Define por qué alguien paga. Las compras, ventas y gestiones propias quedan
+  // fuera de esta tabla: allí el dinero pertenece a la operación, no a un
+  // supuesto "premio" por completar el mandado.
+  const MISSION_COMPENSATION = {
+    "bike-test":       { kind: "contract", requesterId: "luli", amount: 25000, reason: "la revisión de cuadro, frenos y número" },
+    "bike-carry":      { kind: "contract", requesterId: "luli", amount: 40000, reason: "el traslado de la bicicleta" },
+    "fridge-review":   { kind: "contract", requesterId: "luli", amount: 45000, reason: "la visita y el diagnóstico de la heladera" },
+    "fridge-delivery": { kind: "contract", requesterId: "raul", amount: 40000, reason: "el traslado de la heladera" },
+    "job-shift":       { kind: "contract", requesterId: "tano", amount: 45000, reason: "el turno administrativo terminado" },
+    "qr-pickup":       { kind: "contract", requesterId: "raul", amount: 30000, reason: "el retiro y la entrega de la tanda" },
+    "qr-delivery":     { kind: "contract", requesterId: "luli", amount: 30000, reason: "el reparto y la rendición de sobrantes" },
+    "bank-delay":      { kind: "favor", requesterId: "tano", amount: 8000, reason: "la ayuda con el reclamo bancario" },
+    "family-line":     { kind: "favor", requesterId: "marta", amount: 8000, reason: "la ayuda con la línea nueva" },
+    "family-medicine": { kind: "favor", requesterId: "marta", amount: 15000, reason: "el viaje y la compra de los remedios" }
+  };
+
+  const MISSION_CONTEXT = {
+    "bike-test":       { kind: "contract", requester: "Luli", motive: "necesita una bici segura para los repartos", closure: "entregar el informe y acordar el cobro" },
+    "bike-carry":      { kind: "contract", requester: "Luli", motive: "necesita llevar la bici de Usados al almacén", closure: "entregarla sin daños y obtener conformidad" },
+    "fridge-review":   { kind: "contract", requester: "Luli", motive: "quiere saber si la heladera vale lo que piden", closure: "entregar un diagnóstico verificable" },
+    "fridge-buy":      { kind: "own", requester: "Nico", motive: "quiere comprar una heladera para trabajar", closure: "pagar, recibir el bien y transferir su propiedad" },
+    "fridge-delivery": { kind: "contract", requester: "Don Raúl", motive: "la protectora necesita recibir la heladera sin golpes", closure: "entregarla y obtener conformidad" },
+    "fridge-sell":     { kind: "own", requester: "Nico", motive: "quiere vender un bien propio para completar el auto", closure: "cobrar acreditado y entregar la heladera" },
+    "bank-delay":      { kind: "favor", requester: "Tano", motive: "está por reservar algo y no quiere equivocarse", closure: "volver con el estado y el reclamo oficial" },
+    "bank-open-account": { kind: "own", requester: "Nico", motive: "necesita una cuenta propia para cobrar un empleo", closure: "obtener el alta y sus condiciones" },
+    "family-line":     { kind: "favor", requester: "Marta", motive: "se mareó con la línea nueva y quiere confirmar el titular", closure: "volver con número y constancia validados" },
+    "family-medicine": { kind: "favor", requester: "Marta", motive: "no puede salir a buscar sus remedios", closure: "entregar remedios, ticket y rendición" },
+    "rental-local":    { kind: "favor", requester: "Luli", motive: "evalúa ampliar el almacén", closure: "volver con contrato, medidas y costos; sin pago acordado" },
+    "rental-home":     { kind: "own", requester: "Nico", motive: "busca una vivienda para mudarse", closure: "reservar con respaldo o dejar asentada la visita" },
+    "job-interview":   { kind: "own", requester: "Nico", motive: "busca un empleo verdadero", closure: "recibir una propuesta verificada; sin cobrar hoy" },
+    "job-shift":       { kind: "contract", requester: "Tano", motive: "necesita que alguien cubra una carga administrativa", closure: "entregar el lote firmado y elegir cómo cobrar" },
+    "qr-pickup":       { kind: "contract", requester: "Don Raúl", motive: "la protectora necesita retirar una tanda legítima", closure: "entregar paquetes y remito" },
+    "qr-delivery":     { kind: "contract", requester: "Luli", motive: "la colecta necesita cubrir sus puntos del barrio", closure: "rendir firmas y sobrantes" },
+    "phone-buy":       { kind: "own", requester: "Nico", motive: "necesita un celular para trabajar", closure: "pagar y recibir equipo, caja y factura" },
+    "phone-sell":      { kind: "own", requester: "Nico", motive: "quiere vender un celular propio", closure: "cobrar acreditado y transferir el equipo" }
+  };
+
+  function missionContextFor(mission) {
+    return MISSION_CONTEXT[mission?.id] || { kind: "own", requester: "Nico", motive: "resolver una gestión personal", closure: "dejar el resultado asentado" };
+  }
+
+  function compensationForMission(mission, option = null) {
+    const base = MISSION_COMPENSATION[mission?.id];
+    if (!base) return null;
+    const requester = PLAYERS.find(player => player.id === base.requesterId);
+    return { ...base, amount: mission.id === "family-medicine" ? (option?.serviceFee || base.amount) : base.amount, requesterName: requester?.name || "La contraparte" };
+  }
 
   const PROFILE_AFFINITIES = {
     store: ["bike", "fridge", "rental", "qr"], delivery: ["bike", "qr", "phone"], shelter: ["fridge", "qr", "family"],
@@ -498,7 +585,7 @@
           missionOption({
             id: "medicine-normal",
             label: "Comprar al precio de lista",
-            caption: "Usás el adelanto exacto y cobrás sólo el honorario.",
+            caption: "Usás el adelanto exacto. Marta ofrece el honorario recién cuando entregás remedios y ticket.",
             result: "verified",
             money: 15000,
             payment: missionPayment({ advance: 48000, productCost: 48000, serviceFee: 15000, requiredBank: 0 }),
@@ -537,7 +624,7 @@
           missionOption({
             id: "medicine-generic",
             label: "Llevar marca equivalente",
-            caption: "Resolvés el mandado, devolvés el ahorro y te queda el jornal limpio.",
+            caption: "Resolvés el mandado y devolvés el ahorro. El honorario se ofrece al final.",
             result: "verified",
             money: 15000,
             payment: missionPayment({ advance: 48000, productCost: 36000, serviceFee: 15000, refund: 12000, requiredBank: 0 }),
@@ -775,38 +862,26 @@
       }),
       missionCancelOption(item, { label: "Dejar publicada la venta", caption: "No entra plata. Queda la publicación activa y la visita.", evidence: "Publicación activa", socialRisk: "Bajo" })
     ];
-    if (item.economy?.type === "income") return [
+    const compensation = compensationForMission(item);
+    if (compensation && item.id !== "family-medicine") return [
       missionOption({
         id: "receipt",
-        label: "Hacer el trabajo con recibo",
-        caption: `El cliente paga ${formatMoney(amount)} y queda el servicio firmado.`,
+        label: compensation.kind === "contract" ? "Aceptar el encargo" : "Dar una mano",
+        caption: compensation.kind === "contract"
+          ? `${compensation.requesterName} acuerda ${formatMoney(compensation.amount)} por ${compensation.reason}. Elegís cómo cobrar recién al terminar.`
+          : `${compensation.requesterName} te pide el favor. Al volver puede ofrecerte ${formatMoney(compensation.amount)} como agradecimiento.`,
         result: "verified",
-        money: amount,
-        payment: missionPayment({ bankDelta: amount }),
-        benefit: missionBenefit("income", "Te deja el jornal completo.", amount),
-        evidence: ["Recibo firmado", "Cliente identificable"],
-        evidenceText: "Recibo firmado",
+        money: 0,
+        payment: missionPayment(),
+        benefit: missionBenefit(compensation.kind === "contract" ? "fee" : "tip", `${compensation.kind === "contract" ? "Honorario acordado" : "Propina optativa"} de ${formatMoney(compensation.amount)} al cierre.`, compensation.amount),
+        evidence: [compensation.kind === "contract" ? "Encargo verbal" : "Pedido del vecino", "Contraparte identificada"],
+        evidenceText: compensation.kind === "contract" ? "Encargo verbal" : "Pedido del vecino",
         risk: missionRisk("Bajo", "Bajo"),
         riskLabel: "Bajo / Bajo",
-        steps: [place, "banco"],
-        paymentChannel: "bank"
-      }),
-      missionOption({
-        id: "cash",
-        label: "Cobrar de palabra",
-        caption: `Cobrás ${formatMoney(Math.round(amount * 1.1))} en efectivo y resolvés más rápido.`,
-        result: "informal",
-        money: Math.round(amount * 1.1),
-        payment: missionPayment({ cashDelta: Math.round(amount * 1.1) }),
-        benefit: missionBenefit("income", "Te deja un plus por cerrar informal.", Math.round(amount * .1)),
-        evidence: ["Testigo", "Charla con el cliente"],
-        evidenceText: "Testigo",
-        risk: missionRisk("Bajo", "Medio"),
-        riskLabel: "Bajo / Medio",
         steps: [place],
-        paymentChannel: "cash"
+        paymentChannel: "deferred"
       }),
-      missionCancelOption(item, { label: "Suspender el trabajo", caption: "No cobrás. Quedan el traslado, la hora y el motivo.", evidence: "Registro de visita", socialRisk: "Medio" })
+      missionCancelOption(item, { label: compensation.kind === "contract" ? "No aceptar el encargo" : "Decir que hoy no podés", caption: "No se mueve plata. Quedan la charla, la hora y el motivo.", evidence: "Conversación con la contraparte", socialRisk: "Medio" })
     ];
     return [
       missionOption({
@@ -843,6 +918,7 @@
     ];
   }
   function optionPocketLabel(option) {
+    if (option.paymentChannel === "deferred") return "COBRO A ELEGIR AL FINAL";
     if (option.paymentChannel === "cash") return option.payment.requiredCash ? `EFECTIVO ${formatMoney(option.payment.requiredCash)}` : "EFECTIVO";
     if (option.paymentChannel === "bank") return option.payment.requiredBank ? `BANCO ${formatMoney(option.payment.requiredBank)}` : "BANCO";
     if (option.paymentChannel === "none") return "NO MUEVE PLATA";
@@ -916,7 +992,7 @@
     alibiDialog: $("#alibiDialog"), alibiQuestion: $("#alibiQuestion"), alibiChoices: $("#alibiChoices"),
     judgmentDialog: $("#judgmentDialog"), judgmentTimeline: $("#judgmentTimeline"), judgmentVoteGrid: $("#judgmentVoteGrid"), judgmentInstruction: $("#judgmentInstruction"),
     villageMap: $("#villageMap"), villageWorld: $("#villageWorld"), locationLabel: $("#locationLabel"), campaignLabel: $("#campaignLabel"), dialogueNote: $("#dialogueNote"),
-    objectiveMarker: $("#objectiveMarker"), interactionPrompt: $("#interactionPrompt"), errandSlip: $("#errandSlip"), errandSlipToggle: $("#errandSlipToggle"), slipMission: $("#slipMission"), slipStep: $("#slipStep"), slipDestination: $("#slipDestination"), slipCounterpart: $("#slipCounterpart"), slipAction: $("#slipAction"), slipMoney: $("#slipMoney"), slipEvidence: $("#slipEvidence"), slipNext: $("#slipNext"), payoutDialog: $("#payoutDialog"), payoutKicker: $("#payoutKicker"),
+    objectiveMarker: $("#objectiveMarker"), interactionPrompt: $("#interactionPrompt"), errandSlip: $("#errandSlip"), errandSlipToggle: $("#errandSlipToggle"), slipMission: $("#slipMission"), slipStep: $("#slipStep"), slipDestination: $("#slipDestination"), slipCounterpart: $("#slipCounterpart"), slipAction: $("#slipAction"), slipMoney: $("#slipMoney"), slipEvidence: $("#slipEvidence"), slipNext: $("#slipNext"), compensationDialog: $("#compensationDialog"), compensationKicker: $("#compensationKicker"), compensationTitle: $("#compensationTitle"), compensationText: $("#compensationText"), compensationChoices: $("#compensationChoices"), payoutDialog: $("#payoutDialog"), payoutKicker: $("#payoutKicker"),
     payoutTitle: $("#payoutTitle"), payoutText: $("#payoutText"), payoutChoices: $("#payoutChoices"), profileDialog: $("#profileDialog"),
     profileTitle: $("#profileTitle"), profileBody: $("#profileBody"), newCampaignButton: $("#newCampaignButton")
   };
@@ -925,14 +1001,14 @@
     security: 68, trust: 64, progress: 0, scenarioIndex: 0, completed: 0, currentResolved: false,
     timer: DECISION_SECONDS, timerId: null, dayTimer: DEBUG_DAY_SECONDS, dayTimerId: null, dayStartedAt: 0, dayExpired: false, storiesReady: false, roles: {}, scenarios: [], roundStories: [], decisions: [],
     ignoredSignals: [], audited: new Set(), suspicion: {}, scammerFrozen: false, scamAttempts: 0, scamScore: 0,
-    meetings: 0, roundNumber: 0, templateQueue: [], dialogueLog: [], questionsRemaining: 0, botQuestionCompleted: false,
+    meetings: 0, roundNumber: 0, templateQueue: [], dialogueLog: [], activeUtterances: [], questionsRemaining: 0, botQuestionCompleted: false,
     questionedPlayers: new Set(), currentInterrogation: null, fraudProgress: 0, gameOver: false, accompliceFrozen: false,
     socialProfiles: {}, motivations: {}, roundRecords: {}, pendingMissionPair: [], selectedMission: null,
     selectedStrategy: null, selectedMissionAction: null, selectedMissionOption: null, selectedPreparation: null, selectedDelegation: "keep", pendingAlibi: null,
     fraudOccurred: false, pendingJudgment: false, judgmentHistory: [], inventories: {}, fraudExecutions: [], opportunityByScenario: {},
-    campaign: null, accompliceDeals: [], pendingPayout: null, pendingEncounter: null, pendingConfrontation: null, falseClosing: false,
+    campaign: null, accompliceDeals: [], pendingPayout: null, pendingEncounter: null, pendingConfrontation: null, pendingCompensation: null, falseClosing: false,
     botMissionRounds: new Set(),
-    movement: { positions: {}, path: [], activeBotRoute: {}, botRouteQueues: {}, keys: new Set(), camera: { x: 0, y: 0 }, lastTime: 0, rafId: 0, objective: null, arrivalCallback: null, nearLocation: null },
+    movement: { positions: {}, path: [], activeBotRoute: {}, botRouteQueues: {}, botHolds: {}, keys: new Set(), camera: { x: 0, y: 0 }, lastTime: 0, rafId: 0, objective: null, arrivalCallback: null, nearLocation: null },
     agendas: {}, humanAgenda: null, errandSlip: { visible: true, missionId: null, stepIndex: 0, savedAt: 0 }, activeCounterpart: null, observations: [], gossip: null, animals: [], residues: [], lastAnimalTick: 0, lastAnimalTextTime: 0,
     dirtyShoe: { active: false, incidentId: 0, until: 0, nearbyBots: {} },
     atmUI: { open: false, mode: "free" },
@@ -945,6 +1021,7 @@
   };
 
   const botRouteCallbacks = new Map();
+  const botHoldTimers = new Map();
   let botRouteSequence = 0;
 
   function makeId(prefix) { return `${prefix}-${Date.now().toString(36)}-${Math.floor(random() * 99999).toString(36)}`; }
@@ -1370,12 +1447,12 @@
     state.gossip = { playerId: gossip.id, round, reliability: .45 + random() * .35, influence: GOSSIP_VOTE_WEIGHT, rumor: null };
   }
 
-  function resolveBotMission(playerId, round, forcedResult = null) {
+  function resolveBotMission(playerId, round, forcedResult = null, chosenOverride = null) {
     const record = roundRecord(playerId, round);
     if (!record || record.missionResolution !== "pending") return;
     const options = missionOptions(record.publicMission).filter(option => canAffordMissionOption(playerId, option));
     const preferred = forcedResult ? options.find(option => option.result === forcedResult) : null;
-    const chosen = preferred || options[Math.floor(random() * Math.max(1, options.length))] || missionOptions(record.publicMission).at(-1);
+    const chosen = chosenOverride || preferred || options[Math.floor(random() * Math.max(1, options.length))] || missionOptions(record.publicMission).at(-1);
     const result = chosen.result;
     const fact = result === "cancelled" ? record.publicMission.attemptedFact : result === "informal"
       ? `${record.publicMission.completedFact} El acuerdo quedó de palabra.` : record.publicMission.completedFact;
@@ -1387,6 +1464,7 @@
     record.timeline.push({ order: record.timeline.length + 1, text: fact, observable: true, time: Date.now() });
     applyMissionOptionEconomy(record.publicMission, chosen, playerId);
     state.transport.send("mission:resolved", { playerId, missionId: record.publicMission.scenarioId, result, round });
+    if (state.agendas[playerId]) state.agendas[playerId].status = "done";
     if (state.roles[playerId] === "Estafador" && record.strategy === "publica") setupBotScammerTurn(playerId, round);
     refreshDinnerGate("bot-mission");
   }
@@ -1404,13 +1482,49 @@
       const record = roundRecord(player.id, round);
       window.setTimeout(() => {
         if (!record || state.gameOver || episodeToken !== state.episodeToken) return;
-        record.timeline.push({ order: 1, text: `Salió rumbo a ${record.publicMission.location}.`, observable: true, time: Date.now() });
-        enqueueBotRoute(player.id, record.publicMission.location, { purpose: "agenda", stableKey: `mission:${round}:${record.publicMission.id}`, note: `${player.name} llegó por: ${record.publicMission.text}`, callback: () => {
-          if (episodeToken !== state.episodeToken) return;
-          resolveBotMission(player.id, round);
-          if (state.gossip?.round === round && state.gossip.playerId === player.id) scheduleGossipWalk(player.id, round);
-        } });
+        const options = missionOptions(record.publicMission).filter(option => canAffordMissionOption(player.id, option));
+        const chosen = options[Math.floor(random() * Math.max(1, options.length))] || missionOptions(record.publicMission).at(-1);
+        const blueprints = missionBlueprints(record.publicMission, chosen);
+        const account = state.campaign.economy[player.id];
+        if ((chosen.payment?.requiredCash || 0) > account.cash) {
+          blueprints.unshift({ kind: "atm", semanticKind: "atm", location: "banco", counterpartId: null, counterpartName: "cajero del barrio", counterpartRole: "cajero", actionLabel: "retirar efectivo para el mandado", counterpartLine: "", playerLine: "Retiro el efectivo necesario y vuelvo al trato.", evidence: ["Comprobante de retiro"], effect: "none" });
+        }
+        const steps = blueprints.map((blueprint, stepIndex) => makeAgendaStep(record.publicMission, chosen, blueprint, stepIndex, round));
+        state.agendas[player.id] = { mission: record.publicMission, option: chosen, steps, index: 0, round, status: "active" };
+        record.timeline.push({ order: 1, text: `Salió rumbo a ${steps[0]?.location || record.publicMission.location}.`, observable: true, time: Date.now() });
+        scheduleBotAgendaStep(player.id, round, chosen, 0, episodeToken);
       }, 180 + index * 180);
+    });
+  }
+
+  function scheduleBotAgendaStep(playerId, round, chosen, stepIndex, episodeToken) {
+    const agenda = state.agendas[playerId];
+    const player = PLAYERS.find(item => item.id === playerId);
+    const step = agenda?.steps[stepIndex];
+    if (!agenda || !player || episodeToken !== state.episodeToken) return;
+    if (!step) {
+      resolveBotMission(playerId, round, null, chosen);
+      if (state.gossip?.round === round && state.gossip.playerId === playerId) scheduleGossipWalk(playerId, round);
+      return;
+    }
+    enqueueBotRoute(playerId, step.location, {
+      purpose: "agenda",
+      stableKey: `mission:${round}:${agenda.mission.id}:${stepIndex}`,
+      note: `${player.name} llegó para ${step.actionLabel}`,
+      callback: () => {
+        if (episodeToken !== state.episodeToken) return;
+        step.status = "done";
+        if (step.kind === "atm") {
+          const account = state.campaign.economy[playerId];
+          const targetCash = chosen.payment?.requiredCash || 0;
+          withdrawCash(playerId, Math.max(0, targetCash - account.cash), `Retiro para ${agenda.mission.text}`);
+        }
+        step.effectApplied = step.effect === "none";
+        agenda.index = stepIndex + 1;
+        recordVisit(playerId, step.location, `Paso ${stepIndex + 1}: ${agenda.mission.text}`);
+        if (step.playerLine) speak(playerId, step.playerLine, "bot-mission-step", agenda.mission.scenarioId, `${step.copyId}-BOT`);
+        window.setTimeout(() => scheduleBotAgendaStep(playerId, round, chosen, stepIndex + 1, episodeToken), QA_MODE ? 30 : 450);
+      }
     });
   }
 
@@ -1438,7 +1552,7 @@
     state.gossip.rumor = `Salí a barrer por ${cleanLocation(place)} y vi a ${names[0]} charlando con ${names[1]} sobre ${topics[Math.floor(random() * topics.length)]}. Capaz no era nada, qué sé yo.`;
     state.observations.push({ id: makeId("obs"), observerId: playerId, participants: names, location: place, reliability: state.gossip.reliability, round, kind: "rumor", text: state.gossip.rumor });
     state.transport.send("rumor:reported", { observerId: playerId, location: place, round });
-    speak(playerId, "Yo vi movimiento por acá. Después cuento en la mesa.", "gossip");
+    speak(playerId, "Yo vi movimiento por acá. Después cuento en la mesa.", "gossip", state.scenarios[state.scenarioIndex]?.id, "INT-RUMOR-OBSERVER-REPORT");
   }
 
   function compatibleMissions(playerId) {
@@ -1457,25 +1571,19 @@
   function missionMoneyPreview(item) {
     const options = missionOptions(item).filter(option => option.result !== "cancelled");
     if (item.id === "family-medicine") return `ADELANTO ${formatMoney(48000)} · HONORARIO ${formatMoney(15000)} · AHORRO POSIBLE ${formatMoney(18000)}`;
+    const compensation = compensationForMission(item);
+    if (compensation) return `${compensation.kind === "contract" ? "ENCARGO DE" : "FAVOR PARA"} ${compensation.requesterName.toUpperCase()} · ${compensation.kind === "contract" ? "HONORARIO" : "PROPINA POSIBLE"} ${formatMoney(compensation.amount)} · AL FINAL`;
     const positive = options.find(option => option.money > 0);
     if (positive) return positive.benefit?.text?.toUpperCase() || `INGRESO POSIBLE ${formatMoney(positive.money)}`;
     const cost = options.find(option => option.money < 0);
     if (cost) return cost.benefit?.text?.toUpperCase() || `GASTO DESDE ${formatMoney(Math.abs(cost.money))}`;
-    return options[0]?.benefit?.text?.toUpperCase() || "TRÁMITE · SIN INGRESO AUTOMÁTICO";
+    const context = missionContextFor(item);
+    return `${context.kind === "own" ? "GESTIÓN PROPIA" : "FAVOR SIN PAGO ACORDADO"} · SIN INGRESO AUTOMÁTICO`;
   }
 
   function missionRoute(item) {
-    const routes = {
-      "phone-sell": "PUESTO DE USADOS → VER IMEI → BANCO: ESPERAR ACREDITACIÓN",
-      "phone-buy": "PUESTO DE USADOS → REVISAR IMEI Y FACTURA",
-      "fridge-buy": "PUESTO DE USADOS → PROBAR HELADERA → BANCO",
-      "fridge-sell": "PUESTO DE USADOS → PRUEBA DEL COMPRADOR → BANCO",
-      "bank-delay": "BANCO → CONSULTAR ESTADO OFICIAL",
-      "bank-open-account": "BANCO → CAJERO/VENTANILLA → CONFIRMAR ALTA",
-      "family-medicine": "FARMACIA → NEGOCIAR → CASA DE MARTA",
-      "rental-home": "DEPARTAMENTO → DOCUMENTACIÓN → BANCO SI RESERVÁS"
-    };
-    return routes[item.id] || `${cleanLocation(item.location).toUpperCase()} → INTERACTUAR → CERRAR O DEJAR ASENTADO`;
+    const steps = MISSION_STEP_BLUEPRINTS[item.id] || [];
+    return steps.length ? steps.map(step => `${cleanLocation(step.location).toUpperCase()}: ${step.actionLabel.toUpperCase()}`).join(" → ") : `${cleanLocation(item.location).toUpperCase()} → INTERACTUAR → CERRAR O DEJAR ASENTADO`;
   }
 
   const MISSION_COUNTERPARTS = {
@@ -1486,6 +1594,124 @@
     "bank-open-account": ["carla", "empleada del banco"], "job-shift": ["tano", "responsable del turno"],
     "job-interview": ["tano", "entrevistador"], "qr-pickup": ["tano", "imprentero"], "qr-delivery": ["luli", "encargada de la colecta"]
   };
+
+  const MISSION_STEP_BLUEPRINTS = {
+    "bike-test": [
+      missionStep("conversation", "almacén", "luli", "encargada de los repartos", "confirmar qué bicicleta necesita el almacén", "Hola, Nico. ¿Te das una vuelta y revisás cuadro, frenos y número? Si sirve para reparto, te pago veinticinco mil por la revisión.", "Sí, Luli. Primero hablo con quien la vende y después la pruebo.", ["Encargo del almacén"]),
+      missionStep("conversation", "puesto de usados", "tano", "vendedor", "pedir permiso para revisar la bicicleta", "Probala tranquilo. El número de cuadro está abajo del pedalier.", "Antes de hablar de plata quiero revisar cuadro, frenos y número.", ["Identidad del vendedor"]),
+      missionStep("inspection", "plaza", "marta", "testigo de la prueba", "probar frenos, cuadro y dirección", "Yo te miro la rueda de atrás mientras das una vuelta.", "Voy despacio: freno, dirección y que el cuadro no esté fisurado.", ["Prueba de manejo", "Número de cuadro"]),
+      missionStep("handover", "almacén", "luli", "encargada de los repartos", "informar el resultado de la prueba", "Gracias, Nico. Con ese informe ya puedo decidir si la compro o sigo buscando.", "Anoté todo y te dejo también el número de cuadro.", ["Informe de revisión"], "credit-income")
+    ],
+    "bike-carry": [
+      missionStep("conversation", "almacén", "luli", "clienta del flete", "confirmar retiro y destino", "Che, Nico, ¿me hacés el traslado desde Usados? Son cuarenta mil cuando llegue y la revise acá.", "Dale. Confirmame quién entrega y quién recibe, así queda claro.", ["Encargo del traslado"]),
+      missionStep("collection", "puesto de usados", "tano", "vendedor", "recibir la bicicleta y revisar su estado", "Te la doy con los frenos ajustados. Mirala antes de llevártela.", "Anoto cómo sale y me llevo el recibo de entrega.", ["Recibo de retiro", "Estado de la bicicleta"]),
+      missionStep("delivery", "almacén", "luli", "receptora", "entregar la bicicleta", "Llegó bien, gracias. La reviso y te firmo el flete.", "Acá está; mirala tranquila antes de que cerremos.", ["Conformidad de entrega"], "credit-income")
+    ],
+    "fridge-review": [
+      missionStep("conversation", "almacén", "luli", "clienta de la revisión", "confirmar qué necesita comprobar", "Nico, ¿me mirás esa heladera antes de que ponga trescientos mil? Si la revisás completa, son cuarenta y cinco mil por la visita.", "Sí. La reviso enchufada y anoto también el número de serie.", ["Encargo técnico"]),
+      missionStep("conversation", "puesto de usados", "tano", "vendedor", "pedir una prueba enchufada", "Está enchufada desde esta mañana. Abrila y mirá lo que necesites.", "No la puedo evaluar desenchufada; dejame verla funcionando.", ["Permiso de prueba"]),
+      missionStep("inspection", "puesto de usados", "carla", "técnica testigo", "probar frío, burletes y número de serie", "El burlete cierra bien. Falta esperar que corte el motor.", "Anoto temperatura, burlete y serie antes de dar una respuesta.", ["Lectura de temperatura", "Número de serie"]),
+      missionStep("handover", "almacén", "luli", "clienta de la revisión", "entregar el diagnóstico", "Buenísimo, gracias. Con esto ya sé qué estoy comprando.", "Te dejo el diagnóstico y lo que convendría reparar.", ["Diagnóstico firmado"], "credit-income")
+    ],
+    "fridge-buy": [
+      missionStep("conversation", "puesto de usados", "luli", "vendedora", "pedir prueba y documentación", "Hola, Nico. La podés probar acá; tengo el recibo y el número de serie.", "Gracias, Luli. Primero la veo enfriar y comparo la serie con el recibo.", ["Identidad de la vendedora"]),
+      missionStep("inspection", "puesto de usados", "carla", "técnica", "probar enfriado, motor y serie", "Enfría, el motor corta y la serie coincide.", "Reviso todo antes de elegir cómo pagar.", ["Prueba de funcionamiento", "Número de serie"]),
+      missionStep("payment", "banco", "carla", "empleada del banco", "pagar o confirmar la acreditación", "La operación queda identificada; no entregues nada hasta verla acreditada.", "Confirmame el estado y guardame el número de operación.", ["Comprobante bancario"]),
+      missionStep("handover", "puesto de usados", "luli", "vendedora", "recibir la heladera y el recibo", "Ya acreditó. Gracias, Nico; te entrego la heladera con el recibo.", "La recibo con la serie anotada y organizo el retiro.", ["Recibo", "Transferencia de propiedad"], "debit-purchase")
+    ],
+    "fridge-delivery": [
+      missionStep("collection", "almacén", "luli", "dueña de la heladera", "revisar y cargar la heladera", "Hola, Nico. ¿Me llevás la exhibidora vieja a la protectora? Don Raúl te paga cuarenta mil cuando la reciba bien.", "Dale, Luli. Anoto cómo sale y la llevo parada.", ["Acta de retiro"]),
+      missionStep("delivery", "protectora", "raul", "responsable del refugio", "entregar la heladera", "Dejala junto al alimento; primero revisamos que no se haya golpeado.", "La bajamos y la mirás antes de firmar.", ["Entrega en la protectora"]),
+      missionStep("handover", "protectora", "raul", "responsable del refugio", "obtener conformidad y cobrar el traslado", "Llegó bien, Nico. Gracias. Te firmo el traslado y después arreglamos el pago.", "Perfecto, Don Raúl. Con la conformidad cierro el mandado.", ["Conformidad firmada"], "credit-income")
+    ],
+    "fridge-sell": [
+      missionStep("conversation", "puesto de usados", "carla", "compradora", "mostrar la heladera y explicar el estado", "Hola, Nico. Quiero verla enchufada y comparar la serie antes de hacer una oferta.", "Dale, Carla. La probamos acá; te muestro la falla del estante y el recibo.", ["Conversación con la compradora"]),
+      missionStep("inspection", "puesto de usados", "carla", "compradora", "permitir la prueba de frío y serie", "Enfría bien y la serie coincide. Ahora sí hablamos de precio.", "Revisala todo lo que necesites antes de pagar.", ["Prueba del bien", "Número de serie"]),
+      missionStep("payment", "banco", "carla", "empleada del banco", "esperar la acreditación", "La transferencia figura acreditada. Guardá el comprobante.", "No entrego la heladera hasta que el saldo esté disponible.", ["Acreditación bancaria"]),
+      missionStep("handover", "puesto de usados", "carla", "compradora", "entregar la heladera y firmar recibo", "Está acreditado. Firmo que la recibí en este estado.", "Con el pago confirmado, te entrego la heladera.", ["Recibo de venta", "Transferencia de propiedad"], "credit-income")
+    ],
+    "bank-delay": [
+      missionStep("conversation", "oficina", "tano", "titular de la operación", "anotar la operación demorada", "Hola, Nico. ¿Me ayudás a mirar esta demora por el canal oficial? Estoy por reservar algo y no quiero meter la pata.", "Sí, Tano. Pasame el número de operación; no necesito claves ni códigos.", ["Número de operación"]),
+      missionStep("verification", "banco", "carla", "empleada del banco", "consultar por el canal oficial", "Figura pendiente por demora del sistema. No hace falta ningún código.", "Dejame un número de reclamo y el estado exacto.", ["Estado oficial", "Número de reclamo"]),
+      missionStep("handover", "oficina", "tano", "titular de la operación", "informar el estado y entregar el reclamo", "Gracias, Nico. Espero con este número y no muevo nada por enlaces.", "Sigue pendiente; acá tenés el reclamo oficial.", ["Entrega del reclamo"], "record-only")
+    ],
+    "bank-open-account": [
+      missionStep("conversation", "oficina", "tano", "responsable del trabajo", "confirmar para qué se necesita la cuenta", "Buen día, Nico. Para cobrar el sueldo necesitás una cuenta propia; la empresa no va a mover plata de clientes.", "Perfecto. Dejame esa condición por escrito antes de abrir nada.", ["Condiciones del empleo"]),
+      missionStep("paperwork", "banco", "carla", "empleada del banco", "presentar identidad y completar el alta", "Reviso tu documento y te doy el formulario oficial.", "Quiero una cuenta a mi nombre y una copia del alta.", ["Formulario de alta", "Identidad verificada"]),
+      missionStep("verification", "banco", "carla", "empleada del banco", "confirmar alias y condiciones", "La cuenta quedó activa. Nadie del banco te va a pedir códigos por mensaje.", "Anoto alias, titular y canal de contacto oficial.", ["Constancia bancaria"], "record-only")
+    ],
+    "family-line": [
+      missionStep("conversation", "comedor familiar", "marta", "familiar", "anotar qué línea necesita gestionar", "Hola, Nico. ¿Me acompañás con esto? Me mareé con la línea nueva. Después te invito algo o te paso una propina.", "Sí, Marta. Primero verificamos titular y después avisamos a la familia.", ["Pedido de Marta"]),
+      missionStep("verification", "oficina", "tano", "empleado del correo", "comprobar línea, titular y número", "El número coincide con la gestión y el titular está validado.", "Dame una constancia; no voy a confirmar el cambio sólo por un mensaje.", ["Constancia de línea"]),
+      missionStep("handover", "comedor familiar", "marta", "familiar", "entregar el número confirmado", "Ahora sí lo aviso. Gracias, Nico, por tenerme paciencia.", "Este es el número validado y ésta la constancia.", ["Número confirmado"], "credit-income")
+    ],
+    "family-medicine": [
+      missionStep("conversation", "comedor familiar", "marta", "quien encargó el remedio", "recibir el adelanto y confirmar el medicamento", "Hola, Nico. ¿Me hacés un favor? Se me complica salir por los remedios. Te transfiero el adelanto y, cuando vuelvas, te doy algo por el viaje.", "Sí, Marta. Anoto medicamento, monto y cualquier diferencia que tenga que rendirte.", ["Adelanto de Marta"], "credit-advance", "advance"),
+      missionStep("payment", "farmacia", "raul", "farmacéutico", "negociar y comprar el medicamento", "Tengo precio de lista, equivalente y una oferta en efectivo. Elegí con el pedido a la vista.", "Comparo precio, marca y ticket antes de pagar.", ["Ticket de farmacia"], "debit-purchase", "negotiate"),
+      missionStep("delivery", "comedor familiar", "marta", "quien encargó el remedio", "entregar el remedio y rendir la compra", "Gracias, Nico. Dame la bolsa y el ticket, así revisamos la cuenta tranquilos.", "Acá están el remedio, el ticket y la cuenta de la diferencia.", ["Entrega en mano", "Rendición del adelanto"], "credit-income", "deliver")
+    ],
+    "rental-local": [
+      missionStep("conversation", "almacén", "luli", "interesada en expandirse", "confirmar necesidades y presupuesto", "Che, Nico, ¿me acompañás a averiguar por el local? Necesito medidas, depósito y saber si permiten comercio.", "Sí, Luli. Anoto todo antes de hablar con el propietario.", ["Pedido del almacén"]),
+      missionStep("conversation", "departamento", "raul", "propietario del local", "pedir visita y documentación", "Te muestro el lugar y el contrato. No hace falta decidir hoy.", "Quiero ver identidad, condiciones y medidas antes de reservar.", ["Identidad del propietario"]),
+      missionStep("inspection", "departamento", "raul", "propietario del local", "medir el frente y revisar servicios", "Acá están la factura municipal y las medidas del frente.", "Comparo las medidas con el contrato y anoto los servicios.", ["Medidas", "Factura municipal"]),
+      missionStep("handover", "almacén", "luli", "interesada en expandirse", "entregar contrato y conclusiones", "Gracias, Nico. Con estos datos decidimos si seguimos juntando el depósito.", "Te dejo contrato, medidas y costos; hoy no se pagó nada.", ["Copia del contrato"], "record-only")
+    ],
+    "rental-home": [
+      missionStep("conversation", "departamento", "carla", "propietaria", "pedir visita e identidad", "Hola, Nico. Pasá, podés verla ahora. Te muestro documento, servicios y contrato.", "Gracias, Carla. Primero verifico quién alquila y después decido si reservo.", ["Identidad de la propietaria"]),
+      missionStep("inspection", "departamento", "carla", "propietaria", "revisar vivienda y documentación", "Esta es la factura municipal y acá figura la dirección completa.", "Comparo dirección, servicios y estado del lugar.", ["Factura municipal", "Registro de visita"]),
+      missionStep("payment", "banco", "carla", "empleada del banco", "pagar o registrar la reserva elegida", "La operación queda identificada con monto y destinatario.", "Confirmame titular y acreditación antes de cerrar la reserva.", ["Comprobante de reserva"]),
+      missionStep("handover", "departamento", "carla", "propietaria", "recibir contrato o cerrar la visita", "Te entrego la copia firmada o dejo asentado que no reservaste.", "Cierro la visita con el resultado por escrito.", ["Contrato o constancia de visita"], "record-only")
+    ],
+    "job-interview": [
+      missionStep("conversation", "oficina", "tano", "recepcionista", "registrarse para la entrevista", "Buen día, Nico. Te anoto: la entrevista usa el dominio de la empresa y no pide pagos previos.", "Gracias, Tano. Quiero saber empresa, puesto y quién entrevista antes de seguir.", ["Registro de ingreso"]),
+      missionStep("conversation", "oficina", "carla", "entrevistadora", "hacer la entrevista y revisar condiciones", "El puesto es de soporte remoto. La empresa paga capacitación y no usa cuentas personales.", "Necesito razón social, dominio, sueldo y tareas por escrito.", ["Correo corporativo", "Condiciones del puesto"]),
+      missionStep("verification", "banco", "carla", "empleada del banco", "comprobar que no exijan mover dinero personal", "Para cobrar sueldo alcanza una cuenta propia; no hay que reenviar transferencias.", "Dejo asentado que la cuenta sería sólo para mi sueldo.", ["Consulta bancaria"]),
+      missionStep("paperwork", "oficina", "carla", "entrevistadora", "entregar documentación y recibir confirmación", "Gracias por venir, Nico. La propuesta quedó verificada; si aceptás, empezás la próxima partida.", "Recibo la propuesta y la reviso tranquilo; hoy todavía no cobro.", ["Propuesta laboral firmada"], "unlock-job")
+    ],
+    "job-shift": [
+      missionStep("conversation", "oficina", "tano", "responsable del turno", "recibir la carga de trabajo", "Hola, Nico. ¿Me cubrís unas horas? Cuando cierres el lote te firmo el turno y son cuarenta y cinco mil.", "Dale, Tano. Anoto cantidad, horario y quién recibe el resultado.", ["Orden de trabajo"]),
+      missionStep("work", "oficina", "tano", "responsable del turno", "completar la carga administrativa", "Revisá documentos y totales antes de cerrar el lote.", "Voy a cargar y controlar cada pedido.", ["Registro de actividad"]),
+      missionStep("handover", "oficina", "tano", "responsable del turno", "entregar el lote y obtener firma", "Quedó completo, gracias. Te firmo el turno y arreglamos cómo querés cobrar.", "Acá está el lote terminado; revisalo antes de firmar.", ["Turno firmado"]),
+      missionStep("payment", "banco", "carla", "empleada del banco", "confirmar el pago del jornal", "El jornal está acreditado con referencia al turno.", "Guardo la acreditación junto con la firma.", ["Recibo del jornal"], "finish-job-shift")
+    ],
+    "qr-pickup": [
+      missionStep("conversation", "protectora", "raul", "responsable de la protectora", "recibir el pedido y el QR auténtico", "Nico, ¿me retirás la tanda original? Son treinta mil entre viáticos y jornal cuando vuelvas con el remito.", "Sí, Don Raúl. Anoto cantidad, alias y quién recibe los paquetes.", ["Pedido de la protectora", "Alias auténtico"]),
+      missionStep("verification", "imprenta", "tano", "imprentero", "comparar cantidad, diseño y QR", "Contemos los paquetes y probemos el QR antes de retirar.", "Escaneo una muestra y comparo el alias con el pedido.", ["Prueba del QR", "Remito de imprenta"]),
+      missionStep("collection", "imprenta", "tano", "imprentero", "retirar la tanda", "La tanda sale contada y atada. Firmame el retiro.", "Recibo los paquetes y guardo el remito.", ["Retiro firmado"]),
+      missionStep("delivery", "protectora", "raul", "responsable de la protectora", "entregar folletos y rendir remito", "Coinciden cantidad y QR. Gracias, Nico; te firmo la entrega y después arreglamos el pago.", "Acá está la tanda original con el remito.", ["Entrega a la protectora"], "credit-income")
+    ],
+    "qr-delivery": [
+      missionStep("collection", "protectora", "luli", "encargada de la colecta", "retirar folletos y recorrido", "Hola, Nico. ¿Repartís esta tanda? Son treinta mil entre jornal y viáticos cuando rindas los sobrantes.", "Dale, Luli. Cuento paquetes y verifico el alias antes de salir.", ["Hoja de recorrido", "QR verificado"]),
+      missionStep("delivery", "almacén", "luli", "encargada del primer punto", "dejar folletos auténticos", "Dejá esta cantidad y anotá quién los recibió.", "Entrego sólo la tanda identificada.", ["Recepción del almacén"]),
+      missionStep("delivery", "escuela", "marta", "referente escolar", "entregar la segunda tanda", "Los dejo en secretaría y firmo la cantidad.", "Anoto cuántos quedan acá y quién los recibe.", ["Recepción de la escuela"]),
+      missionStep("handover", "protectora", "luli", "encargada de la colecta", "rendir sobrantes y cobrar jornal", "La cuenta cierra, gracias. Ahora elegí cómo querés cobrar el jornal.", "Devuelvo sobrantes y te dejo las dos firmas.", ["Rendición del reparto"], "credit-income")
+    ],
+    "phone-buy": [
+      missionStep("conversation", "puesto de usados", "tano", "vendedor", "pedir equipo encendido, factura e IMEI", "Hola, Nico. Lo prendemos acá; tengo la factura y la caja para comparar.", "Buenísimo, Tano. No pago ni reservo antes de ver IMEI, factura y equipo encendido.", ["Identidad del vendedor"]),
+      missionStep("inspection", "puesto de usados", "carla", "técnica testigo", "comprobar IMEI, batería y funciones", "El IMEI coincide y el equipo toma señal. Revisá también la batería.", "Pruebo llamadas, cámara y batería antes de cerrar.", ["IMEI comparado", "Prueba del equipo"]),
+      missionStep("payment", "banco", "carla", "empleada del banco", "pagar o confirmar la acreditación", "La transferencia quedó identificada y acreditada.", "Guardo el número de operación antes de recibir el equipo.", ["Comprobante bancario"]),
+      missionStep("handover", "puesto de usados", "tano", "vendedor", "recibir celular, caja y factura", "Listo, acreditó. Gracias; te entrego equipo, caja y factura.", "Recibo todo y comparo una vez más el IMEI.", ["Factura", "Transferencia de propiedad"], "debit-purchase")
+    ],
+    "phone-sell": [
+      missionStep("conversation", "puesto de usados", "marta", "compradora", "mostrar el celular y explicar su procedencia", "Hola, Nico. Antes de pagar quiero prenderlo, ver factura e IMEI, ¿puede ser?", "Sí, Marta. Te muestro todo y no entrego el equipo antes de acreditar.", ["Conversación con la compradora"]),
+      missionStep("inspection", "puesto de usados", "marta", "compradora", "permitir prueba e identificación", "El IMEI coincide y el equipo funciona. Ahora hablamos del pago.", "Revisalo completo y compará la caja.", ["IMEI comparado", "Prueba del equipo"]),
+      missionStep("payment", "banco", "carla", "empleada del banco", "confirmar que el pago esté disponible", "El monto figura acreditado, no sólo enviado.", "Confirmame saldo y número de operación.", ["Acreditación bancaria"]),
+      missionStep("handover", "puesto de usados", "marta", "compradora", "entregar equipo y firmar recibo", "Gracias, Nico. Firmo que recibí equipo, caja y factura.", "Con el pago acreditado, te entrego todo.", ["Recibo de venta", "Transferencia de propiedad"], "credit-income")
+    ]
+  };
+
+  function missionStep(kind, location, counterpartId, counterpartRole, actionLabel, counterpartLine, playerLine, evidence = [], effect = "none", semanticKind = null) {
+    const player = PLAYERS.find(item => item.id === counterpartId);
+    return { kind: semanticKind || kind, semanticKind: kind, location, counterpartId, counterpartName: player?.name || counterpartId, counterpartRole, actionLabel, counterpartLine, playerLine, evidence, effect };
+  }
+
+  function missionBlueprints(mission, option) {
+    const source = MISSION_STEP_BLUEPRINTS[mission.id] || [];
+    const steps = source.map(item => ({ ...item, evidence: [...(item.evidence || [])] }));
+    if (option.result === "cancelled") return steps.slice(0, Math.max(2, Math.min(steps.length, 2))).map((step, index, list) => ({ ...step, effect: index === list.length - 1 ? "record-only" : "none" }));
+    if (option.paymentChannel !== "bank") return steps.filter(step => !(step.semanticKind === "payment" && step.location === "banco"));
+    return steps;
+  }
 
   function counterpartForMission(mission, location) {
     if (cleanLocation(location) === "banco") return { id: "carla", name: "Carla", role: "empleada del banco" };
@@ -1511,11 +1737,13 @@
     const step = agenda.steps[agenda.index];
     const next = agenda.steps[agenda.index + 1];
     els.slipMission.textContent = agenda.mission.text;
-    els.slipStep.textContent = `PASO ${Math.min(agenda.index + 1, agenda.steps.length)}/${agenda.steps.length}`;
+    const paused = step && ["settling", "waiting-counterpart"].includes(step.status);
+    els.slipStep.textContent = paused ? `PASO PAUSADO · ${Math.min(agenda.index + 1, agenda.steps.length)}/${agenda.steps.length}` : `PASO ${Math.min(agenda.index + 1, agenda.steps.length)}/${agenda.steps.length}`;
     els.slipDestination.textContent = step ? `IR A: ${cleanLocation(step.location).toUpperCase()}` : "MANDADO TERMINADO";
     els.slipCounterpart.textContent = step ? `HABLAR CON: ${step.counterpartName} · ${step.counterpartRole}` : "";
-    els.slipAction.textContent = step ? `${state.activeCounterpart?.interacted ? "HECHO" : "HACER"}: ${step.actionLabel}` : "";
-    els.slipMoney.textContent = step?.requiredAmount ? `PLATA: ${step.requiredChannel || "BANCO"} · ${formatMoney(step.requiredAmount)}` : (step ? `PLATA: ${step.requiredChannel || "SEGÚN OPCIÓN"}` : "");
+    els.slipAction.textContent = step ? `${step.status === "done" ? "HECHO" : "HACER"}: ${step.actionLabel}` : "";
+    const compensation = compensationForMission(agenda.mission, agenda.option);
+    els.slipMoney.textContent = step?.requiredAmount ? `PLATA: ${step.requiredChannel || "BANCO"} · ${formatMoney(step.requiredAmount)}` : (step ? (compensation ? `${compensation.kind === "contract" ? "HONORARIO" : "PROPINA"}: ${formatMoney(compensation.amount)} · SE DEFINE AL FINAL` : `PLATA: ${step.requiredChannel || "SEGÚN OPCIÓN"}`) : "");
     els.slipEvidence.textContent = step?.evidence?.length ? `PRUEBA: ${step.evidence.join(", ")}` : "";
     els.slipNext.textContent = next ? `SIGUIENTE: ${cleanLocation(next.location)}` : "ÚLTIMO PASO";
   }
@@ -1549,7 +1777,10 @@
     const profile = state.socialProfiles.nico;
     els.missionRound.textContent = round + 1;
     els.socialIdentity.textContent = `Sos ${profile.label}; tenés ${formatMoney(totalBalance("nico"))} disponibles y te movés por ${profile.place}. Tu mandado tiene que dejar rastros reales.`;
-    els.missionChoices.innerHTML = state.pendingMissionPair.map((item, index) => `<button type="button" data-mission="${index}"><strong>${escapeHTML(item.text)}</strong><span>${escapeHTML(item.completedFact)}</span><small>${missionMoneyPreview(item)}</small><small class="mission-route">RECORRIDO: ${escapeHTML(missionRoute(item))}</small></button>`).join("");
+    els.missionChoices.innerHTML = state.pendingMissionPair.map((item, index) => {
+      const context = missionContextFor(item);
+      return `<button type="button" data-mission="${index}"><strong>${escapeHTML(item.text)}</strong><span><b>${escapeHTML(context.requester)}:</b> ${escapeHTML(context.motive)}.</span><small>${missionMoneyPreview(item)}</small><small>CIERRA CUANDO: ${escapeHTML(context.closure.toUpperCase())}</small><small class="mission-route">RECORRIDO: ${escapeHTML(missionRoute(item))}</small></button>`;
+    }).join("");
     els.missionExplainer.textContent = "Elegí uno. Después jugás cómo lo resolvés; todavía no hay nada marcado como cumplido.";
     els.missionActionPanel.hidden = true;
     els.strategyPanel.hidden = true;
@@ -1594,7 +1825,8 @@
     state.selectedMissionOption = option;
     state.selectedMissionAction = option.result;
     els.missionActionChoices.querySelectorAll("button").forEach(button => button.classList.toggle("selected", button.dataset.missionAction === String(actionIndex)));
-    els.missionOutcome.textContent = `${option.label} · ${optionBenefitLabel(option)} Recorrido: ${option.steps.map(cleanLocation).join(" → ")}. ${option.paymentChannel === "cash" ? "Si no tenés efectivo, el primer paso es el cajero." : option.steps.includes("banco") ? "El banco queda marcado para acreditar o confirmar." : "La interacción queda registrada en el lugar."}`;
+    const route = missionBlueprints(state.selectedMission, option);
+    els.missionOutcome.textContent = `${option.label} · ${optionBenefitLabel(option)} Recorrido: ${route.map(step => cleanLocation(step.location)).join(" → ")}. ${option.paymentChannel === "cash" ? "Si no tenés efectivo, el primer paso es el cajero." : route.some(step => step.location === "banco") ? "El banco queda marcado para acreditar o confirmar." : "Cada interacción queda registrada en su lugar."}`;
     if (state.roles.nico === "Estafador") renderPrivateStrategy();
     refreshMissionConfirm();
   }
@@ -1632,7 +1864,8 @@
   }
 
   function projectedMissionBalance() {
-    return Math.max(0, totalBalance("nico") + (state.selectedMissionOption?.money || 0));
+    const deferred = compensationForMission(state.selectedMission, state.selectedMissionOption)?.amount || 0;
+    return Math.max(0, totalBalance("nico") + (state.selectedMissionOption?.money || 0) + deferred);
   }
 
   function renderPreparationChoices(items, inventory = false) {
@@ -1711,24 +1944,22 @@
       state.selectedPreparation.status = "armed";
     }
     assignOpportunitiesForRound(round);
-    let agendaSteps = [...state.selectedMissionOption.steps];
+    let agendaSteps = missionBlueprints(mission, state.selectedMissionOption);
     if (state.selectedStrategy === "prepare") {
       const prepPlace = ({ mule: "banco", "qr-sticker": "imprenta", "fake-flyers": "imprenta", "cloned-listing": "oficina", "borrowed-identity": "plaza", "edited-receipt": "imprenta" })[state.selectedPreparation.type];
-      if (prepPlace) agendaSteps.push(prepPlace);
-      if (state.selectedPreparation.type === "mule") agendaSteps.push("banco");
+      if (prepPlace) agendaSteps.push(missionStep("collection", prepPlace, counterpartForMission(mission, prepPlace).id, counterpartForMission(mission, prepPlace).role, `resolver materiales para ${state.selectedPreparation.label}`, "Tengo listo lo que pediste. Revisalo antes de llevártelo.", "Lo retiro como parte del mandado y guardo el comprobante.", ["Retiro de materiales"], "none"));
+      if (state.selectedPreparation.type === "mule") agendaSteps.push(missionStep("verification", "banco", "carla", "empleada del banco", "confirmar el alta de la cuenta", "La cuenta quedó activa con el titular registrado.", "Guardo la constancia y el alias de la cuenta.", ["Constancia de cuenta"], "none"));
       if (state.selectedDelegation === "delegate") {
-        agendaSteps.push("plaza");
         const accomplice = currentAccomplice();
+        agendaSteps.push(missionStep("conversation", "plaza", accomplice?.id || "raul", "Cómplice", "explicar el encargo y acordar cómo sigue", "Decime qué estás preparando y qué esperás de mí.", "Te cuento el plan con lo que ya hice durante el mandado.", ["Encuentro en la plaza"], "none"));
         if (accomplice && preparedResource) enqueueBotRoute(accomplice.id, "plaza", { purpose: "encounter", stableKey: `brief:${preparedResource.dealId || preparedResource.executionId}`, note: `${accomplice.name} fue a encontrarse con Nico` });
       }
     }
-    const stepKinds = state.selectedMissionOption.medicine ? ["advance", "negotiate", "deliver"] : agendaSteps.map(() => "regular");
     const requiredCash = state.selectedMissionOption.payment?.requiredCash || 0;
     if (!state.selectedMissionOption.medicine && requiredCash > state.campaign.economy.nico.cash) {
-      agendaSteps.unshift("banco");
-      stepKinds.unshift("atm");
+      agendaSteps.unshift({ kind: "atm", semanticKind: "atm", location: "banco", counterpartId: null, counterpartName: "cajero del barrio", counterpartRole: "cajero", actionLabel: "retirar el monto indicado", counterpartLine: "", playerLine: "Retiro sólo el efectivo que necesito para volver al trato.", evidence: ["Comprobante de retiro"], effect: "none" });
     }
-    state.humanAgenda = { mission, option: state.selectedMissionOption, steps: agendaSteps.map((location, index) => makeAgendaStep(mission, state.selectedMissionOption, location, index, stepKinds[index] || "regular", round)), index: 0, round, medicine: state.selectedMissionOption.medicine ? { advancePaid: false, purchased: false, atmVisits: 0, offerExpiresAt: Date.now() + 90000 } : null };
+    state.humanAgenda = { mission, option: state.selectedMissionOption, steps: agendaSteps.map((blueprint, index) => makeAgendaStep(mission, state.selectedMissionOption, blueprint, index, round)), index: 0, round, medicine: state.selectedMissionOption.medicine ? { advancePaid: false, purchased: false, atmVisits: 0, offerExpiresAt: Date.now() + 90000 } : null };
     if (!state.selectedMissionOption.medicine && requiredCash > state.campaign.economy.nico.cash) {
       const atmStep = state.humanAgenda.steps[0];
       state.missionAtmRequirement = {
@@ -1759,10 +1990,14 @@
   }
 
   let _stepCounter = 0;
-  function makeAgendaStep(mission, option, location, index, kind, round) {
-    const counterpart = counterpartForMission(mission, location);
-    const amount = option.payment?.requiredCash || option.payment?.requiredBank || 0;
-    const action = kind === "atm" ? "retirar el monto indicado" : kind === "deliver" ? "entregar y rendir el comprobante" : index === 0 ? (mission.id.includes("phone") ? "revisar IMEI y factura" : `hablar sobre ${mission.asset || "el trámite"}`) : "confirmar y dejar evidencia";
+  function makeAgendaStep(mission, option, blueprint, index, round, legacyKind = null) {
+    const source = typeof blueprint === "string" ? { location: blueprint, kind: legacyKind || "conversation" } : blueprint;
+    const location = source.location;
+    const kind = source.kind || legacyKind || "conversation";
+    const counterpart = source.counterpartId ? { id: source.counterpartId, name: source.counterpartName || PLAYERS.find(item => item.id === source.counterpartId)?.name, role: source.counterpartRole } : counterpartForMission(mission, location);
+    const paymentStep = ["payment", "purchase", "atm"].includes(source.semanticKind || kind) || kind === "atm";
+    const amount = paymentStep ? (option.payment?.requiredCash || option.payment?.requiredBank || 0) : 0;
+    const action = source.actionLabel || (kind === "atm" ? "retirar el monto indicado" : kind === "deliver" ? "entregar y rendir el comprobante" : index === 0 ? (mission.id.includes("phone") ? "revisar IMEI y factura" : `hablar sobre ${mission.asset || "el trámite"}`) : "confirmar y dejar evidencia");
     const semanticKey = kind === "atm" ? "atm-withdrawal" : kind === "deliver" ? "delivery" : kind === "advance" ? "origin-contact" : kind === "negotiate" ? "inspection" : kind === "purchase" ? "payment" : "settlement";
     const stableId = `${state.campaign?.episodeNumber || 0}:${round}:${mission.id}:${semanticKey}:${++_stepCounter}`;
     return {
@@ -1771,12 +2006,16 @@
       counterpartId: kind === "atm" ? null : counterpart.id,
       counterpartName: kind === "atm" ? "cajero del barrio" : counterpart.name,
       counterpartRole: kind === "atm" ? "cajero" : counterpart.role,
-      interaction: kind === "atm" ? "Elegí cuánto retirar" : mission.completedFact,
+      interaction: kind === "atm" ? "Elegí cuánto retirar" : source.playerLine || mission.completedFact,
       actionLabel: action,
+      playerLine: source.playerLine || `Vine a ${action}.`,
+      counterpartLine: source.counterpartLine || `Estoy acá para ${action}. Hablemos y dejamos constancia.`,
+      copyId: `INT-MISSION-${mission.id.toUpperCase()}-${String(source.semanticKind || kind).toUpperCase()}-${index + 1}`,
       requiredChannel: kind === "atm" ? "BANCO" : option.paymentChannel === "cash" ? "EFECTIVO" : option.paymentChannel === "bank" ? "BANCO" : "SIN PAGO",
       requiredAmount: amount,
-      evidence: option.evidence || [],
-      duration: 4
+      evidence: source.evidence?.length ? source.evidence : option.evidence || [],
+      effect: source.effect || "none", effectApplied: false,
+      duration: source.semanticKind === "work" ? 8 : 4
     };
   }
 
@@ -1788,6 +2027,7 @@
     travelToLocation(step.location, () => {
       const interact = () => {
       announceAgendaInteraction(agenda, step);
+      if (step.kind !== "atm" && step.playerLine) speak("nico", step.playerLine, "mission-player", agenda.mission.scenarioId, `${step.copyId}-PLAYER`);
       if (step.kind === "atm") {
         openATMForAgenda(agenda, step);
         return;
@@ -1795,12 +2035,12 @@
       if (step.kind === "advance" && agenda.medicine && !agenda.medicine.advancePaid) {
         credit("nico", agenda.option.advanceAmount, "Adelanto de Marta para los remedios", true, "bank", false, { advanceAmount: agenda.option.advanceAmount });
         agenda.medicine.advancePaid = true;
-        speak("marta", `Te pasé ${formatMoney(agenda.option.advanceAmount)}. Traeme el ticket y después te pago el mandado.`, "medicine-advance", "family");
+        speak("marta", `Te pasé ${formatMoney(agenda.option.advanceAmount)}. Traeme el ticket y después te pago el mandado.`, "medicine-advance", "family", "INT-MISSION-FAMILY-MEDICINE-ADVANCE-CONFIRM");
         const cashNeeded = agenda.option.paymentChannel === "cash" ? (agenda.option.productCost || agenda.option.payment?.requiredCash || 0) : 0;
         if (cashNeeded > state.campaign.economy.nico.cash) {
           step.status = "done";
           agenda.index += 1;
-          agenda.steps.splice(agenda.index, 0, makeAgendaStep(agenda.mission, agenda.option, "banco", agenda.index, "atm", agenda.round));
+          agenda.steps.splice(agenda.index, 0, makeAgendaStep(agenda.mission, agenda.option, { location: "banco", kind: "atm", actionLabel: "retirar el monto indicado", evidence: ["Comprobante de retiro"] }, agenda.index, agenda.round));
           const atmStep = agenda.steps[agenda.index];
           state.missionAtmRequirement = { agendaId: `${state.campaign.episodeNumber}:${agenda.round}:${agenda.mission.id}`, stepId: atmStep.stableId, requiredCash: cashNeeded - state.campaign.economy.nico.cash, targetCash: cashNeeded, returnStepId: agenda.steps[agenda.index + 1]?.stableId || null, returnLocation: "farmacia", withdrawn: 0, status: "pending" };
           toast(`Marta adelantó la plata en el banco. Antes de la farmacia, te faltan ${formatMoney(state.missionAtmRequirement.requiredCash)} en efectivo.`);
@@ -1814,7 +2054,7 @@
         if (agenda.option.id === "medicine-cash" && Date.now() > agenda.medicine.offerExpiresAt && !agenda.medicine.priceChanged) {
           agenda.medicine.actualProductCost = 36000;
           agenda.medicine.priceChanged = true;
-          speak("marta", "El farmacéutico no sostuvo los treinta. Te lo deja a treinta y seis porque tardaste en volver.", "medicine-offer-changed", "family");
+          speak("marta", "El farmacéutico no sostuvo los treinta. Te lo deja a treinta y seis porque tardaste en volver.", "medicine-offer-changed", "family", "INT-MISSION-FAMILY-MEDICINE-OFFER-CHANGED");
           toast("La oferta cambió: ahora necesitás $36.000 en efectivo.");
         }
         const actualCost = agenda.medicine.actualProductCost || agenda.option.productCost;
@@ -1823,7 +2063,7 @@
           step.status = "settling";
           agenda.medicine.atmVisits += 1;
           const existingAtm = agenda.steps.find(candidate => candidate.kind === "atm" && candidate.status !== "done");
-          const atmStep = existingAtm || makeAgendaStep(agenda.mission, agenda.option, "banco", agenda.index, "atm", agenda.round);
+          const atmStep = existingAtm || makeAgendaStep(agenda.mission, agenda.option, { location: "banco", kind: "atm", actionLabel: "retirar el monto indicado", evidence: ["Comprobante de retiro"] }, agenda.index, agenda.round);
           if (!existingAtm) agenda.steps.splice(agenda.index, 0, atmStep);
           state.missionAtmRequirement = { agendaId: `${state.campaign.episodeNumber}:${agenda.round}:${agenda.mission.id}`, stepId: atmStep.stableId, requiredCash: neededCash - state.campaign.economy.nico.cash, targetCash: neededCash, returnStepId: step.stableId, returnLocation: "farmacia", withdrawn: 0, status: "pending" };
           toast(`La farmacia mantiene la oferta. Te faltan ${formatMoney(state.missionAtmRequirement.requiredCash)} en efectivo.`);
@@ -1833,6 +2073,18 @@
         purchaseMedicine(agenda);
       }
       if (step.kind === "deliver" && agenda.medicine?.purchased) settleMedicineDelivery(agenda);
+      if (step.semanticKind === "work" && !step.workStarted && !QA_MODE) {
+        step.workStarted = true;
+        step.status = "working";
+        toast("Estás haciendo el trabajo. Cuando termines, el papelito marcará el siguiente paso.");
+        window.setTimeout(() => {
+          if (state.humanAgenda !== agenda || agenda.steps[agenda.index] !== step) return;
+          recordVisit("nico", step.location, `Paso ${agenda.index + 1}: ${agenda.mission.text}`);
+          commitAgendaStep(step, { ok: true });
+          if (state.humanAgenda) advanceHumanAgenda();
+        }, step.duration * 1000);
+        return;
+      }
       recordVisit("nico", step.location, `Paso ${agenda.index + 1}: ${agenda.mission.text}`);
       commitAgendaStep(step, { ok: true });
       if (agenda.index < agenda.steps.length) {
@@ -1862,12 +2114,14 @@
     if (counterpart && counterpart.id !== "nico") {
       enqueueBotRoute(counterpart.id, step.location, { purpose: "counterpart", stableKey: step.stableId, note: `${counterpart.name} espera para: ${agenda.mission.text}`, callback: () => {
         if (step.status === "waiting-counterpart") {
+          holdBotAtConversation(counterpart.id, step.stableId);
           step.status = "ready-to-interact";
           state.activeCounterpart.available = true;
           els.interactionPrompt.hidden = false;
+          if (step.counterpartLine) speak(counterpart.id, step.counterpartLine, "counterpart-arrival", agenda.mission.scenarioId, `${step.copyId}-COUNTERPART`);
+          updateErrandSlip();
         }
       } });
-      speak(counterpart.id, `Estoy acá para ${step.actionLabel}. Hablemos y dejamos constancia.`, "counterpart-arrival", agenda.mission.id);
       els.interactionPrompt.hidden = true;
       toast(`Llegaste a ${cleanLocation(step.location)}. Esperá a ${step.counterpartName} y apretá E.`);
     } else {
@@ -1893,16 +2147,7 @@
     if (step.interactionShown) return;
     step.interactionShown = true;
     const id = agenda.mission.id;
-    if (id === "phone-sell" && step.location === "puesto de usados") {
-      const buyer = PLAYERS.find(player => player.id !== "nico") || PLAYERS[0];
-      addSystemFeed(`Puesto de usados · ${buyer.name} quiere comprar tu celular.`);
-      speak(buyer.id, "Antes de pagar quiero ver la factura, prenderlo y comparar el IMEI con la caja.", "phone-buyer-check", "phone");
-      toast("El comprador te pide factura, equipo encendido e IMEI visible.");
-    } else if (id === "phone-buy" && step.location === "puesto de usados") {
-      addSystemFeed("Puesto de usados · el vendedor te ofrece probar el equipo antes de hablar de precio.");
-      speak("tano", "Lo probamos acá. Si el IMEI no coincide con la caja, no hay trato.", "phone-seller-check", "phone");
-      toast("Primero revisá IMEI, factura y estado del equipo.");
-    } else if (step.location === "banco") {
+    if (step.location === "banco") {
       addSystemFeed(`Banco · paso necesario para ${agenda.mission.text.toLowerCase()}.`);
       toast("Este paso sirve para acreditar, retirar efectivo o confirmar el trámite.");
     } else if (id === "fridge-buy" && step.location === "puesto de usados") {
@@ -1930,7 +2175,7 @@
       const account = state.campaign.economy.nico;
       recordTransaction({ fromId: "adelanto-marta", toId: "nico", amount: retained, channel: "difference", label: "Diferencia negociada retenida", visibleLabel: "Diferencia del mandado", legitimate: false, bankBefore: account.bank, cashBefore: account.cash, bankAfter: account.bank, cashAfter: account.cash, advanceAmount: option.advanceAmount, productCost: actualCost, negotiatedPrice: actualCost, retainedDifference: retained, discoveryRisk: .55 });
     }
-    speak("nico", `Cerré los remedios en ${formatMoney(actualCost)}. Guardame la bolsa y el ticket.`, "medicine-purchase", "family");
+    speak("nico", `Cerré los remedios en ${formatMoney(actualCost)}. Guardame la bolsa y el ticket.`, "medicine-purchase", "family", "INT-MISSION-FAMILY-MEDICINE-PURCHASE-CONFIRM");
     return true;
   }
 
@@ -1938,9 +2183,53 @@
     if (agenda.medicine.delivered) return;
     const option = agenda.option;
     if (option.refundAmount) debitBank("nico", option.refundAmount, "Devolución del ahorro a Marta", true, { reportedDifference: option.refundAmount });
-    credit("nico", option.serviceFee, "Honorario de Marta por el mandado", true, "cash", false, { serviceFee: option.serviceFee });
     agenda.medicine.delivered = true;
-    speak("marta", `Gracias. Acá tenés ${formatMoney(option.serviceFee)} por el viaje.`, "medicine-delivery", "family");
+    speak("marta", "Gracias, Nico. Dame un segundo que reviso la bolsa y el ticket; después arreglamos lo del viaje.", "medicine-delivery", "family", "INT-MISSION-FAMILY-MEDICINE-DELIVERY-CHECK");
+  }
+
+  function openMissionCompensation(agenda) {
+    const compensation = compensationForMission(agenda.mission, agenda.option);
+    if (!compensation || agenda.option.result === "cancelled" || agenda.compensationResolved) return false;
+    if (state.pendingCompensation === agenda) return true;
+    state.pendingCompensation = agenda;
+    const isFavor = compensation.kind === "favor";
+    els.compensationKicker.textContent = isFavor ? "UN FAVOR ENTRE VECINOS" : "TRABAJO TERMINADO";
+    els.compensationTitle.textContent = `${compensation.requesterName} quiere cerrar el mandado`;
+    els.compensationText.textContent = isFavor
+      ? `“Gracias, Nico. Me re salvaste. Te quiero dar ${formatMoney(compensation.amount)} por ${compensation.reason}. ¿Cómo te queda mejor?”`
+      : `“Gracias, Nico. Quedó hecho. Son ${formatMoney(compensation.amount)} por ${compensation.reason}. ¿Te transfiero o preferís efectivo?”`;
+    els.compensationChoices.innerHTML = `
+      <button type="button" data-compensation="bank"><strong>TRANSFERENCIA</strong><span>Entra al banco y queda el comprobante.</span></button>
+      <button type="button" data-compensation="cash"><strong>EFECTIVO</strong><span>Entra al bolsillo y queda un recibo simple.</span></button>
+      <button type="button" data-compensation="decline"><strong>NO, DEJALO ASÍ</strong><span>No cobrás; queda el favor y mejora la relación.</span></button>`;
+    els.compensationDialog.showModal();
+    return true;
+  }
+
+  function resolveMissionCompensation(choice) {
+    const agenda = state.pendingCompensation;
+    if (!agenda) return false;
+    const compensation = compensationForMission(agenda.mission, agenda.option);
+    if (!compensation) return false;
+    const requester = PLAYERS.find(player => player.id === compensation.requesterId);
+    state.pendingCompensation = null;
+    els.compensationDialog.close();
+    agenda.compensationResolved = true;
+    agenda.compensationChoice = choice;
+    if (choice === "bank" || choice === "cash") {
+      const channel = choice === "cash" ? "cash" : "bank";
+      credit("nico", compensation.amount, `${compensation.kind === "favor" ? "Propina" : "Honorario"} de ${compensation.requesterName}: ${agenda.mission.text}`, true, channel, false, { serviceFee: agenda.mission.id === "family-medicine" ? compensation.amount : 0 });
+      agenda.compensationEvidence = choice === "bank" ? "Transferencia del honorario" : "Pago en efectivo y recibo simple";
+      if (requester) speak(requester.id, choice === "bank" ? "Listo, te lo transferí. Gracias por la mano." : "Tomá, acá está. Gracias por resolverlo.", "mission-payment", agenda.mission.scenarioId, choice === "bank" ? "INT-MISSION-COMPENSATION-ANSWER-BANK" : "INT-MISSION-COMPENSATION-ANSWER-CASH");
+      speak("nico", choice === "bank" ? "Dale, ya me figura. Guardamos el comprobante." : "Gracias. Lo cuento y dejamos anotado el pago.", "mission-payment-answer", agenda.mission.scenarioId, choice === "bank" ? "INT-MISSION-COMPENSATION-PLAYER-BANK" : "INT-MISSION-COMPENSATION-PLAYER-CASH");
+    } else {
+      agenda.compensationEvidence = "Favor realizado sin cobrar";
+      adjustRelationship("nico", compensation.requesterId, 1);
+      if (requester) speak(requester.id, "Bueno, gracias de verdad. Te debo una.", "mission-payment", agenda.mission.scenarioId, "INT-MISSION-COMPENSATION-ANSWER-DECLINE");
+      speak("nico", "No, dejalo así. Hoy era darte una mano.", "mission-payment-answer", agenda.mission.scenarioId, "INT-MISSION-COMPENSATION-PLAYER-DECLINE");
+    }
+    finishHumanAgenda();
+    return true;
   }
 
   function commitAgendaStep(step, result) {
@@ -1972,11 +2261,19 @@
         return;
       }
       agenda.economyApplied = true;
+      const effectStep = [...agenda.steps].reverse().find(step => step.effect && step.effect !== "none");
+      if (effectStep) effectStep.effectApplied = true;
+    }
+    if (openMissionCompensation(agenda)) {
+      els.publicMissionNote.textContent = `${mission.text} · tarea hecha, falta cerrar el ${compensationForMission(mission, option)?.kind === "favor" ? "agradecimiento" : "pago"}`;
+      updateErrandSlip();
+      return;
     }
     record.missionResolution = option.result;
     record.missionCompleted = option.result !== "cancelled";
     const fact = option.result === "cancelled" ? mission.attemptedFact : option.result === "informal" ? `${mission.completedFact} El acuerdo quedó de palabra.` : mission.completedFact;
     (record.missionCompleted ? record.publicActions : record.attemptedActions).push(fact);
+    if (agenda.compensationEvidence) record.publicActions.push(agenda.compensationEvidence);
     if (record.hiddenPreparation) {
       if (!debit("nico", record.hiddenPreparation.pendingCost, `Materiales y trámite: ${record.hiddenPreparation.label}`, false)) {
         record.hiddenPreparation.status = "failed";
@@ -2000,8 +2297,13 @@
 
   function applyMissionOptionEconomy(mission, option, playerId = "nico") {
     unlockVerifiedJob(mission, option, playerId);
+    const compensation = compensationForMission(mission, option);
     if (option.medicine) {
-      if (playerId !== "nico" && option.result !== "cancelled") credit(playerId, option.money, `Mandado completo: ${mission.text}`, option.result === "verified", "cash");
+      if (playerId !== "nico" && option.result !== "cancelled" && compensation) credit(playerId, compensation.amount, `Propina por favor: ${mission.text}`, true, random() < .5 ? "cash" : "bank");
+      return { ok: true };
+    }
+    if (compensation && option.result !== "cancelled") {
+      if (playerId !== "nico") credit(playerId, compensation.amount, `${compensation.kind === "favor" ? "Propina" : "Trabajo encargado"}: ${mission.text}`, true, random() < .35 ? "cash" : "bank");
       return { ok: true };
     }
     if (!option.money) return { ok: true };
@@ -2424,6 +2726,9 @@
   }
 
   function startNextBotRoute(playerId) {
+    const hold = state.movement.botHolds[playerId];
+    if (hold?.episodeToken === state.episodeToken) return;
+    if (hold) delete state.movement.botHolds[playerId];
     const queue = state.movement.botRouteQueues[playerId];
     if (!queue || !queue.length) {
       delete state.movement.activeBotRoute[playerId];
@@ -2433,6 +2738,40 @@
     if (job.episodeToken !== state.episodeToken) return startNextBotRoute(playerId);
     job.status = "active";
     state.movement.activeBotRoute[playerId] = job;
+  }
+
+  function holdBotAtConversation(playerId, stepId) {
+    const timer = botHoldTimers.get(playerId);
+    if (timer) window.clearTimeout(timer);
+    botHoldTimers.delete(playerId);
+    state.movement.botHolds[playerId] = {
+      stepId,
+      reason: "human-counterpart",
+      episodeToken: state.episodeToken,
+      since: Date.now()
+    };
+    paintWalker(playerId, 0, 0, false);
+  }
+
+  function releaseBotAfterConversation(playerId, stepId, delay = 0) {
+    if (!playerId) return;
+    const release = () => {
+      botHoldTimers.delete(playerId);
+      const hold = state.movement.botHolds[playerId];
+      if (!hold || hold.stepId !== stepId || hold.episodeToken !== state.episodeToken) return;
+      delete state.movement.botHolds[playerId];
+      startNextBotRoute(playerId);
+    };
+    const timer = botHoldTimers.get(playerId);
+    if (timer) window.clearTimeout(timer);
+    if (delay > 0) botHoldTimers.set(playerId, window.setTimeout(release, delay));
+    else release();
+  }
+
+  function clearBotConversationHolds() {
+    botHoldTimers.forEach(timer => window.clearTimeout(timer));
+    botHoldTimers.clear();
+    state.movement.botHolds = {};
   }
 
   function cancelBotRoutes(playerId, opts = {}) {
@@ -2503,7 +2842,7 @@
   function updateMovement(time) {
     const delta = Math.min(.05, ((time - state.movement.lastTime) || 16) / 1000);
     state.movement.lastTime = time;
-    const blocked = [els.roleDialog, els.missionDialog, els.meetingDialog, els.alibiDialog, els.judgmentDialog, els.resultDialog, els.payoutDialog, els.profileDialog, els.atmDialog].some(dialog => dialog?.open);
+    const blocked = [els.roleDialog, els.missionDialog, els.meetingDialog, els.alibiDialog, els.judgmentDialog, els.resultDialog, els.compensationDialog, els.payoutDialog, els.profileDialog, els.atmDialog].some(dialog => dialog?.open);
     if (!blocked) {
       const keyed = moveHumanByKeys(delta);
       if (!keyed && state.movement.path.length) stepPath("nico", state.movement.path, 170, delta);
@@ -2582,6 +2921,7 @@
       const close = player.id === "nico" || Math.hypot(position.x - human.x, position.y - human.y) < 150;
       node.classList.toggle("near-human", close);
     });
+    refreshActiveUtterances(human);
     if (state.activeCounterpart?.playerId && state.activeCounterpart.playerId !== "nico") {
       const counterpartPos = state.movement.positions[state.activeCounterpart.playerId];
       if (counterpartPos && Math.hypot(counterpartPos.x - human.x, counterpartPos.y - human.y) > 74) {
@@ -2602,7 +2942,8 @@
     const now = performance.now();
     state.animals = specs.map(([species, name, x, y, variant], index) => ({
       id: `animal-${index}`, species, name, x, y, variant, tx: x, ty: y, action: "idle", frame: 0,
-      nextAction: now + 900 + random() * 2200, lastMovedAt: now, stationaryTurns: 0, lastResidueAt: 0,
+      nextAction: species === "hen" ? now + 150 + index * 80 : now + 900 + random() * 2200,
+      lastMovedAt: now, stationaryTurns: species === "hen" ? 1 : 0, lastResidueAt: 0,
       path: [], pathIndex: 0, lastDx: 1
     }));
     els.animalsLayer.innerHTML = state.animals.map(animal => `<div class="world-animal ${animal.species} ${animal.variant}" data-animal="${animal.id}" style="left:${animal.x}px;top:${animal.y}px">${animalSpriteMarkup(animal)}<em class="animal-sound" aria-hidden="true"></em></div>`).join("");
@@ -2648,9 +2989,10 @@
     animal.action = nearbyDog ? "flee" : mustWalk ? "walk" : actions[Math.floor(random() * actions.length)];
     if (["walk", "flee"].includes(animal.action)) {
       const preferred = animal.species === "hen" ? [[160,820],[260,760],[840,610],[1300,820]] : [[700,610],[850,660],[330,620],[1120,600],[1400,620]];
+      const distantPreferred = preferred.filter(point => Math.hypot(point[0] - animal.x, point[1] - animal.y) > 120);
       const target = animal.action === "flee" && nearbyDog
         ? [animal.x + Math.sign(animal.x - nearbyDog.x || 1) * 130, animal.y + Math.sign(animal.y - nearbyDog.y || 1) * 90]
-        : preferred[Math.floor(random() * preferred.length)];
+        : (distantPreferred.length ? distantPreferred : preferred)[Math.floor(random() * (distantPreferred.length || preferred.length))];
       const safe = nearestWalkable(target[0] + (random() - .5) * 100, target[1] + (random() - .5) * 80);
       animal.tx = safe[0]; animal.ty = safe[1];
       const pathResult = findPath({ x: animal.x, y: animal.y }, [animal.tx, animal.ty]);
@@ -2811,6 +3153,10 @@
         return;
       }
       if (step) step.status = "settling";
+      if (pending.playerId) {
+        const readingTime = readableSpeechDuration(step?.playerLine || "Gracias, lo vemos.");
+        releaseBotAfterConversation(pending.playerId, pending.stepId, QA_MODE ? 220 : readingTime);
+      }
       if (pending.onInteract) pending.onInteract();
       state.activeCounterpart = null;
       return;
@@ -2894,17 +3240,16 @@
     const humanOpportunity = opportunity?.holderId === "nico"
       && ["Estafador", "Cómplice"].includes(state.roles.nico);
     const humanAccompliceOpportunity = humanOpportunity && state.roles.nico === "Cómplice";
-    const interactiveHumanScene = scenario.actorId === "nico" || humanOpportunity;
-    const hideForBot = scenario.actorId !== "nico" && !humanOpportunity;
+    const interactiveHumanScene = humanOpportunity;
+    const hideForBot = !humanOpportunity;
     els.casePanel.hidden = hideForBot;
     els.actionsPanel.hidden = hideForBot;
-    els.casePanel.classList.toggle("bot-case", hideForBot);
     els.caseTitle.textContent = scenario.title;
     els.caseText.textContent = interactiveHumanScene
       ? scenario.text
       : `${scenario.actorName} resuelve su operación por su cuenta. Acercate al mapa si querés escuchar; la radio sólo resume el movimiento.`;
     els.clueStrip.innerHTML = interactiveHumanScene ? scenario.clues.map(clue => `<span class="clue">${escapeHTML(clue)}</span>`).join("") : "";
-    let actions = scenario.actions.map(item => ({ ...item }));
+    let actions = [];
     if (humanOpportunity && !state.scammerFrozen) {
       const resource = state.inventories.nico.find(item => item.executionId === opportunity.resourceId);
       actions = [
@@ -2912,20 +3257,16 @@
         { label: "Dejar pasar", caption: "No intervenís en la operación y conservás el recurso.", stance: "consult" }
       ];
     }
-    els.actionCards.classList.toggle("six-cards", humanOpportunity && actions.length > 4);
     const actionsTitle = document.getElementById("actionsTitle");
     if (actionsTitle) actionsTitle.textContent = humanOpportunity
       ? (humanAccompliceOpportunity ? "Tu encargo privado" : "Tu oportunidad privada")
-      : (interactiveHumanScene ? "Lo que alcanzás a ver" : "");
-    const botTask = String(scenario.taskText || "").replace(new RegExp(`^${scenario.actorName}\\s*${scenario.actorName}\\s*`), "").replace(new RegExp(`^${scenario.actorName}\\s*`), "");
+      : "";
     if (interactiveHumanScene) {
       els.actionCards.innerHTML = actions.map((item, index) => `
         <button class="action-card${item.stance === "fraudExecute" ? " crooked-card" : ""}" type="button" data-action="${index}" data-key="${index + 1}" disabled>
           <strong>${escapeHTML(item.label)}</strong><span>${escapeHTML(item.caption)}</span>
         </button>`).join("");
-    } else {
-      els.actionCards.innerHTML = `<div class="bot-observation"><span class="observation-eye" aria-hidden="true"></span><div><small>${escapeHTML(scenario.place)} · ${escapeHTML(scenario.actorName)}</small><strong>${escapeHTML(botTask)}</strong><p>La decisión es de ${escapeHTML(scenario.actorName)}. Acercate para escuchar; desde lejos sólo ves el recorrido y los objetos.</p></div><b>${escapeHTML(cleanLocation(scenarioLocation(scenario.id))).toUpperCase()}</b></div>`;
-    }
+    } else els.actionCards.innerHTML = "";
     els.actionCards.querySelectorAll(".action-card").forEach(button => button.addEventListener("click", () => resolveAction(actions[Number(button.dataset.action)])));
     renderTasks();
     addSystemFeed(`Ronda ${scenario.round + 1} · historia de ${scenario.actorName}`);
@@ -2942,7 +3283,6 @@
       }, `OPORTUNIDAD · ${scenario.place}`);
     } else {
       els.actionCards.querySelectorAll("button").forEach(button => { button.disabled = true; });
-      if (scenario.actorId === "nico") els.caseText.textContent += " La decisión pertenece a quienes están haciendo la operación; podés acercarte a escucharla.";
       moveActor(scenario, () => {
         const episodeToken = state.episodeToken;
         openingConversation(scenario);
@@ -2982,10 +3322,9 @@
 
   function openingConversation(scenario) {
     if (state.currentResolved || els.missionDialog.open || els.meetingDialog.open || els.resultDialog.open) return;
-    const actorLine = scenario.isScam
-      ? subtleScamLine(scenario)
-      : subtleLegitLine(scenario);
-    speak(scenario.actorId, actorLine, scenario.isScam ? "cover" : "claim", scenario.id);
+    const variant = scenario.isScam ? "scam" : "legit";
+    const actorLine = SCENARIO_DIALOGUE_COPY[scenario.id][variant];
+    speak(scenario.actorId, actorLine, scenario.isScam ? "cover" : "claim", scenario.id, `INT-SCENARIO-${scenario.id.toUpperCase()}-OPENING-${variant.toUpperCase()}`);
     window.setTimeout(() => {
       if (state.currentResolved) return;
       const actorPosition = state.movement.positions[scenario.actorId];
@@ -2993,46 +3332,22 @@
         const pos = state.movement.positions[player.id];
         return actorPosition && pos && Math.hypot(actorPosition.x - pos.x, actorPosition.y - pos.y) < 145;
       });
-      if (commenter) speak(commenter.id, ambiguousComment(scenario, commenter), state.roles[commenter.id] === "Cómplice" ? "deflect" : "comment", scenario.id);
+      if (commenter) {
+        const comment = ambiguousComment(scenario, commenter);
+        speak(commenter.id, comment.text, state.roles[commenter.id] === "Cómplice" ? "deflect" : "comment", scenario.id, comment.copyId);
+      }
     }, 1300);
   }
 
-  function subtleScamLine(scenario) {
-    const lines = {
-      bike: "A mí me figura emitida. Igual, si quieren esperamos un ratito.", fridge: "No tengo cómo filmarla ahora, pero las fotos son de ayer.",
-      bank: "El enlace me lo pasó alguien que trabaja ahí, por eso confío.", family: "Después llamo tranquilo; ahora necesito resolver esto.",
-      rental: "La otra familia todavía no confirmó. No quiero apurarlos, pero avisen.", job: "El curso se recupera rápido; a un conocido le funcionó.",
-      qr: "La cajera me dijo que hoy cambiaron el alias.", phone: "No muestro el IMEI por chat, en persona sí. Con una reserva lo guardo."
-    };
-    return lines[scenario.id];
-  }
-
-  function subtleLegitLine(scenario) {
-    const lines = {
-      bike: "Mi banco está lento. No entregues nada hasta verlo, cero problema.", fridge: "Me urge por la mudanza, pero vení a probarla antes.",
-      bank: "Lo vi dentro de la app. Mejor que cada uno entre por su cuenta.", family: "Hagamos videollamada; perdí el celu, no la cara.",
-      rental: "Se cayó una reserva. Si quieren, el vecino abre la cabaña.", job: "Necesitan cubrirlo ya, pero la empresa paga la capacitación.",
-      qr: "Antes de pagar, comparemos el alias con el ticket.", phone: "Viajo mañana. Lo probamos hoy y me pagás ahí."
-    };
-    return lines[scenario.id];
-  }
-
-  function pickCommenter(actorId) {
-    const pool = PLAYERS.filter(player => player.id !== actorId && !player.human);
-    return pool[(state.scenarioIndex + state.meetings) % pool.length];
-  }
-
   function ambiguousComment(scenario, commenter) {
-    const comments = [
-      "La urgencia sola no prueba nada. Miremos qué deja verificar.",
-      "Yo no lo descartaría, pero tampoco movería plata todavía.",
-      "Puede ser real. Lo que no entiendo es por qué ese canal.",
-      "Hay un detalle raro, aunque el resto cierra bastante.",
-      "A mí me pasó algo parecido y era legítimo. Igual revisemos."
-    ];
-    if (state.roles[commenter.id] === "Cómplice" && !state.accompliceFrozen && scenario.isScam) return "Tiene detalles concretos. Capaz estamos desconfiando de más.";
-    if (state.roles[commenter.id] === "Verificador") return "No decidamos por el apuro: confirmemos una cosa por otro canal.";
-    return comments[state.scenarioIndex % comments.length];
+    if (state.roles[commenter.id] === "Cómplice" && !state.accompliceFrozen && scenario.isScam) {
+      return { text: ROLE_COMMENT_COPY.accomplice, copyId: "INT-SCENARIO-COMMENT-ACCOMPLICE" };
+    }
+    if (state.roles[commenter.id] === "Verificador") {
+      return { text: ROLE_COMMENT_COPY.verifier, copyId: "INT-SCENARIO-COMMENT-VERIFIER" };
+    }
+    const index = state.scenarioIndex % NEIGHBOR_COMMENT_COPY.length;
+    return { text: NEIGHBOR_COMMENT_COPY[index], copyId: `INT-SCENARIO-COMMENT-NEIGHBOR-${index + 1}` };
   }
 
   function resolveAction(picked, timedOut = false, autonomous = false) {
@@ -3086,7 +3401,7 @@
     const endRound = state.completed % 4 === 0;
     els.continueButton.textContent = endRound ? "VOLVER AL BARRIO →" : "ESCUCHAR OTRA HISTORIA →";
     const reaction = reactionAfter(picked.stance, scenario);
-    window.setTimeout(() => speak(reaction.id, reaction.text), 280);
+    window.setTimeout(() => speak(reaction.id, reaction.text, "decision-reaction", scenario.id, reaction.copyId), 280);
     if (picked.stance === "fraudExecute" && picked.line) {
       window.setTimeout(() => speak("nico", picked.line, "fraud-executed", scenario.id), 850);
     }
@@ -3186,14 +3501,8 @@
     const record = roundRecord(deal.scammerId, deal.round);
     const missionText = record?.publicMission?.text || "el mandado";
     const place = cleanLocation(record?.publicMission?.location || "plaza");
-    return [
-      { id: "mission-cost", text: `Entre ${missionText.toLowerCase()} y mover ${resource.label.toLowerCase()} hoy quedé muy justo.` },
-      { id: "bank-cost", text: `Tuve que pasar por ${place} y cubrir gastos para que esto no quede regalado.` },
-      { id: "next-round", text: `La guardé para preparar la próxima vuelta. Quedate atento y no la quemes.` },
-      { id: "still-unclear", text: "Todavía no sé cuánto quedó limpio; primero tengo que ordenar los comprobantes." },
-      { id: "plan-fell", text: "Se cayó la idea que tenía y tuve que volver a poner la plata en el mandado." },
-      { id: "material-first", text: `Estoy preparando algo con ${resource.label.toLowerCase()}; si lo reparto ahora, perdemos la próxima oportunidad.` }
-    ];
+    const variables = { mission: missionText.toLowerCase(), resource: resource.label.toLowerCase(), place };
+    return ACCOMPLICE_EXCUSE_TEMPLATES.map(item => ({ id: item.id, text: item.render(variables) }));
   }
 
   function chooseBotShare(deal, execution) {
@@ -3532,7 +3841,8 @@
     const explanation = pending.explanationChoices[Number(index)];
     if (!explanation) return;
     pending.deal.explanationId = explanation.id;
-    recordDialogue(PLAYERS.find(player => player.id === "nico"), explanation.text, "accomplice-explanation", state.scenarios[state.scenarioIndex]?.id);
+    const explanationIndex = pending.explanationChoices.findIndex(item => item.id === explanation.id);
+    recordDialogue(PLAYERS.find(player => player.id === "nico"), explanation.text, "accomplice-explanation", state.scenarios[state.scenarioIndex]?.id, `INT-ACCOMPLICE-ZERO-EXCUSE-${explanationIndex + 1}`);
     finishScammerEncounter();
   }
 
@@ -3558,10 +3868,10 @@
       deal.proof = random() < .62 || deal.delegated;
       state.suspicion.nico += deal.offeredShare === 0 ? 1.2 : .8;
       adjustRelationship("nico", deal.accompliceId, deal.offeredShare === 0 ? -3 : -2);
-      if (accomplice) recordDialogue(accomplice, deal.offeredShare === 0 ? "¿Cero? Bueno… después no me dejes afuera si esto sigue." : "Dale, pero esto quedó medio corto.", "accomplice-pressure", state.scenarios[state.scenarioIndex]?.id);
+      if (accomplice) recordDialogue(accomplice, deal.offeredShare === 0 ? "¿Cero? Bueno… después no me dejes afuera si esto sigue." : "Dale, pero esto quedó medio corto.", "accomplice-pressure", state.scenarios[state.scenarioIndex]?.id, deal.offeredShare === 0 ? "INT-ACCOMPLICE-ANSWER-ZERO" : "INT-ACCOMPLICE-ANSWER-SHORT");
     } else {
       adjustRelationship("nico", deal.accompliceId, 1);
-      if (accomplice) recordDialogue(accomplice, "Bueno, después vemos la próxima.", "accomplice-settle", state.scenarios[state.scenarioIndex]?.id);
+      if (accomplice) recordDialogue(accomplice, "Bueno, después vemos la próxima.", "accomplice-settle", state.scenarios[state.scenarioIndex]?.id, "INT-ACCOMPLICE-ANSWER-SETTLE");
     }
     deal.behavior = shady ? "tense" : "settled";
     deal.encounterState = "complete";
@@ -3586,7 +3896,7 @@
     const accomplice = PLAYERS.find(player => player.id === deal.accompliceId);
     if (behavior !== "comply") {
       state.suspicion[deal.accompliceId] += behavior === "keep" ? 2.2 : 1.1;
-      recordDialogue(accomplice, behavior === "keep" ? "La plata quedó conmigo. Después arreglamos." : "Te mandé casi todo; tuve que cubrir un gasto.", "accomplice-betrayal", state.scenarios[state.scenarioIndex]?.id);
+      recordDialogue(accomplice, behavior === "keep" ? "La plata quedó conmigo. Después arreglamos." : "Te mandé casi todo; tuve que cubrir un gasto.", "accomplice-betrayal", state.scenarios[state.scenarioIndex]?.id, behavior === "keep" ? "INT-ACCOMPLICE-BETRAY-KEEP" : "INT-ACCOMPLICE-BETRAY-SKIM");
     }
     if (deal.scammerId === "nico" && paid < expected) window.setTimeout(() => openConfrontation(deal), 250);
     else if (deal.scammerId !== "nico" && paid < expected && random() < .72) { deal.proof = true; state.suspicion[deal.accompliceId] += 1.5; }
@@ -3613,7 +3923,7 @@
       const recovered = handCash(deal.accompliceId, deal.scammerId, Math.round(missing / 2), "Reclamo sin recibo");
       state.campaign.economy[deal.accompliceId].unexplained = Math.max(0, state.campaign.economy[deal.accompliceId].unexplained - recovered);
       deal.paid += recovered; deal.retained -= recovered; deal.proof = true;
-      speak("nico", `Pará, faltan ${formatMoney(missing)} del arreglo.`, "confrontation");
+      speak("nico", `Pará, faltan ${formatMoney(missing)} del arreglo.`, "confrontation", state.scenarios[state.scenarioIndex]?.id, "INT-ACCOMPLICE-CONFRONTATION-MISSING");
       state.suspicion.nico += 1; state.suspicion[deal.accompliceId] += 1;
       adjustRelationship(deal.scammerId, deal.accompliceId, -2);
     } else if (action === "proof") {
@@ -3663,10 +3973,10 @@
   function reactionAfter(stance, scenario) {
     const verifier = PLAYERS.find(player => state.roles[player.id] === "Verificador");
     const neighbor = PLAYERS.find(player => !player.human && player.id !== scenario.actorId && state.roles[player.id] === "Vecino") || PLAYERS[0];
-    if (stance === "fraudExecute") return { id: currentAccomplice()?.id || neighbor.id, text: "Eso no sonó a mandado. Anotemos quién tenía ese recurso." };
-    if (stance === "approve") return { id: verifier?.id || neighbor.id, text: "Anotemos qué dato dimos por bueno." };
-    if (stance === "reject") return { id: neighbor.id, text: "Puede ser, pero no toda urgencia es chamuyo." };
-    return { id: verifier?.id || neighbor.id, text: "Bien. Una comprobación concreta vale más que una corazonada." };
+    if (stance === "fraudExecute") return { id: currentAccomplice()?.id || neighbor.id, text: DECISION_REACTION_COPY.fraudExecute, copyId: "INT-SCENARIO-REACTION-FRAUD" };
+    if (stance === "approve") return { id: verifier?.id || neighbor.id, text: DECISION_REACTION_COPY.approve, copyId: "INT-SCENARIO-REACTION-APPROVE" };
+    if (stance === "reject") return { id: neighbor.id, text: DECISION_REACTION_COPY.reject, copyId: "INT-SCENARIO-REACTION-REJECT" };
+    return { id: verifier?.id || neighbor.id, text: DECISION_REACTION_COPY.consult, copyId: "INT-SCENARIO-REACTION-CONSULT" };
   }
 
   function currentAccomplice() { return state.accompliceFrozen ? undefined : PLAYERS.find(player => state.roles[player.id] === "Cómplice"); }
@@ -3702,6 +4012,7 @@
     Object.values(state.movement.botRouteQueues).flat().forEach(job => job?.callbackKey && botRouteCallbacks.delete(job.callbackKey));
     state.movement.activeBotRoute = {};
     state.movement.botRouteQueues = {};
+    clearBotConversationHolds();
     state.movement.path = [];
     stopTimer();
     stopDayClock();
@@ -3731,7 +4042,7 @@
       <div class="meeting-seat seat-${index + 1}" style="--skin:${player.skin};--hair:${player.hair};--shirt:${player.shirt}">
         <div class="seat-avatar">${playerSpriteMarkup(player)}</div><span>${player.name}${player.human ? " · vos" : ""}</span>
         <button class="seat-dialogue-peek" type="button" data-dialogue-player="${player.id}" aria-label="Ver diálogos de ${player.name}" ${dialoguesFor(player.id).length ? "" : "hidden"}>…</button>
-        <div class="dialogue-note meeting-dialogue-note" hidden></div>
+        <div class="dialogue-note meeting-dialogue-note" aria-live="polite" hidden></div>
       </div>`).join("");
   }
 
@@ -3993,13 +4304,19 @@
 
   function renderVoteResult(counts, targetId, tally, target, role, record, executedFrauds, unexplained, playerId, suppliedVotes) {
     const targetStory = state.roundStories.find(story => story.actorId === targetId);
+    const retainedFraudDeal = state.accompliceDeals.find(deal =>
+      deal.episodeId === state.campaign.episodeNumber
+      && deal.accompliceId === targetId
+      && deal.gross > 0
+      && deal.retained >= ECONOMY_CONFIG.surplusThreshold
+    );
     if (role === "Estafador" && executedFrauds.length) {
       state.trust = clamp(state.trust + 12, 0, 100);
       state.security = clamp(state.security + 7, 0, 100);
       state.scammerFrozen = true;
       state.gameOver = true;
       els.voteResult.textContent = `Votos: ${tally}. La auditoría encontró ${executedFrauds.map(item => item.method).join(" y ")}. ${target.name} era el Estafador.`;
-    } else if (role === "Cómplice" && unexplained >= ECONOMY_CONFIG.surplusThreshold) {
+    } else if (role === "Cómplice" && retainedFraudDeal && unexplained >= ECONOMY_CONFIG.surplusThreshold) {
       state.trust = clamp(state.trust + 5, 0, 100);
       state.falseTarget = target;
       state.falseClosing = true;
@@ -4344,10 +4661,24 @@
     walker.speechTimer = window.setTimeout(() => walker.classList.remove("is-speaking"), duration);
   }
 
-  function speak(playerId, message, intention = "comment", scenarioId = state.scenarios[state.scenarioIndex]?.id) {
+  function readableSpeechDuration(message) {
+    const words = String(message || "").trim().split(/\s+/).filter(Boolean).length;
+    return Math.max(2800, Math.min(6800, 950 + words * 310));
+  }
+
+  function speak(playerId, message, intention = "comment", scenarioId = state.scenarios[state.scenarioIndex]?.id, copyId = null) {
     const player = PLAYERS.find(person => person.id === playerId);
     if (!player) return;
-    recordDialogue(player, message, intention, scenarioId);
+    const conversationHold = state.movement.botHolds[playerId];
+    const belongsToHumanConversation = [
+      "counterpart-arrival", "medicine-advance", "medicine-offer-changed",
+      "medicine-delivery", "mission-payment"
+    ].includes(intention);
+    if (playerId !== "nico" && conversationHold?.episodeToken === state.episodeToken && !belongsToHumanConversation) {
+      state.debugTrace.push({ event: "speech-deferred-by-conversation", playerId, intention, message, stepId: conversationHold.stepId, at: Date.now() });
+      return 0;
+    }
+    const entry = recordDialogue(player, message, intention, scenarioId, copyId);
     const walker = document.querySelector(`[data-player="${playerId}"]`);
     if (!walker) return;
     walker.querySelector(".speech-bubble").textContent = message;
@@ -4355,10 +4686,21 @@
     const peek = walker.querySelector(".dialogue-peek");
     if (peek) peek.hidden = false;
     window.clearTimeout(walker.speechTimer);
-    walker.speechTimer = window.setTimeout(() => walker.classList.remove("is-speaking"), 2600);
+    const duration = readableSpeechDuration(message);
+    const expiresAt = Date.now() + duration;
+    if (entry) {
+      entry.expiresAt = expiresAt;
+      const active = state.activeUtterances.find(item => item.dialogueId === entry.id);
+      if (active) active.expiresAt = expiresAt;
+    }
+    walker.speechTimer = window.setTimeout(() => {
+      walker.classList.remove("is-speaking");
+      state.activeUtterances = state.activeUtterances.filter(item => item.dialogueId !== entry?.id);
+    }, duration);
+    return duration;
   }
 
-  function recordDialogue(player, message, intention = "comment", scenarioId = state.scenarios[state.scenarioIndex]?.id) {
+  function recordDialogue(player, message, intention = "comment", scenarioId = state.scenarios[state.scenarioIndex]?.id, copyId = null) {
     const current = state.scenarios[state.scenarioIndex];
     const scenario = state.scenarios.find(item => item.id === scenarioId && item.round === current?.round) || current;
     const previous = state.dialogueLog[state.dialogueLog.length - 1];
@@ -4367,19 +4709,59 @@
     const speakerPos = state.movement.positions[player.id];
     const heard = player.id === "nico" || Boolean(humanPos && speakerPos && Math.hypot(humanPos.x - speakerPos.x, humanPos.y - speakerPos.y) <= HEARING_RADIUS);
     const entry = {
+      id: makeId("dialogue"),
       playerId: player.id, playerName: player.name, scenarioId, scenarioTitle: scenario?.title || "Sobremesa",
       text: message, round: scenario?.round ?? Math.max(0, state.roundNumber - 1), intention,
-      order: state.dialogueLog.length + 1, time: Date.now(), heard
+      order: state.dialogueLog.length + 1, time: Date.now(), heard, heardAt: heard ? Date.now() : null,
+      heardLocation: heard ? nearestLocationName(speakerPos) : null, feedPublished: false,
+      copyId: copyId || automaticCopyId(intention, message)
     };
     state.dialogueLog.push(entry);
-    if (heard) {
-      addFeed(player, message);
-      state.observations.push({ id: makeId("obs"), observerId: "nico", participants: [player.id], location: nearestLocationName(speakerPos), round: entry.round, kind: "overheard", text: message, reliability: 1 });
-      document.querySelectorAll(`[data-dialogue-player="${player.id}"]`).forEach(button => { button.hidden = false; });
-      state.transport.send("conversation:overheard", { observerId: "nico", speakerId: player.id, round: entry.round, location: nearestLocationName(speakerPos) });
-    }
+    state.activeUtterances.push({ dialogueId: entry.id, speakerId: player.id, targetId: null, text: message, locationId: nearestLocationName(speakerPos), startedAt: entry.time, expiresAt: entry.time + 2600, heard, heardAt: entry.heardAt, heardLocation: entry.heardLocation, feedPublished: false });
+    if (heard) publishHeardDialogue(entry, player, speakerPos);
     state.transport.send("dialogue:spoken", { playerId: player.id, scenarioId, round: entry.round, order: entry.order });
     return entry;
+  }
+
+  function automaticCopyId(intention, message) {
+    const seed = `${intention || "comment"}:${message || ""}`;
+    let hash = 2166136261;
+    for (const char of seed) {
+      hash ^= char.charCodeAt(0);
+      hash = Math.imul(hash, 16777619);
+    }
+    const intent = String(intention || "comment").toUpperCase().replace(/[^A-Z0-9]+/g, "-");
+    return `INT-RUNTIME-${intent}-${(hash >>> 0).toString(36).toUpperCase()}`;
+  }
+
+  function publishHeardDialogue(entry, player, speakerPos) {
+    if (!entry || entry.feedPublished) return false;
+    const location = entry.heardLocation || nearestLocationName(speakerPos);
+    entry.heard = true;
+    entry.heardAt ||= Date.now();
+    entry.heardLocation ||= location;
+    entry.feedPublished = true;
+    const active = state.activeUtterances.find(item => item.dialogueId === entry.id);
+    if (active) Object.assign(active, { heard: true, heardAt: entry.heardAt, heardLocation: location, feedPublished: true });
+    addFeed(player, entry.text);
+    state.observations.push({ id: makeId("obs"), observerId: "nico", participants: [player.id], location, round: entry.round, kind: "overheard", text: entry.text, reliability: 1 });
+    document.querySelectorAll(`[data-dialogue-player="${player.id}"]`).forEach(button => { button.hidden = false; });
+    state.transport.send("conversation:overheard", { observerId: "nico", speakerId: player.id, round: entry.round, location });
+    return true;
+  }
+
+  function refreshActiveUtterances(humanPos = state.movement.positions.nico) {
+    const now = Date.now();
+    state.activeUtterances = state.activeUtterances.filter(active => {
+      if (active.expiresAt <= now) return false;
+      if (active.heard || !humanPos) return true;
+      const speakerPos = state.movement.positions[active.speakerId];
+      if (!speakerPos || Math.hypot(humanPos.x - speakerPos.x, humanPos.y - speakerPos.y) > HEARING_RADIUS) return true;
+      const entry = state.dialogueLog.find(item => item.id === active.dialogueId);
+      const player = PLAYERS.find(item => item.id === active.speakerId);
+      if (entry && player) publishHeardDialogue(entry, player, speakerPos);
+      return true;
+    });
   }
 
   function dialoguesFor(playerId) {
@@ -4396,28 +4778,33 @@
     const playerId = button.dataset.dialoguePlayer;
     const player = PLAYERS.find(person => person.id === playerId);
     if (!player) return;
-    const walker = button.closest(".walker");
-    if (!walker) return;
-    const willOpen = els.dialogueNote.hidden;
+    const anchor = button.closest(".walker, .meeting-seat");
+    if (!anchor) return;
+    const localNote = anchor.querySelector(".meeting-dialogue-note");
+    const note = localNote || els.dialogueNote;
+    const willOpen = note.hidden;
     closeDialogueNotes();
     if (!willOpen) return;
     const entries = dialoguesFor(playerId);
-    els.dialogueNote.innerHTML = `<strong>${player.name}</strong>${entries.map(entry => {
+    note.innerHTML = `<strong>${player.name}</strong>${entries.map(entry => {
       const time = new Intl.DateTimeFormat("es-AR", { hour: "2-digit", minute: "2-digit" }).format(new Date(entry.time));
       return `<p><small>#${entry.order} · ${time}</small><em>${escapeHTML(entry.scenarioTitle)}</em>${escapeHTML(entry.text)}</p>`;
     }).join("") || "<p>Todavía no habló en esta ronda.</p>"}`;
-    const rect = walker.getBoundingClientRect();
-    const mapRect = els.villageMap.getBoundingClientRect();
-    const left = Math.max(8, Math.min(rect.left - mapRect.left, els.villageMap.clientWidth - 200));
-    const top = rect.top - mapRect.top - 10;
-    els.dialogueNote.style.left = `${left}px`;
-    els.dialogueNote.style.top = `${top}px`;
-    els.dialogueNote.hidden = false;
+    if (!localNote) {
+      const rect = anchor.getBoundingClientRect();
+      const mapRect = els.villageMap.getBoundingClientRect();
+      const left = Math.max(8, Math.min(rect.left - mapRect.left, els.villageMap.clientWidth - 200));
+      const top = rect.top - mapRect.top - 10;
+      note.style.left = `${left}px`;
+      note.style.top = `${top}px`;
+    }
+    note.hidden = false;
     button.setAttribute("aria-expanded", "true");
   }
 
   function closeDialogueNotes() {
     els.dialogueNote.hidden = true;
+    document.querySelectorAll(".meeting-dialogue-note").forEach(note => { note.hidden = true; });
     document.querySelectorAll("[data-dialogue-player]").forEach(button => button.setAttribute("aria-expanded", "false"));
   }
 
@@ -4467,12 +4854,12 @@
     security: 68, trust: 64, progress: 0, scenarioIndex: 0, completed: 0, currentResolved: false, transitionPending: false,
       timer: DECISION_SECONDS, timerId: null, dayTimer: DEBUG_DAY_SECONDS, dayTimerId: null, dayStartedAt: 0, dayExpired: false, storiesReady: false, roles: {}, scenarios: [], roundStories: [], decisions: [],
       ignoredSignals: [], audited: new Set(), suspicion: {}, scammerFrozen: false, scamAttempts: 0, scamScore: 0,
-      meetings: 0, roundNumber: 0, templateQueue: [], dialogueLog: [], questionsRemaining: 0,
+      meetings: 0, roundNumber: 0, templateQueue: [], dialogueLog: [], activeUtterances: [], questionsRemaining: 0,
       questionedPlayers: new Set(), currentInterrogation: null, fraudProgress: 0, gameOver: false, accompliceFrozen: false,
       socialProfiles: {}, motivations: {}, roundRecords: {}, pendingMissionPair: [], selectedMission: null,
       selectedStrategy: null, selectedMissionAction: null, selectedMissionOption: null, selectedPreparation: null, selectedDelegation: "keep", pendingAlibi: null,
       fraudOccurred: false, pendingJudgment: false, judgmentHistory: [], inventories: {}, fraudExecutions: [], opportunityByScenario: {},
-      pendingPayout: null, pendingEncounter: null, pendingConfrontation: null, falseClosing: false, falseTarget: null,
+      pendingPayout: null, pendingEncounter: null, pendingConfrontation: null, pendingCompensation: null, falseClosing: false, falseTarget: null,
       botMissionRounds: new Set(), agendas: {}, humanAgenda: null, errandSlip: { visible: true, missionId: null, stepIndex: 0, savedAt: Date.now() }, activeCounterpart: null, observations: [], gossip: null,
       animals: [], residues: [], lastAnimalTick: 0, lastAnimalTextTime: 0,
       dirtyShoe: { active: false, incidentId: 0, until: 0, nearbyBots: {} },
@@ -4484,6 +4871,7 @@
     state.movement.path = [];
     state.movement.activeBotRoute = {};
     state.movement.botRouteQueues = {};
+    clearBotConversationHolds();
     botRouteCallbacks.clear();
     state.movement.keys.clear();
     state.movement.positions = {};
@@ -4495,7 +4883,7 @@
     PLAYERS.forEach((player, index) => {
       state.campaign.positions[player.id] = { x: SPAWN_POINTS[index][0], y: SPAWN_POINTS[index][1] };
     });
-    [els.resultDialog, els.roleDialog, els.missionDialog, els.alibiDialog, els.judgmentDialog, els.meetingDialog, els.payoutDialog, els.profileDialog, els.pocketDialog, els.atmDialog]
+    [els.resultDialog, els.roleDialog, els.missionDialog, els.alibiDialog, els.judgmentDialog, els.meetingDialog, els.compensationDialog, els.payoutDialog, els.profileDialog, els.pocketDialog, els.atmDialog]
       .forEach(dialog => { if (dialog?.open) dialog.close(); });
     els.objectiveMarker.hidden = true;
     els.interactionPrompt.hidden = true;
@@ -4569,10 +4957,12 @@
       phase,
       round, scenarioIndex: state.scenarioIndex, completed: state.completed, gameOver: state.gameOver,
       episodeNumber: state.campaign?.episodeNumber,
+      relationships: { ...(state.campaign?.relationships || {}) },
       roles: { ...state.roles },
       meetingPhase: state.meetingPhase, questionsRemaining: state.questionsRemaining, questionedPlayers: [...state.questionedPlayers], botQuestionCompleted: state.botQuestionCompleted,
       players: PLAYERS.map(p => ({ id: p.id, name: p.name, human: p.human })),
-      dialogueLog: state.dialogueLog.map(e => ({ playerId: e.playerId, playerName: e.playerName, text: e.text, intention: e.intention })),
+      dialogueLog: state.dialogueLog.map(e => ({ id: e.id, playerId: e.playerId, playerName: e.playerName, text: e.text, intention: e.intention, heard: e.heard, heardAt: e.heardAt, heardLocation: e.heardLocation, feedPublished: e.feedPublished, copyId: e.copyId })),
+      activeUtterances: state.activeUtterances.map(item => ({ ...item })),
       ambientTrace: state.debugTrace.filter(entry => entry.event === "ambient-speech").map(entry => ({ playerId: entry.playerId, message: entry.message, at: entry.at })),
       dinner: dinnerGateStatus(),
       dirtyShoe: {
@@ -4583,7 +4973,8 @@
       },
       inventory: (state.inventories.nico || []).map(resource => ({ executionId: resource.executionId, type: resource.type, status: resource.status, availableFromRound: resource.availableFromRound })),
       economy: account ? { bank: account.bank, cash: account.cash, employment: account.employment, pendingJob: account.pendingJob || null } : null,
-      agenda: agenda ? { missionId: agenda.mission.id, optionId: agenda.option.id, index: agenda.index, steps: agenda.steps.map(step => ({ id: step.id, location: cleanLocation(step.location), kind: step.kind, status: step.status })) } : null,
+      agenda: agenda ? { missionId: agenda.mission.id, optionId: agenda.option.id, index: agenda.index, compensationResolved: Boolean(agenda.compensationResolved), compensationChoice: agenda.compensationChoice || null, steps: agenda.steps.map(step => ({ id: step.id, location: cleanLocation(step.location), kind: step.kind, status: step.status })) } : null,
+      compensation: state.pendingCompensation ? { open: els.compensationDialog?.open || false, missionId: state.pendingCompensation.mission.id, ...compensationForMission(state.pendingCompensation.mission, state.pendingCompensation.option) } : { open: false },
       atm: {
         open: state.atmUI.open,
         mode: state.atmUI.mode,
@@ -4597,13 +4988,14 @@
         objective: state.movement.objective ? { x: state.movement.objective.x, y: state.movement.objective.y, location: state.movement.objective.location } : null,
         activeRoutes: Object.keys(state.movement.activeBotRoute).length,
         queuedRoutes: Object.values(state.movement.botRouteQueues).reduce((sum, queue) => sum + queue.length, 0),
+        holds: Object.values(state.movement.botHolds).map(hold => ({ ...hold })),
         routeJobs: [
           ...Object.values(state.movement.activeBotRoute).filter(Boolean).map(job => ({ id: job.id, playerId: job.playerId, purpose: job.purpose, priority: job.priority, status: job.status })),
           ...Object.values(state.movement.botRouteQueues).flat().map(job => ({ id: job.id, playerId: job.playerId, purpose: job.purpose, priority: job.priority, status: job.status }))
         ]
       },
       ui: {
-        dialogsOpen: { mission: els.missionDialog?.open || false, meeting: els.meetingDialog?.open || false, result: els.resultDialog?.open || false, atm: els.atmDialog?.open || false },
+        dialogsOpen: { mission: els.missionDialog?.open || false, meeting: els.meetingDialog?.open || false, result: els.resultDialog?.open || false, compensation: els.compensationDialog?.open || false, atm: els.atmDialog?.open || false },
         currentResolved: state.currentResolved,
         clockRunning: Boolean(state.timerId || state.dayTimerId),
         continueVisible: !els.continueButton?.disabled
@@ -4748,10 +5140,111 @@
     return debugSnapshot();
   }
 
+  const FIXED_INTERACTION_COPY = [
+    ["INT-SYSTEM-MISSION-CHOOSE", "system", "Elegí uno. Después jugás cómo lo resolvés; todavía no hay nada marcado como cumplido.", "selector de mandados"],
+    ["INT-SYSTEM-ATM-ARRIVAL", "system", "Llegaste al banco. Acercate al cajero y apretá E para retirar.", "llegada al cajero"],
+    ["INT-SYSTEM-ATM-MINIMUM", "system", "Elegí un monto desde $1.000.", "validación del cajero"],
+    ["INT-SYSTEM-ATM-MULTIPLE", "system", "El cajero entrega montos de a $1.000.", "validación del cajero"],
+    ["INT-SYSTEM-ATM-BALANCE", "system", "No hay tanto saldo en la cuenta.", "validación del cajero"],
+    ["INT-SYSTEM-DINNER-WAITING", "system", "Todavía faltan movimientos del barrio.", "botón A comer"],
+    ["INT-SYSTEM-DINNER-READY", "system", "El barrio terminó. Podés ir a comer cuando quieras.", "botón A comer"],
+    ["INT-SYSTEM-DINNER-HUMAN-PENDING", "system", "El barrio terminó. Cerrá tu mandado y después decidís cuándo ir a comer.", "botón A comer"],
+    ["INT-SYSTEM-MISSION-FINISHED", "system", "Terminaste tu agenda. Los demás siguen con la suya.", "cierre del mandado humano"],
+    ["INT-RUMOR-OBSERVER-REPORT", "rumor", "Yo vi movimiento por acá. Después cuento en la mesa.", "observador de la ronda después de ver un movimiento"],
+    ["INT-MISSION-FAMILY-MEDICINE-ADVANCE-CONFIRM", "mission-special", "Te pasé {amount}. Traeme el ticket y después te pago el mandado.", "Marta confirma el adelanto"],
+    ["INT-MISSION-FAMILY-MEDICINE-OFFER-CHANGED", "mission-special", "El farmacéutico no sostuvo los treinta. Te lo deja a treinta y seis porque tardaste en volver.", "oferta en efectivo vencida"],
+    ["INT-MISSION-FAMILY-MEDICINE-PURCHASE-CONFIRM", "mission-special", "Cerré los remedios en {amount}. Guardame la bolsa y el ticket.", "Nico confirma la compra"],
+    ["INT-MISSION-FAMILY-MEDICINE-DELIVERY-CHECK", "mission-special", "Gracias, Nico. Dame un segundo que reviso la bolsa y el ticket; después arreglamos lo del viaje.", "Marta revisa la entrega antes de ofrecer el honorario"],
+    ["INT-MISSION-COMPENSATION-PROMPT-CONTRACT", "mission-payment", "Gracias, Nico. Quedó hecho. Son {amount} por {reason}. ¿Te transfiero o preferís efectivo?", "contraparte cierra un trabajo encargado"],
+    ["INT-MISSION-COMPENSATION-PROMPT-FAVOR", "mission-payment", "Gracias, Nico. Me re salvaste. Te quiero dar {amount} por {reason}. ¿Cómo te queda mejor?", "contraparte agradece un favor"],
+    ["INT-MISSION-COMPENSATION-ANSWER-BANK", "mission-payment", "Listo, te lo transferí. Gracias por la mano.", "contraparte paga por transferencia"],
+    ["INT-MISSION-COMPENSATION-PLAYER-BANK", "mission-payment", "Dale, ya me figura. Guardamos el comprobante.", "Nico confirma la transferencia"],
+    ["INT-MISSION-COMPENSATION-ANSWER-CASH", "mission-payment", "Tomá, acá está. Gracias por resolverlo.", "contraparte paga en efectivo"],
+    ["INT-MISSION-COMPENSATION-PLAYER-CASH", "mission-payment", "Gracias. Lo cuento y dejamos anotado el pago.", "Nico confirma el efectivo"],
+    ["INT-MISSION-COMPENSATION-ANSWER-DECLINE", "mission-payment", "Bueno, gracias de verdad. Te debo una.", "contraparte agradece al rechazarse el pago"],
+    ["INT-MISSION-COMPENSATION-PLAYER-DECLINE", "mission-payment", "No, dejalo así. Hoy era darte una mano.", "Nico rechaza el pago"],
+    ["INT-ACCOMPLICE-QUESTION-ZERO", "accomplice", "¿Cero? ¿Por qué te ayudaría entonces?", "encargo con oferta de 0%"],
+    ["INT-ACCOMPLICE-QUESTION-RESULT", "accomplice", "¿Y entonces qué hiciste con eso?", "encuentro posterior a la maniobra"],
+    ["INT-ACCOMPLICE-ANSWER-ZERO", "accomplice", "¿Cero? Bueno… después no me dejes afuera si esto sigue.", "Cómplice acepta con presión"],
+    ["INT-ACCOMPLICE-ANSWER-SHORT", "accomplice", "Dale, pero esto quedó medio corto.", "Cómplice recibe un porcentaje bajo"],
+    ["INT-ACCOMPLICE-ANSWER-SETTLE", "accomplice", "Bueno, después vemos la próxima.", "Cómplice acepta el arreglo"],
+    ["INT-ACCOMPLICE-BETRAY-KEEP", "accomplice", "La plata quedó conmigo. Después arreglamos.", "Cómplice retiene todo"],
+    ["INT-ACCOMPLICE-BETRAY-SKIM", "accomplice", "Te mandé casi todo; tuve que cubrir un gasto.", "Cómplice retiene una parte"],
+    ["INT-ACCOMPLICE-CONFRONTATION-MISSING", "accomplice", "Pará, faltan {amount} del arreglo.", "Estafador reclama una diferencia en persona"],
+    ["INT-VERIFIER-QUESTION-ACTIVITY", "verifier", "¿Qué hiciste durante la ronda?", "interrogatorio libre"],
+    ["INT-VERIFIER-QUESTION-WITNESS", "verifier", "¿Con quién estuviste?", "interrogatorio libre"],
+    ["INT-VERIFIER-QUESTION-FAILED", "verifier", "¿Qué intentaste y no pudiste completar?", "interrogatorio libre"],
+    ["INT-MEETING-NO-VOTE", "meeting", "Sin tu voto no hubo mayoría. Las operaciones siguen abiertas.", "votación sin mayoría"],
+    ["INT-MEETING-NOTEBOOK-CLOSED", "meeting", "Libreta cerrada. Ahora compará las respuestas y votá.", "fin del interrogatorio"],
+    ...POOP_REACTION_LINES.map((text, index) => [`INT-AMBIENT-DIRTY-SHOE-${index + 1}`, "ambient", text, "bot cercano cuando Nico pisó caca"]),
+    ["INT-AMBIENT-DOG", "ambient", "¡guau!", "sonido esporádico de perro"],
+    ["INT-AMBIENT-CAT", "ambient", "¡miau!", "sonido esporádico de gato"]
+  ];
+
+  function buildInteractionCatalog() {
+    const catalog = [];
+    const add = (id, category, text, source, context, exposure = "interface", stateLabel = "active", groupId = null, sequenceRole = null) => {
+      if (!text) return;
+      catalog.push({ id, category, text, source, context, exposure, state: stateLabel, groupId: groupId || id, sequenceRole });
+    };
+    FIXED_INTERACTION_COPY.forEach(([id, category, text, context]) => add(
+      id,
+      category,
+      text,
+      "app.js",
+      context,
+      category === "ambient" ? "ambient-bubble" : category === "meeting" || category === "verifier" ? "meeting" : category.startsWith("accomplice") ? "private-dialog" : "interface"
+    ));
+    Object.entries(MISSION_STEP_BLUEPRINTS).forEach(([missionId, steps]) => steps.forEach((step, index) => {
+      const base = `INT-MISSION-${missionId.toUpperCase()}-${String(step.semanticKind || step.kind).toUpperCase()}-${index + 1}`;
+      add(`${base}-COUNTERPART`, "mission-dialogue", step.counterpartLine, `MISSION_STEP_BLUEPRINTS.${missionId}[${index}]`, `${cleanLocation(step.location)} · ${step.actionLabel}`, "audible-by-proximity", "active", base, "counterpart");
+      add(`${base}-PLAYER`, "mission-dialogue", step.playerLine, `MISSION_STEP_BLUEPRINTS.${missionId}[${index}]`, `${cleanLocation(step.location)} · respuesta del jugador`, "audible-by-proximity", "active", base, "player");
+    }));
+    Object.values(MISSION_LIBRARY).flat().forEach(mission => {
+      add(`INT-MISSION-${mission.id.toUpperCase()}-TITLE`, "mission-title", mission.text, `MISSION_LIBRARY.${mission.id}`, "selector, papelito e inventario", "interface");
+      add(`INT-MISSION-${mission.id.toUpperCase()}-FACT`, "mission-fact", mission.completedFact, `MISSION_LIBRARY.${mission.id}`, "hecho público resultante", "meeting-and-replay");
+      missionOptions(mission).forEach(option => {
+      const base = `INT-MISSION-OPTION-${mission.id.toUpperCase()}-${option.id.toUpperCase()}`;
+        add(`${base}-LABEL`, "mission-option", option.label, `missionOptions(${mission.id})`, "título de opción", "interface", "active", base, "label");
+        add(`${base}-CAPTION`, "mission-option", option.caption, `missionOptions(${mission.id})`, "explicación de opción", "interface", "active", base, "caption");
+        add(`${base}-BENEFIT`, "mission-option", option.benefit?.text || "", `missionOptions(${mission.id})`, "beneficio visible", "interface", "active", base, "benefit");
+      });
+    });
+    TEMPLATES.forEach(template => {
+      const base = `INT-SCENARIO-${template.id.toUpperCase()}`;
+      add(`${base}-TITLE`, "scenario", template.title, `TEMPLATES.${template.id}`, "nombre de situación en reconstrucción y notas", "meeting-and-replay", "active", base, "title");
+      add(`${base}-LEGIT`, "scenario", template.legit("{actor}"), `TEMPLATES.${template.id}.legit`, "versión legítima de la situación", "private-opportunity-and-reconstruction", "active", base, "legit");
+      add(`${base}-SCAM`, "scenario", template.scam("{actor}"), `TEMPLATES.${template.id}.scam`, "versión fraudulenta de la situación", "private-opportunity-and-reconstruction", "active", base, "scam");
+      add(`${base}-REAL-SIGNAL`, "scenario-result", template.realSignal, `TEMPLATES.${template.id}.realSignal`, "señal revelada después del veredicto", "replay", "active", base, "real-signal");
+      add(`${base}-FALSE-SIGNAL`, "scenario-result", template.falseSignal, `TEMPLATES.${template.id}.falseSignal`, "señal revelada después del veredicto", "replay", "active", base, "false-signal");
+      add(`${base}-OPENING-LEGIT`, "scenario-dialogue", SCENARIO_DIALOGUE_COPY[template.id].legit, `SCENARIO_DIALOGUE_COPY.${template.id}.legit`, "apertura audible de una operación legítima", "audible-by-proximity", "active", base, "opening-legit");
+      add(`${base}-OPENING-SCAM`, "scenario-dialogue", SCENARIO_DIALOGUE_COPY[template.id].scam, `SCENARIO_DIALOGUE_COPY.${template.id}.scam`, "apertura audible de una operación armada", "audible-by-proximity", "active", base, "opening-scam");
+      template.actions.forEach((action, index) => {
+        const actionBase = `${base}-NPC-DECISION-${action.stance.toUpperCase()}`;
+        add(`${actionBase}-LABEL`, "scenario-internal-decision", action.label, `TEMPLATES.${template.id}.actions[${index}]`, "decisión autónoma que luego se resume en mesa", "internal-then-meeting-summary", "internal-active", actionBase, "label");
+        add(`${actionBase}-CAPTION`, "scenario-internal-decision", action.caption, `TEMPLATES.${template.id}.actions[${index}]`, "criterio interno de la decisión autónoma; no se muestra como carta", "internal", "internal-active", actionBase, "caption");
+      });
+      STORY_EXTRAS[template.id].questions.forEach((questionItem, index) => {
+        const questionBase = `${base}-QUESTION-${index + 1}`;
+        add(`${questionBase}-PROMPT`, "verifier", questionItem.prompt, `STORY_EXTRAS.${template.id}.questions[${index}]`, "pregunta en la mesa", "meeting", "active", questionBase, "prompt");
+        ["legitStrong", "legitAwkward", "scamPolished", "scamWeak"].forEach(pool => add(`${questionBase}-${pool.toUpperCase()}`, "verifier-answer", questionItem[pool], `STORY_EXTRAS.${template.id}.questions[${index}].${pool}`, pool, "meeting", "active", questionBase, pool));
+      });
+    });
+    NEIGHBOR_COMMENT_COPY.forEach((text, index) => add(`INT-SCENARIO-COMMENT-NEIGHBOR-${index + 1}`, "scenario-comment", text, `NEIGHBOR_COMMENT_COPY[${index}]`, "comentario de un vecino cercano", "audible-by-proximity"));
+    Object.entries(ROLE_COMMENT_COPY).forEach(([role, text]) => add(`INT-SCENARIO-COMMENT-${role.toUpperCase()}`, "scenario-comment", text, `ROLE_COMMENT_COPY.${role}`, `comentario condicionado al rol ${role}`, "audible-by-proximity"));
+    Object.entries(DECISION_REACTION_COPY).forEach(([stance, text]) => add(`INT-SCENARIO-REACTION-${stance === "fraudExecute" ? "FRAUD" : stance.toUpperCase()}`, "scenario-reaction", text, `DECISION_REACTION_COPY.${stance}`, `reacción posterior a ${stance}`, "audible-by-proximity"));
+    ACCOMPLICE_EXCUSE_TEMPLATES.forEach((item, index) => add(`INT-ACCOMPLICE-ZERO-EXCUSE-${index + 1}`, "accomplice-excuse", item.template, `ACCOMPLICE_EXCUSE_TEMPLATES.${item.id}`, "oferta de 0% o monto oculto", "private-dialog"));
+    const ids = catalog.map(item => item.id);
+    const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
+    if (duplicates.length) throw new Error(`IDs editoriales duplicados: ${[...new Set(duplicates)].join(", ")}`);
+    return catalog;
+  }
+
   function publishDebugApi(checks = {}) {
     if (!DEBUG_MODE) return;
     window.ChamuyoDebug = {
       checks,
+      interactionCatalog: buildInteractionCatalog(),
       snapshot: debugSnapshot,
       economy: ECONOMY_CONFIG,
       dinnerGateStatus,
@@ -4764,6 +5257,7 @@
         startMission: debugMissionById,
         arriveAtCurrentStep: debugArriveAtCurrentStep,
         interactCurrentStep: debugInteractCurrentStep,
+        resolveCompensation: choice => { resolveMissionCompensation(choice); return debugSnapshot(); },
         withdraw: amount => {
           if (!els.atmDialog.open) openATMForAgenda(null, null);
           completeATMWithdrawal(amount);
@@ -4796,9 +5290,22 @@
           if (player) recordDialogue(player, text, intention);
           return debugSnapshot();
         },
+        speak: (playerId, text, intention = "debug-dialogue", copyId = "INT-DEBUG-DIALOGUE") => {
+          speak(playerId, text, intention, state.scenarios[state.scenarioIndex]?.id, copyId);
+          return debugSnapshot();
+        },
+        movePlayer: (playerId, x, y) => {
+          if (state.movement.positions[playerId]) {
+            state.movement.positions[playerId] = { x: Number(x), y: Number(y) };
+            paintWalker(playerId, 0, 0, false);
+            updateProximityVisuals();
+          }
+          return debugSnapshot();
+        },
         snapshot: debugSnapshot
       }
     };
+    window.__CHAMUYO_DEBUG__ = window.ChamuyoDebug;
   }
 
   function runSelfChecks() {
@@ -4818,6 +5325,12 @@
       ["cajero e inventario disponibles", Boolean(els.atmDialog && els.pocketDialog && els.pocketBank && els.pocketCash)],
       ["seis animales vivos", state.animals.length === 6 && state.animals.filter(item => item.species === "dog").length === 2 && state.animals.filter(item => item.species === "hen").length === 3],
       ["historias autónomas sin Nico actor", state.scenarios.slice(0, 4).every(item => item.actorId !== "nico")],
+      ["dieciocho mandados con recorridos múltiples", Object.keys(MISSION_STEP_BLUEPRINTS).length === 18 && Object.values(MISSION_STEP_BLUEPRINTS).every(steps => steps.length >= 3)],
+      ["cada paso de mandado tiene dos voces", Object.values(MISSION_STEP_BLUEPRINTS).flat().every(step => step.counterpartLine && step.playerLine && step.actionLabel)],
+      ["dieciocho mandados con contraparte, motivo y cierre", Object.values(MISSION_LIBRARY).flat().every(item => { const context = missionContextFor(item); return context.requester && context.motive && context.closure; })],
+      ["pagos sólo para trabajos o favores", Object.entries(MISSION_COMPENSATION).every(([id, payment]) => MISSION_CONTEXT[id] && ["contract", "favor"].includes(payment.kind) && payment.kind === MISSION_CONTEXT[id].kind && payment.amount > 0)],
+      ["gestiones propias sin honorario externo", Object.values(MISSION_LIBRARY).flat().filter(item => missionContextFor(item).kind === "own").every(item => !compensationForMission(item))],
+      ["catálogo editorial sin IDs duplicados", (() => { const ids = buildInteractionCatalog().map(item => item.id); return ids.length === new Set(ids).size; })()],
       ["cena espera las cuatro situaciones", !dinnerGateStatus({ storiesReady: false, botMissionsDone: true, botRoutesPending: false, humanReason: null }).available],
       ["cena queda disponible cuando termina el barrio", dinnerGateStatus({ storiesReady: true, botMissionsDone: true, botRoutesPending: false, humanReason: "human-mission" }).available],
       ["cena exige cerrar obligaciones propias", !dinnerGateStatus({ storiesReady: true, botMissionsDone: true, botRoutesPending: false, humanReason: "human-mission" }).ready],
@@ -4926,6 +5439,10 @@
       if (button) askVerifierQuestion(Number(button.dataset.questionIndex));
     });
     els.closeNotebookButton.addEventListener("click", finishVerification);
+    els.compensationChoices.addEventListener("click", event => {
+      const button = event.target.closest("[data-compensation]");
+      if (button) resolveMissionCompensation(button.dataset.compensation);
+    });
     els.payoutChoices.addEventListener("click", event => {
       const declaration = event.target.closest("[data-encounter-declare]");
       if (declaration) chooseEncounterDeclaration(declaration.dataset.encounterDeclare);
@@ -5005,7 +5522,7 @@
     window.addEventListener("blur", () => stopHumanMovement());
     document.addEventListener("visibilitychange", () => { if (document.hidden) stopHumanMovement(); });
     els.resultDialog.addEventListener("cancel", event => event.preventDefault());
-    [els.missionDialog, els.alibiDialog, els.meetingDialog, els.judgmentDialog, els.payoutDialog, els.atmDialog].forEach(dialog => dialog && dialog.addEventListener("cancel", event => event.preventDefault()));
+    [els.missionDialog, els.alibiDialog, els.meetingDialog, els.judgmentDialog, els.compensationDialog, els.payoutDialog, els.atmDialog].forEach(dialog => dialog && dialog.addEventListener("cancel", event => event.preventDefault()));
     document.addEventListener("keydown", event => {
       if (event.key === "Escape" && els.resultDialog?.open) {
         event.preventDefault();
@@ -5020,7 +5537,7 @@
       if ((event.key === "i" || event.key === "I") && !event.target.closest("input,textarea")) { event.preventDefault(); togglePocket(); return; }
       if ((event.key === "p" || event.key === "P") && !event.target.closest("input,textarea")) { event.preventDefault(); toggleErrandSlip(); return; }
       if (event.key === "Escape" && els.pocketDialog.open) { event.preventDefault(); togglePocket(false); return; }
-      const inputBlocked = [els.roleDialog, els.missionDialog, els.alibiDialog, els.meetingDialog, els.judgmentDialog, els.resultDialog, els.payoutDialog, els.profileDialog, els.atmDialog].some(dialog => dialog?.open);
+      const inputBlocked = [els.roleDialog, els.missionDialog, els.alibiDialog, els.meetingDialog, els.judgmentDialog, els.resultDialog, els.compensationDialog, els.payoutDialog, els.profileDialog, els.atmDialog].some(dialog => dialog?.open);
       const focusedControl = event.target instanceof HTMLElement && event.target.closest("button,summary,a");
       const direction = ({ ArrowUp: "up", w: "up", W: "up", ArrowDown: "down", s: "down", S: "down", ArrowLeft: "left", a: "left", A: "left", ArrowRight: "right", d: "right", D: "right" })[event.key];
       if (direction && !inputBlocked) { event.preventDefault(); state.movement.keys.add(direction); state.movement.path = []; }
@@ -5047,7 +5564,7 @@
     window.setInterval(() => {
       if (state.currentResolved && !els.continueButton?.disabled) return;
       if (state.currentResolved && !state.transitionPending) {
-        const dialogsOpen = [els.meetingDialog, els.resultDialog, els.judgmentDialog, els.alibiDialog, els.payoutDialog, els.atmDialog].some(d => d?.open);
+        const dialogsOpen = [els.meetingDialog, els.resultDialog, els.judgmentDialog, els.alibiDialog, els.compensationDialog, els.payoutDialog, els.atmDialog].some(d => d?.open);
         if (!dialogsOpen) {
           const snapshot = debugSnapshot();
           if (lastSnapshot && JSON.stringify(snapshot) === JSON.stringify(lastSnapshot)) {
@@ -5066,7 +5583,6 @@
     startEpisode(`Campaña ${state.campaign.campaignId.slice(-5).toUpperCase()} · partida ${state.campaign.episodeNumber} · cuatro movimientos por ronda`);
     await state.transport.connect();
     if (!state.movement.rafId) state.movement.rafId = requestAnimationFrame(updateMovement);
-    if (DEBUG_MODE) runSelfChecks();
     debugWatchdog();
   }
 
